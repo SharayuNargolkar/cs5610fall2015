@@ -7,7 +7,7 @@ app.use(express.static(__dirname + '/public'));
  var port      = process.env.OPENSHIFT_NODEJS_PORT || 3000;
 
 app.get("/",function(req,res){
-	res.send(_dirname+"/public/hello.html");
+	res.sendfile(__dirname+"/public/hello.html");
 })
 
 app.listen(port,ipaddress);
