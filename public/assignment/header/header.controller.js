@@ -1,8 +1,8 @@
 (function(){
     angular
-        .module("FormBuilderApp", [])
-        .controller("HeaderController", HeaderController);
-    function HeaderController($scope) {
-       
+        .module("FormBuilderApp")
+        .controller("HeaderController", HomeController);
+    function HomeController($scope) {
+   
     }
 })();
