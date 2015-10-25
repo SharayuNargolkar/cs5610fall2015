@@ -9,6 +9,7 @@
                 })
                 .when("/profile", {
                     templateUrl: "profile/profile.view.html",
+                    controller: "ProfileController"
              
                 })
                  .when("/login", {
@@ -18,10 +19,19 @@
                 })
                  .when("/register", {
                     templateUrl: "register/register.view.html",
+                    controller: "RegisterController"
              
                 })
                   .when("/form", {
                     templateUrl: "form/form.view.html",
+             
+                })
+                  .when("/admin", {
+                    templateUrl: "admin/admin.view.html",
+             
+                })
+                  .when("/form-fields", {
+                    templateUrl: "form-fields/form-fields.view.html",
              
                 })
                 .otherwise({

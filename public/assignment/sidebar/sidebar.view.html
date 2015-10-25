@@ -5,8 +5,8 @@
             <ul class="nav nav-sidebar">
             <li ng-class="{'active' : $location.url()=='/'}"><a href="#/home">Home</a></li>
             <li ng-class="{'active' : $location.url()== '/profile'}"><a href="#/profile">Profile</a></li>
-            <li ng-class="{'active': selectedTab=='admin'}"><a href="#/admin.html">Admin</a></li>
-            <li ng-class="{'active': selectedTab=='forms'}"><a href="#/forms.html">Forms</a></li>
+            <li ng-class="{'active': $location.url()== '/admin'}"><a href="#/admin">Admin</a></li>
+            <li ng-class="{'active': $location.url()== '/form'}"><a href="#/form">Forms</a></li>
           </ul>
         </div>
       </div>
