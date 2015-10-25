@@ -7,17 +7,23 @@
 	function FormService()
 	{
 		var forms = [
-			
+			{name:"myform", userid: 23, id: 1},
+			{name:"myform1", userid: 23, id: 2}
 			
 		];
-			
-		var service = {
+		
+	   var service = {
+			getAllForms: getAllForms,
 			findAllFormsForUser: findAllFormsForUser,
 			createFormForUser: createFormForUser,
 			deleteFormById: deleteFormById,
 			updateFormById: updateFormById
 		};
 		return service;
+		
+		function getAllForms(){
+		  return forms;	
+		}
 		
 		function findAllFormsForUser(userId, callback)
 		{   var formsofuser = [];
@@ -45,7 +51,7 @@
 			form.id = guid();
 			form.userid = userId;
 			forms.push(form);
-			callback(form);
+			callback(forms);
 		}
 		
 		function deleteFormById(formId, callback){	

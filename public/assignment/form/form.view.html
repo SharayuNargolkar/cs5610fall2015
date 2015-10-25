@@ -22,9 +22,9 @@
                     Action
                   </th>
                 </tr>
-                <tr>
+                <tr ng-model = "newform">
                   <td>
-                    <input ng-model="newformname" type="text" class="form-control" id="inputText" placeholder="name">
+                    <input ng-model="newform.name" type="text" class="form-control" id="inputText" placeholder="name">
                   </td>
                  <td>
                     <button ng-click="addForm()" type="button" class="btn btn-default" aria-label="Left Align">
@@ -38,7 +38,7 @@
               </thead>
               <tbody>
                 <tr ng-repeat="form in forms">
-                  <td>{{formname}}</td>
+                  <td>{{form.name}}</td>
                   <td>
                     <button ng-click="deleteForm($index)" type="button" class="btn btn-default" aria-label="Left Align">
                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>

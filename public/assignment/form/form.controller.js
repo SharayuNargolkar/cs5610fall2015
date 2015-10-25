@@ -4,29 +4,32 @@
         .controller("FormController", FormController);
     function FormController($rootScope, $scope, FormService) {
         $scope.userid = $rootScope.userid
-        $scope.addForm = function(){
-            FormService.createFormForUser($scope.userid, $scope.newformname, function(value){
+       $scope.forms = FormService.getAllForms();
+                     
+         $scope.addForm = function(){
+            FormService.createFormForUser($scope.userid, $scope.newform, function(value){
                 console.log(value);                                              
             });
+            $scope.newform = null;
        };
        
           $scope.updateForm = function(){
-            FormService.updateFormById($scope.userid, $scope.formname, function(value){
+             
+             FormService.updateFormById($scope.newform.id, $scope.newform, function(value){
+             console.log(value);                                              
+            });
+            $scope.newform = null;
+       };
+       
+          $scope.deleteForm = function($index){
+            FormService.deleteFormById($index, function(value){
                 console.log(value);                                              
             });
        };
        
-          $scope.deleteForm = function(){
-            FormService.deleteFormById($scope.userid, $scope.formname, function(value){
-                console.log(value);                                              
-            });
-       };
-       
-          $scope.selectForm = function(){
-            FormService.updateFormById($scope.userid, $scope.formname, function(value){
-                console.log(value);                                              
-            });
-       };
+          $scope.selectForm = function($index){
+           $scope.newform  = $scope.forms[$index];
+         };
    
     }
 })();
