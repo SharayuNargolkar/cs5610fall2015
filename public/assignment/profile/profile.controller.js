@@ -1,3 +1,4 @@
+"use strict";
 (function(){
     angular
         .module("FormBuilderApp")
@@ -7,8 +8,9 @@
        $scope.user= $rootScope.user;
                
        $scope.update = function(){
-            UserService.updateUser($scope.id, $scope.user, function(value){
-                $rootScope.user = value;                                               
+            UserService.updateUser($scope.user.id, $scope.user, function(value){
+                $rootScope.user = value;  
+                console.log(value);                                             
             });
        };
     }

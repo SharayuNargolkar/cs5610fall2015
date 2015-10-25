@@ -1,5 +1,5 @@
-(function()
-{
+"use strict";
+(function(){
 	angular
 		.module("FormBuilderApp")
 		.factory("UserService", UserService);
@@ -8,7 +8,6 @@
 	{
 		var users = [
 			{username:"Alice" , password:"alice123"}
-			
 		];
 			
 		var service = {
@@ -45,15 +44,15 @@
  			   s4() + '-' + s4() + s4() + s4();
 		} 
 
-		function createUser(user, callback)
-		{  user.id = guid();
+		function createUser(user, callback){  
+			user.id = guid();
 			users.push(user);
 			callback(user);
 		}
 		
-		function deleteUserById(id, callback)
+		function deleteUserById(userid, callback)
 		{
-			users.splice(id, 1);
+			users.splice(userid, 1);
 			callback(users);
 		}
 		

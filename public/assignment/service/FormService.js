@@ -1,5 +1,5 @@
-(function()
-{
+"use strict";
+(function(){
 	angular
 		.module("FormBuilderApp")
 		.factory("FormService", FormService);
@@ -34,9 +34,7 @@
    			 }
 			callback(formsofuser);
 			}	
-		
-		
-				
+					
 		function guid() {
   			function s4() {
   				  return Math.floor((1 + Math.random()) * 0x10000)
@@ -51,7 +49,7 @@
 			form.id = guid();
 			form.userid = userId;
 			forms.push(form);
-			callback(forms);
+			callback(form);
 		}
 		
 		function deleteFormById(formId, callback){	
