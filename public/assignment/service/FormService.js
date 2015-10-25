@@ -48,7 +48,8 @@
 			callback(form);
 		}
 		
-		function deleteFormById(formId, callback){	forms.splice(formId, 1);
+		function deleteFormById(formId, callback){	
+			forms.splice(formId, 1);
 			callback(forms);
 		}
 		
