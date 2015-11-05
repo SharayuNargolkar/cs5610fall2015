@@ -7,19 +7,23 @@
                 .when("/", {
                     templateUrl: "home/home.view.html",
                 })
-               /* .when("/profile", {
+               .when("/profile", {
                     templateUrl: "profile/profile.view.html",
-                    controller: "ProfileController"
+                    //controller: "ProfileController"
                 })
                  .when("/login", {
                     templateUrl: "login/login.view.html",
-                    controller: "LoginController"
+                   // controller: "LoginController"
                 })
                  .when("/register", {
                     templateUrl: "register/register.view.html",
-                    controller: "RegisterController"
+                    //controller: "RegisterController"
                 })
-                  .when("/form", {
+                 .when("/blogs", {
+                    templateUrl: "blogs/blogs.view.html",
+                    //controller: "RegisterController"
+                })
+                  /*.when("/form", {
                     templateUrl: "form/form.view.html",
                     controller: "FormController"
                 })

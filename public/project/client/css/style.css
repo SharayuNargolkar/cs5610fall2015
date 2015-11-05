@@ -1,5 +1,6 @@
 body{
-    background-image: url("../images/BG.jpg");
+   /* background-image: url("../images/BG.jpg");*/
+   background-color: lightyellow;
 }
 
 div .custom-padding{
@@ -17,8 +18,8 @@ div .plus-padding{
 }
 
 .navbar-default .navbar-brand {
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-    color: lightgreen;
+  color: lightgreen;
+  font-size: 30px;
 }
 
 .navbar-default .navbar-nav > li > a {
@@ -26,23 +27,24 @@ div .plus-padding{
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-  background-color: lightcyan;
-    color: lightsalmon;
+  background-color: #FFFF99;
+    color: black;
 }
 
 .menu-default{
   top: 10px;
-  background-color: #99FF99;
+  background-color: #00A47B;
   border-color: #003366;
   color: black
 }
 
 .menu-default .navbar-nav > li > a {
+  font-size: 15px;
     color: black;
 }
 .menu-default .navbar-nav > li > a:hover,
 .menu-default .navbar-nav > li > a:focus {
-  background-color: lightcyan;
+  background-color: #FFFF99;
     color: saddlebrown;
 }
 
@@ -52,5 +54,46 @@ div .image-custom{
 
 div .aboutus{
   color: white;
+}
+
+div .register{
+  color: black;
+  background-color: #FFFF99;
+  top: 50%;
+  left:25%;
+  
+}
+
+div .login{
+  color: black;
+  background-color: #FFFF99;
+  top: 50%;
+  left:25%;
+}
+
+div .profile{
+  color: black;
+  background-color: #FFFF99;
+  top: 50%;
+  left:25%;
+}
+
+div .blogs{
+  color: white;
+}
+
+.btn-primary{
+ background-color: #00A47B;
+  border-color: black ;
+  border-width: 5px;
+  color: black
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+    background: yellowgreen;
+}
+
+.boxed {
+  border: 5px solid darkturquoise;
 }
 
