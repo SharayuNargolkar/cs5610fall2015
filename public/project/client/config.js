@@ -38,6 +38,9 @@
                   .when("/payment", {
                     templateUrl: "payment/payment.view.html",
                  })
+                  .when("/help", {
+                    templateUrl: "help/help.view.html",
+                 })
                   /*.when("/form", {
                     templateUrl: "form/form.view.html",
                     controller: "FormController"
