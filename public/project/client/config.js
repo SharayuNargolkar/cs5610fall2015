@@ -21,8 +21,23 @@
                 })
                  .when("/blogs", {
                     templateUrl: "blogs/blogs.view.html",
-                    //controller: "RegisterController"
+                    
                 })
+                  .when("/initiatives", {
+                    templateUrl: "initiatives/initiatives.view.html",
+                    
+                })
+                  .when("/myblogs", {
+                    templateUrl: "blogs-reguser/blogs-reguser.view.html",
+                    
+                })
+                  .when("/myinitiatives", {
+                    templateUrl: "initiatives-reguser/initiatives-reguser.view.html",
+                    
+                })
+                  .when("/payment", {
+                    templateUrl: "payment/payment.view.html",
+                 })
                   /*.when("/form", {
                     templateUrl: "form/form.view.html",
                     controller: "FormController"

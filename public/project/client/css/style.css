@@ -11,6 +11,11 @@ div .plus-padding{
   padding: 25px 0px 0px 64px;
 }
 
+div .image-custom{
+  height: 500px;
+  width: 600px
+}
+
 .navbar-default{
   background-color: black;
   border-color: #003366;
@@ -53,7 +58,7 @@ div .image-custom{
 }
 
 div .aboutus{
-  color: white;
+  color: black;
 }
 
 div .register{
@@ -79,8 +84,8 @@ div .profile{
 }
 
 div .blogs{
-  color: white;
-}
+  color: black;
+  }
 
 .btn-primary{
  background-color: #00A47B;
@@ -95,5 +100,52 @@ div .blogs{
 
 .boxed {
   border: 5px solid darkturquoise;
+}
+
+.dropdown-menu{
+  background-color: #00A47B
+}
+
+.blog1{
+  padding:20px;
+  background-color: #FFFF99;
+}
+
+.blog2{
+  top :20px;
+  background-color: lightsalmon;
+}
+
+.initiative1{
+  padding:20px;
+  background-color: #FFFF99;
+}
+
+.initiative2{
+  top :20px;
+  background-color: lightsalmon;
+}
+
+.actionBox {
+    border-top:1px dotted #bbb;
+    padding:10px;
+}
+
+.commentList {
+    padding: 5px;
+    list-style:none;
+    max-height:200px;
+    overflow:auto;
+}
+.commentList li {
+    margin:10px;
+    margin-top:2px;
+}
+.commentList li > div {
+    display:table-cell;
+}
+
+.commentText{
+  padding:10px;
 }
 
