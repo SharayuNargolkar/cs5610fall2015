@@ -4,12 +4,8 @@
 		.module("FormBuilderApp")
 		.factory("UserService", UserService);
 		
-	function UserService($http, $q)
-	{
-		var users = [
-			//{username:"Alice" , password:"alice123"}
-		];
-			
+	function UserService($http, $q){
+					
 		var service = {
 			findAllUsers: findAllUsers,
 			findUserByUsernameAndPassword: findUserByUsernameAndPassword,
@@ -19,9 +15,15 @@
 		};
 		return service;
 		
-		function findAllUsers(callback)
+		function findAllUsers()
 		{
-			callback(users);
+			 var deferred = $q.defer();
+			$http.get("/api/assignment/user")
+		         .success(function(users){
+                    deferred.resolve(users);
+                });
+                
+            return deferred.promises;
 		}
 		
 		function findUserByUsernameAndPassword(uname, pword){
@@ -46,10 +48,14 @@
             return deferred.promise;
 		}
 		
-		function deleteUserById(userid, callback)
+		function deleteUserById(userid)
 		{
-			users.splice(userid, 1);
-			callback(users);
+			 var deferred = $q.defer();
+			$http.delete("/api/assignment/user"+userid)
+                .success(function(users){
+                    deferred.resolve(users);
+                });
+	       return deferred.promise;
 		}
 		
 		function updateUser(id, user){

@@ -19,7 +19,7 @@ module.exports = function(app,model){
     }
     
     	  function findUserByUsernameAndPassword(req, res) {
-           var credentials = {"username" : req.params.uname , "password" : req.params.uname};
+           var credentials = {"username" : req.params.uname , "password" : req.params.pword};
            model
             .findUserByCredentials(credentials)
             .then(function(user){
