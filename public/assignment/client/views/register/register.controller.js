@@ -3,20 +3,23 @@
     angular
         .module("FormBuilderApp")
         .controller("RegisterController", RegisterController);
-    function RegisterController($rootScope, $scope, $location, UserService) {
-        
-        $scope.$location = $location;
+    function RegisterController( $http, $rootScope, $location, UserService) {
+       var model = this;
+       model.register = register;
                      
-        $scope.register = function(user){
-            if ($scope.reguser.password != $scope.reguser.verifypassword){
+         function register (reguser){
+             console.log (reguser);
+            if (reguser.password != reguser.verifypassword){
                 alert("Entered Passwords do not match. Please enter again.")
             } else {
-            UserService.createUser(user,function(value){
-                $rootScope.user = value;
-                $location.path("/profile")
-                console.log(value);
-            });
+            UserService.createUser(reguser)
+                    .then(function(user){
+                    model.user = user;
+                    $rootScope.user = user;
+                   $location.path("/profile")
+                });
+            };
         };
       }
-    }
+    
 })();

@@ -5,29 +5,32 @@
         .config(function($routeProvider){
             $routeProvider
                 .when("/", {
-                    templateUrl: "home/home.view.html",
+                    templateUrl: "views/home/home.view.html",
                 })
                 .when("/profile", {
-                    templateUrl: "profile/profile.view.html",
-                    controller: "ProfileController"
+                    templateUrl: "views/profile/profile.view.html",
+                    controller: "ProfileController",
+                    controllerAs: "model"
                 })
                  .when("/login", {
-                    templateUrl: "login/login.view.html",
-                    controller: "LoginController"
+                    templateUrl: "views/login/login.view.html",
+                    controller: "LoginController",
+                    controllerAs: "model"
                 })
                  .when("/register", {
-                    templateUrl: "register/register.view.html",
-                    controller: "RegisterController"
+                    templateUrl: "views/register/register.view.html",
+                    controller: "RegisterController",
+                    controllerAs: "model"
                 })
                   .when("/form", {
-                    templateUrl: "form/form.view.html",
+                    templateUrl: "views/form/form.view.html",
                     controller: "FormController"
                 })
                   .when("/admin", {
-                    templateUrl: "admin/admin.view.html",
+                    templateUrl: "views/admin/admin.view.html",
                 })
                   .when("/form-fields", {
-                    templateUrl: "form-fields/form-fields.view.html",
+                    templateUrl: "views/form-fields/form-fields.view.html",
                 })
                 .otherwise({
                     redirectTo: "/"
