@@ -5,7 +5,26 @@
  					    <li class="active"><a data-toggle="tab" href="#fields">Fields</a></li> 
 				    </ul> 
                    <table>            
-                         
+                        <tr ng-repeat="field in model.fields">
+                           <td ng-switch on="model.fieldType">
+                                      <div  ng-switch-when="Single Line Text">
+                                          <label for="InputText">{{model.field.label}}</label>
+                                          <input type="text" class="form-control" id="InputText" placeholder="{{model.placeholder">
+                                       </div>
+                                     
+                                  <div  ng-switch-when="Single Line Text">
+                                          <label for="InputText">{{model.field.label}}</label>
+                                          <input type="text" class="form-control" id="InputText" placeholder="{{model.placeholder">
+                                       </div>
+                                     
+                                     <div  ng-switch-when="Single Line Text">
+                                          <label for="InputText">{{model.field.label}}</label>
+                                          <input type="text" class="form-control" id="InputText" placeholder="{{model.placeholder">
+                                       </div>
+                                     
+                   
+                           </td>
+                         </tr>
 				   <!--<div class="tab-content">
 		           <div id= "fields" class="row">
                    <div class = "col-xs-6">

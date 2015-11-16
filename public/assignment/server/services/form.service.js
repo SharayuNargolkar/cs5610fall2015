@@ -26,8 +26,8 @@ module.exports = function(app,model){
            var form = req.body;
            model
             .createFormForUser(req.params.userId, form)
-            .then(function(form){
-                res.json(form);
+            .then(function(forms){
+                res.json(forms);
             });
     }
     

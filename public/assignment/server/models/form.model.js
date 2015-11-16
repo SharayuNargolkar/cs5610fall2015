@@ -19,7 +19,7 @@ module.exports = function(app) {
         		 	formsofuser.push(forms[i]);}
 				 else continue;
    			 }
-				console.log(formsofuser);
+		console.log(formsofuser);
 		deferred.resolve(formsofuser);
         return deferred.promise;
 		}
@@ -60,10 +60,10 @@ module.exports = function(app) {
 
 		function createFormForUser(userId, form){
 			form.id = guid();
-			form.userid = userId;
+			form.userId = userId;
 			 var deferred = q.defer();
 			 forms.push(form);
-			     deferred.resolve(form);
+			     deferred.resolve(forms);
         return deferred.promise;
 		}
 		
@@ -76,7 +76,7 @@ module.exports = function(app) {
 		}
 		
 		function updateFormById(formId, newForm){
-			 var deferred = q.defer();
+			var deferred = q.defer();
 			for(var i = 0; i < forms.length; i++) {
         		 if (forms[i].id == formId) {
         		 	forms[i] = newForm;
@@ -84,7 +84,7 @@ module.exports = function(app) {
 				 	break;}
 				 else updated_form = null;
    			 }
-				   deferred.resolve(updated_form);
+		 deferred.resolve(updated_form);
         return deferred.promise;
 			
 			}	

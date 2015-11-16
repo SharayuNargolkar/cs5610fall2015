@@ -23,18 +23,15 @@
 		         .success(function(forms){
                     deferred.resolve(forms); 
 					console.log(forms);
-					
-                });
-				
-				return deferred.promises;
-           
-			}	
+			});
+			return deferred.promise;
+           }	
 					
 		function createFormForUser(userId, form){
 			  var deferred = $q.defer();
             $http.post("/api/assignment/user/"+userId+"/form", form)
-                .success(function(form){
-                    deferred.resolve(form);
+                .success(function(forms){
+                    deferred.resolve(forms);
                 });
 
             return deferred.promise;
@@ -50,7 +47,7 @@
 		}
 		
 		function updateFormById(formId, newForm){
-				 var deferred = $q.defer();
+		     var deferred = $q.defer();
 		      $http.put("/api/assignment/form/"+formId , newForm)
                 .success(function(form){
                     deferred.resolve(form);
