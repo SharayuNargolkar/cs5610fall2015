@@ -30,7 +30,7 @@
                   .when("/admin", {
                     templateUrl: "views/admin/admin.view.html",
                 })
-                  .when("/form-fields", {
+                  .when("/user", {
                     templateUrl: "views/form-fields/form-fields.view.html",
                 })
                 .otherwise({

@@ -4,7 +4,9 @@
  		 			    <li><a href="forms.html">Forms</a></li>
  					    <li class="active"><a data-toggle="tab" href="#fields">Fields</a></li> 
 				    </ul> 
-				   <div class="tab-content">
+                   <table>            
+                         
+				   <!--<div class="tab-content">
 		           <div id= "fields" class="row">
                    <div class = "col-xs-6">
                    <div class="form-group" >
@@ -90,7 +92,7 @@
                       <option value="Male">Male</option>
                       <option value="Female">Female</option>
                     </select>
-                    <!--<input type="text" class="form-control" id="InputGender" placeholder="Male" multiple>-->
+                    <!--<input type="text" class="form-control" id="InputGender" placeholder="Male" multiple>
               </div>
             </div>
             <div class = "col-xs-6 custom-padding">
@@ -169,14 +171,15 @@
                      <span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
                  </button>
               </div>
-          </div>
+          </div>-->
           
-          <div id= "fields" class="row">
+         <tr>
+             <td>
             <div class = "col-xs-6">
               <div class="form-group" >
-                    <label for="InputGender">Add New Field</label>
+                    <label>Add New Field</label>
                     <br>
-                    <select class="form-control" style="width:100%;">
+                    <select ng-model = "model.fieldType" class="form-control" style="width:100%;">
                       <option value="Single Line Text">Single Line Text</option>
                       <option value="Date">Date</option>
                       <option value="Dropdown">Dropdown</option>
@@ -187,11 +190,16 @@
                     <!--<input type="text" class="form-control" id="InputGender" placeholder="Male" multiple>-->
               </div>
             </div>
+            </td>
+            <td>
             <div class = "col-xs-6 plus-padding">
-                 <button type="button" class="btn btn-default" aria-label="Left Align">
+                 <button ng-click="model.addField(model.fieldType)" type="button" class="btn btn-default" aria-label="Left Align">
                      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                  </button>
             </div>
+            </td>
+            </tr>
+            </table>
           </div>
      	  </div>
      </div>
