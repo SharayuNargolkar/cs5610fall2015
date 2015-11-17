@@ -27,13 +27,15 @@
                     controller: "FormController",
                      controllerAs: "model"
                 })
+                  .when("/user/:userId/form/:formId/fields", {
+                    templateUrl: "views/form-fields/form-fields.view.html",
+                    controller: "FieldController",
+                     controllerAs: "model"
+                })           
                   .when("/admin", {
                     templateUrl: "views/admin/admin.view.html",
                 })
-                  .when("/user", {
-                    templateUrl: "views/form-fields/form-fields.view.html",
-                })
-                .otherwise({
+                 .otherwise({
                     redirectTo: "/"
                 });
         });

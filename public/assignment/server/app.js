@@ -3,4 +3,5 @@ module.exports = function(app){
 	require("./services/user.service.js")(app,model);
 	var formmodel = require("./models/form.model.js")(app);
 	require("./services/form.service.js")(app,formmodel);
+	require("./services/field.service.js")(app,formmodel);
   };

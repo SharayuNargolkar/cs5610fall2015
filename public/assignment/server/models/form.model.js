@@ -2,12 +2,15 @@ var q = require("q");
 var forms = require("./form.mock.json");
 module.exports = function(app) {
 	    var api = {
-             getAllForms: getAllForms,
+            getAllForms: getAllForms,
 			findFormById: findFormById,
 			findFormByTitle: findFormByTitle,
 			createFormForUser: createFormForUser,
 			deleteFormById: deleteFormById,
-			updateFormById: updateFormById
+			updateFormById: updateFormById,
+			findAllFieldsForForm:findAllFieldsForForm,
+			createField:createField,
+			deleteField:deleteField
     };
     return api;
 	
@@ -61,6 +64,7 @@ module.exports = function(app) {
 		function createFormForUser(userId, form){
 			form.id = guid();
 			form.userId = userId;
+			form.fields = [];
 			 var deferred = q.defer();
 			 forms.push(form);
 			     deferred.resolve(forms);
@@ -89,6 +93,49 @@ module.exports = function(app) {
 			
 			}	
 			
+	function findAllFieldsForForm(formId){
+		var deferred = q.defer();
+		 var fieldsofforms = [];
+		  for(var i = 0; i < forms.length; i++) {
+        		 if (forms[i].id == formId) {
+        		 	fieldsofforms = forms[i].fields;
+					 break;}
+				 else continue;
+   			 }
+		console.log(fieldsofforms);
+		deferred.resolve(fieldsofforms);
+        return deferred.promise;
+	}
 	
+	function createField(formId, field){
+		 field.id = guid();
+		 var deferred = q.defer();
+		 for(var i = 0; i < forms.length; i++) {
+        		 if (forms[i].id == formId) {
+					forms[i].fields.push(field)
+        		 	deferred.resolve(forms[i]);
+					 break;}
+				 else continue;
+   			 }
+	      return deferred.promise;
+		}
+	
+	function deleteField(formId, fieldId){
+		 var deferred = q.defer();
+		 
+		 for(var i = 0; i < forms.length; i++) {
+        		 if (forms[i].id == formId) {
+					for(var j = 0; j < forms[i].fields.length; j++) {
+						if (forms[i].fields[j].id == fieldId){
+							forms[i].fields.splice(j,1);
+							break;} 
+							else continue;
+					}
+					deferred.resolve(forms[i]);
+					 break;}
+				 else continue;
+   			 }
+	      return deferred.promise;
+	}
 	
 };

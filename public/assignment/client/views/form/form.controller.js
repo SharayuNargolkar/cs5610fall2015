@@ -24,8 +24,9 @@
            FormService.createFormForUser(model.user.id, model.newform)
              .then(function(forms){
                  console.log(forms);
-                 model.newform = null;
-                 init();
+                 model.forms = forms;
+                  model.newform = null;
+                  init();
                 });
           
          };
@@ -33,7 +34,8 @@
          function updateForm(){
              FormService.updateFormById(model.newform.id, model.newform)
                 .then(function(form){
-                  model.newform = null;
+             
+                 model.newform = null;
                   init();
                 });
           };

@@ -4,6 +4,14 @@ div .custom-padding{
   padding: 25px 0px 0px 20px;
 }
 
+div .custom-padding-btn{
+  padding: 40px 0px 0px 20px;
+}
+
 div .plus-padding{
   padding: 25px 0px 0px 64px;
+}
+
+div .custom-padding-addfield{
+    padding: 30px 0px 0px 20px;
 }
