@@ -13,8 +13,6 @@
                   $rootScope.user = model.user;
                   $location.path("/profile")
                 });
-          
-            
          };
     }
 })();

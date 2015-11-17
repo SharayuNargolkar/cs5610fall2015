@@ -73,10 +73,15 @@ module.exports = function(app) {
 		
 		function deleteFormById(formId){
 			 var deferred = q.defer();	
-			forms.splice(formId, 1);
-			  deferred.resolve(forms);
-        return deferred.promise;
-			
+			 for(var i = 0; i < forms.length; i++) {
+				 if (forms[i].id == formId){
+						forms.splice(i,1);
+					    
+						break;} 
+				 else continue;
+			 }
+	      deferred.resolve(forms);
+		  return deferred.promise;
 		}
 		
 		function updateFormById(formId, newForm){

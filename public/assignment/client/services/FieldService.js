@@ -6,7 +6,6 @@
 		
 	function FieldService($http, $q)
 	{
-			
 	   var service = {
 			findAllFieldsForForm: findAllFieldsForForm,
 			createField: createField,
@@ -14,8 +13,7 @@
 			updateFormById: updateFormById
 		};
 		return service;
-		
-
+	
 		function findAllFieldsForForm(formId){ 
 			var deferred = $q.defer();
 			$http.get("/api/assignment/form/"+formId+"/field")
@@ -32,7 +30,6 @@
                 .success(function(fields){
                     deferred.resolve(fields);
                 });
-
             return deferred.promise;
 		}
 		
@@ -45,15 +42,13 @@
 	       return deferred.promise;
 		}
 		
-		function updateFormById(formId, newForm){
+		function updateFormById(formId, fieldId, newField){
 		     var deferred = $q.defer();
-		      $http.put("/api/assignment/form/"+formId , newForm)
-                .success(function(form){
-                    deferred.resolve(form);
+		      $http.put("/api/assignment/form/"+formId+"/field/"+fieldId , newField)
+                .success(function(field){
+                    deferred.resolve(field);
                 });
-
             return deferred.promise;
 			}	
-			
 	}
 })();

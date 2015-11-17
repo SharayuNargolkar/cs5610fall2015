@@ -18,8 +18,7 @@
                     $rootScope.user = user;
                    $location.path("/profile")
                 });
-            };
+           };
         };
-      }
-    
+     }
 })();

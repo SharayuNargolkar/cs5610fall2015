@@ -1,9 +1,9 @@
 module.exports = function(app,model){
    app.get("/api/assignment/form/:formId/field", findAllFieldsForForm);
-  app.get("/api/assignment/form/:formId/field/:fieldId", findFieldForForm);
-  app.post("/api/assignment/form/:formId/field", createField);
-  app.put("/api/assignment/form/:formId/field/:fieldId", updateField);
- app.delete("/api/assignment/form/:formId/field/:fieldId", deleteField) ;
+   app.get("/api/assignment/form/:formId/field/:fieldId", findFieldForForm);
+   app.post("/api/assignment/form/:formId/field", createField);
+   app.put("/api/assignment/form/:formId/field/:fieldId", updateField);
+   app.delete("/api/assignment/form/:formId/field/:fieldId", deleteField);
  
    function findAllFieldsForForm(req, res) {
            model

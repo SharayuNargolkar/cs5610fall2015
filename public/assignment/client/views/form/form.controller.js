@@ -16,7 +16,7 @@
              .then(function(forms){
                  model.forms = forms;
              });
-        }
+         }
         init();       
                     
                    
@@ -40,10 +40,10 @@
                 });
           };
        
-           function deleteForm($index){
-            FormService.deleteFormById($index)
+           function deleteForm(formid){
+            FormService.deleteFormById(formid)
             .then(function(forms){
-                  model.forms = forms;
+                  init();
                 });
           };
        

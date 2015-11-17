@@ -5,10 +5,8 @@ module.exports = function(app,model){
   app.get("/api/assignment/user/:id", findUserById);
  	app.post("/api/assignment/user", addUser);
   app.put("/api/assignment/user/:id", updateUser);
- app.delete("/api/assignment/user/:id", deleteUser) 
- // app.get("/api/assignment/user?username=alice&password=alice", findUserByUsernameAndPassword);
-	
-    
+  app.delete("/api/assignment/user/:id", deleteUser) 
+     
 	  function addUser(req, res) {
         var user = req.body;
           model

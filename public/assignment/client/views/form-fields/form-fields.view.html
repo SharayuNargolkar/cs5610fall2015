@@ -1,93 +1,86 @@
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" ng-controller="FieldController as model">
-          <h1 class="page-header">Forms</h1>
-		           <ul class="nav nav-tabs">
- 		 			    <li><a href="#/form">Forms</a></li>
- 					    <li class="active"><a data-toggle="tab" href="#/fields">Fields</a></li> 
-				    </ul> 
-                   <table>            
-                        <tr ng-repeat="field in model.fields">
-                           <td ng-switch on="field.type" class = "custom-padding">
-                                      <div  ng-switch-when="TEXT">
-                                          <label for="InputText">{{field.label}}</label>
-                                          <input type="text" class="form-control" id="InputText" placeholder="{{field.placeholder}}">
-                                       </div>
-                                     
-                                  <div  ng-switch-when="TEXTAREA">
-                                          <label for="InputText">{{field.label}}</label>
-                                          <input type="text" class="form-control" id="InputText" placeholder="{{field.placeholder}}">
-                                       </div>
+    <h1 class="page-header">Forms</h1>
+		 <ul class="nav nav-tabs">
+ 		     <li><a href="#/form">Forms</a></li>
+ 		     <li class="active"><a data-toggle="tab" href="#/fields">Fields</a></li> 
+		 </ul> 
+         <table>            
+           <tr ng-repeat="field in model.fields">
+               <td ng-switch on="field.type" class = "custom-padding">
+                    <div  ng-switch-when="TEXT">
+                         <label for="InputText">{{field.label}}</label>
+                         <input type="text" class="form-control" id="InputText" placeholder="{{field.placeholder}}">
+                     </div>
+                                    
+                     <div  ng-switch-when="TEXTAREA">
+                         <label for="InputText">{{field.label}}</label>
+                         <input type="text" class="form-control" id="InputText" placeholder="{{field.placeholder}}">
+                     </div>
                                        
-                                            <div  ng-switch-when="EMAIL">
-                                          <label for="InputEmail">{{field.label}}</label>
-                                          <input type="email" class="form-control" id="InputEmail" placeholder="{{field.placeholder}}">
-                                       </div>
+                     <div  ng-switch-when="EMAIL">
+                          <label for="InputEmail">{{field.label}}</label>
+                          <input type="email" class="form-control" id="InputEmail" placeholder="{{field.placeholder}}">
+                     </div>
                                      
-                                     <div  ng-switch-when="DATE">
-                                          <label for="Date">{{field.label}}</label>
-                                          <input type="date" class="form-control" id="InputDate" placeholder="Select Date" multiple>
-                                      </div>
+                     <div  ng-switch-when="DATE">
+                          <label for="Date">{{field.label}}</label>
+                          <input type="date" class="form-control" id="InputDate" placeholder="Select Date" multiple>
+                     </div>
                                       
-                                       <div  ng-switch-when="OPTIONS">
-                                          <label for="options">{{field.label}}</label>
-                                           <div class="form-group" >
-                                                   <select class="form-control"  style="width:100%;" >
-                                                   <option ng-repeat="option in field.options" value="{{option.label}}">{{option.value}}</option>
-                                                   </select>
-                                           </div>
-                                             
-                                      </div>
+                     <div  ng-switch-when="OPTIONS">
+                          <label for="options">{{field.label}}</label>
+                              <div class="form-group" >
+                                  <select class="form-control"  style="width:100%;" >
+                                       <option ng-repeat="option in field.options" value="{{option.label}}">{{option.value}}</option>
+                                   </select>
+                               </div>
+                      </div>
                                      
-                                       <div  ng-switch-when="CHECKBOXES">
-                                          <label for="CheckBox">{{field.label}}</label>
-                                                <div class="checkbox" ng-repeat="option in field.options">
-                                                            <label><input type="checkbox" value="" >{{option.value}}</label>
-                                                        </div>
-                                                 </div>
+                       <div  ng-switch-when="CHECKBOXES">
+                            <label for="CheckBox">{{field.label}}</label>
+                                  <div class="checkbox" ng-repeat="option in field.options">
+                                       <label><input type="checkbox" value="" >{{option.value}}</label>
+                                  </div>
+                       </div>
                                                                                  
-                                      </div>
-                                        <div  ng-switch-when="RADIOS">
-                                          <label for="Radio">{{field.label}}</label>
-                                          <div class="radio" ng-repeat="option in field.options">
-                                              <label><input type="radio" name="optradio" >{{option.value}</label>
-                                          </div>
-                                      </div>
-                            </td>
-                           
-                           <td class = "custom-padding-btn">
-                               
-                            <button  ng-click="model.deleteField(field)"  type="button" class="btn btn-default" aria-label="Left Align">
+                       <div  ng-switch-when="RADIOS">
+                             <label for="Radio">{{field.label}}</label>
+                                   <div class="radio" ng-repeat="option in field.options">
+                                         <label><input type="radio" name="optradio" >{{option.value}}</label>
+                                   </div>
+                       </div>
+               </td>
+               <td class = "custom-padding-btn">
+                        <button  ng-click="model.deleteField(field)"  type="button" class="btn btn-default" aria-label="Left Align">
                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                            </button>
-                           </td>
-                         </tr>
-				 
-          
-         <tr>
-            <td class = "custom-padding-addfield">
-            <div class = "col-m-6">
-              <div class="form-group" >
-                    <label>Add New Field</label>
-                      <select ng-model = "model.fieldType" class="form-control" style="width:100%;">
-                      <option value="TEXT">Single Line Text</option>
-                      <option value="DATE">Date</option>
-                      <option value="OPTIONS">Dropdown</option>
-                      <option value="CHECKBOX">CheckBox</option>
-                      <option value="RADIOS">Radio Buttons</option>
-                      <option value="TEXTAREA">Paragraph Text Field</option>
-                    </select>
-              
-              </div>
-            </div>
-            </td>
-            <td>
-            <div class = "col-xs-6 custom-padding-btn">
-                 <button ng-click="model.addField(model.fieldType)" type="button" class="btn btn-default" aria-label="Left Align">
-                     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                 </button>
-            </div>
-            </td>
+                        </button>
+               </td>
+           </tr>
+		         
+            <tr>
+               <td class = "custom-padding-addfield">
+                  <div class = "col-m-6">
+                  <div class="form-group" >
+                       <label>Add New Field</label>
+                         <select ng-model = "model.fieldType" class="form-control" style="width:100%;">
+                         <option value="TEXT">Single Line Text</option>
+                         <option value="DATE">Date</option>
+                         <option value="OPTIONS">Dropdown</option>
+                         <option value="CHECKBOX">CheckBox</option>
+                         <option value="RADIOS">Radio Buttons</option>
+                         <option value="TEXTAREA">Paragraph Text Field</option>
+                       </select>
+                    </div>
+                    </div>
+                </td>
+                 <td>
+                    <div class = "col-xs-6 custom-padding-btn">
+                        <button ng-click="model.addField(model.fieldType)" type="button" class="btn btn-default" aria-label="Left Align">
+                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                        </button>
+                     </div>
+                </td>
             </tr>
-            </table>
-          </div>
-     	  </div>
-     </div>
+       </table>
+  </div>
+     	
