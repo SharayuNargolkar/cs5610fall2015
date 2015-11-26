@@ -1,6 +1,9 @@
 var q = require("q");
 var users = require("./user.mock.json");
-module.exports = function(app) {
+
+module.exports = function(db, mongoose) {
+    var UserSchema = require("./user.schema.js")(mongoose);
+    var UserModel  = mongoose.model("UserModel", UserSchema);
 	    var api = {
         findUserById: findUserById,
         findUserByUsername: findUserByUsername,
@@ -13,16 +16,17 @@ module.exports = function(app) {
     return api;
 	
     function findUserById(id){
-            var deferred = q.defer();
-       for(var i = 0; i < users.length; i++) {
-        		 if (users[i].id == id) {
-        		 	var user = users[i];
-				 	break;}
-				 else user = null;
-   			 }
-                console.log(user);
-        deferred.resolve(user);
-        return deferred.promise;
+         var deferred = q.defer();
+          UserModel.findById(id, function(err, user){
+            if(err) {
+                deferred.reject(err);
+            } else {
+                 console.log(user);
+                deferred.resolve(user);
+            }
+        });
+               
+          return deferred.promise;
     };
     
 	function findUserByUsername(username){
@@ -69,13 +73,18 @@ module.exports = function(app) {
 		} 
     
     function createUser(user){
-       user.id = guid();
-        var deferred = q.defer();
-        users.push(user);
-        console.log(users);
-        deferred.resolve(user);
+     var deferred = q.defer();
+
+        UserModel.create(user, function(err, user) {
+            if(err) {
+                deferred.reject(err);
+            } else {
+                deferred.resolve(user);
+            }
+        });
+
         return deferred.promise;
-        };
+    };
 	
     function deleteUserById(id){
         var deferred = q.defer();
