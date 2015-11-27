@@ -14,7 +14,7 @@ app.get("/",function(req,res){
 	res.sendfile(__dirname+"/public/hello.html");
 })
 
-// connect the `mongoose` instance
+ //connect the `mongoose` instance
 var db = mongoose.connect('mongodb://localhost/cs5610assignment');
 console.log(mongoose);
 require("./public/assignment/server/app.js")(app, db, mongoose);

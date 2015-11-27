@@ -28,16 +28,14 @@
 		
 		function findUserByUsernameAndPassword(uname, pword){
 		    var deferred = $q.defer();
-			console.log(uname);
-			console.log(pword);
 			$http.get("/api/assignment/user/username="+uname+"&password="+pword)
 		         .success(function(user){
+					console.log(user);
                     deferred.resolve(user);
                 });
             return deferred.promise;
 			}	
-		
-	    
+			    
 		function createUser(user){  
 		  var deferred = $q.defer();
             $http.post("/api/assignment/user",user)

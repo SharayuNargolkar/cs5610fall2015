@@ -16,49 +16,60 @@ module.exports = function(db, mongoose) {
     return api;
 	
     function findUserById(id){
-         var deferred = q.defer();
-          UserModel.findById(id, function(err, user){
+        var deferred = q.defer();
+
+        UserModel.find(id, function(err, user){
             if(err) {
                 deferred.reject(err);
             } else {
-                 console.log(user);
+                console.log(user);
                 deferred.resolve(user);
             }
         });
-               
-          return deferred.promise;
+
+        return deferred.promise;
     };
     
 	function findUserByUsername(username){
-       var deferred = q.defer();
-       for(var i = 0; i < users.length; i++) {
-        		 if (users[i].username == username) {
-        		 	var user = users[i];
-				 	break;}
-				 else user = null;
-   			 }
-                console.log(user);
-        deferred.resolve(user);
+         var deferred = q.defer();
+
+       UserModel.find({username : username}, function(err, users){
+            if(err) {
+                deferred.reject(err);
+            } else {
+                deferred.resolve(users);
+            }
+        });
+
         return deferred.promise;
     };
     
     function findAllUsers(){
                var deferred = q.defer();
-     
-        deferred.resolve(users);
+
+       UserModel.find(function(err, users){
+            if(err) {
+                deferred.reject(err);
+            } else {
+                deferred.resolve(users);
+            }
+        });
+
         return deferred.promise;
     };
     
 	function findUserByCredentials(credentials){
-       var deferred = q.defer();
-       for(var i = 0; i < users.length; i++) {
-        		 if (users[i].username == credentials.username && users[i].password == credentials.password) {
-        		 	var user = users[i];
-				 	break;}
-				 else user = null;
-   			 }
+           var deferred = q.defer();
+
+       UserModel.find({username : credentials.username, password : credentials.password},function(err, user){
+            if(err) {
+                deferred.reject(err);
+            } else {
                 console.log(user);
-        deferred.resolve(user);
+                deferred.resolve(user);
+            }
+        });
+
         return deferred.promise;
     };
     	
@@ -70,7 +81,7 @@ module.exports = function(db, mongoose) {
 			  }
  			 return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
  			   s4() + '-' + s4() + s4() + s4();
-		} 
+		} ;
     
     function createUser(user){
      var deferred = q.defer();
@@ -79,6 +90,7 @@ module.exports = function(db, mongoose) {
             if(err) {
                 deferred.reject(err);
             } else {
+              //deferred.resolve( findUserById(user._id));
                 deferred.resolve(user);
             }
         });
@@ -87,31 +99,33 @@ module.exports = function(db, mongoose) {
     };
 	
     function deleteUserById(id){
-        var deferred = q.defer();
-        	for(var i = 0; i < users.length; i++) {
-        		 if (users[i].id== id) {
-        		 	users.splice(id, 1);
-				 	break;}
-				 else continue;
-   			 }
-        console.log(users);
-        deferred.resolve(users);
+          var deferred = q.defer();
+
+        UserModel.remove({_id: id}, function(err, status) {
+            if(err) {
+                deferred.reject(err);
+            } else {
+                deferred.resolve(status);
+            }
+        });
+
         return deferred.promise;
     };
     
+    
     function updateUser(id, user){
-        
-            var deferred = q.defer();
-        	for(var i = 0; i < users.length; i++) {
-        		 if (users[i].id== id) {
-        		 	users[i] = user;
-					var updated_user = users[i];
-				 	break;}
-				 else updated_user = null;
-   			 }
-        console.log(updated_user);
-        deferred.resolve(updated_user);
-        return deferred.promise;
-    };
-	
+        var deferred = q.defer();
+
+    delete user._id;
+    UserModel.update({_id: id}, {$set: user},
+        function(err,user){
+            if(err){
+                deferred.reject(err);
+            }else{
+                deferred.resolve( findUserById(user._id));
+            }
+        });
+    return deferred.promise;
+};
+
 };
