@@ -9,7 +9,6 @@
        function login(){
             UserService.findUserByUsernameAndPassword(model.user.username,model.user.password)
                  .then(function(users){
-                     console.log(users);
                   model.user = users[0];
                   $rootScope.user = model.user;
                   $location.path("/profile")

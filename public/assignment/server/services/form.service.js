@@ -9,7 +9,6 @@ module.exports = function(app,model){
            model
             .getAllForms(req.params.userId)
             .then(function(forms){
-                console.log(forms);
                 res.json(forms);
             });
     }

@@ -22,8 +22,7 @@ module.exports = function(db, mongoose) {
             if(err) {
                 deferred.reject(err);
             } else {
-                console.log(user);
-                deferred.resolve(user);
+               deferred.resolve(user);
             }
         });
 
@@ -65,8 +64,7 @@ module.exports = function(db, mongoose) {
             if(err) {
                 deferred.reject(err);
             } else {
-                console.log(user);
-                deferred.resolve(user);
+               deferred.resolve(user);
             }
         });
 
@@ -122,8 +120,8 @@ module.exports = function(db, mongoose) {
             if(err){
                 deferred.reject(err);
             }else{
-                deferred.resolve( findUserById(user._id));
-            }
+                deferred.resolve(findUserById(id));
+                   }
         });
     return deferred.promise;
 };

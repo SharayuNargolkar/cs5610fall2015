@@ -21,8 +21,7 @@ module.exports = function(app,model){
            model
             .findUserByCredentials(credentials)
             .then(function(user){
-              console.log(user);
-                res.json(user);
+               res.json(user);
             });
     }
     

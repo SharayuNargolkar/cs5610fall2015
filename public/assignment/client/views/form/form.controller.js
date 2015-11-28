@@ -12,7 +12,7 @@
         model.selectForm = selectForm;
                      
          function init() {
-             FormService.findAllFormsForUser(model.user.id)
+             FormService.findAllFormsForUser(model.user._id)
              .then(function(forms){
                  model.forms = forms;
              });
@@ -21,9 +21,9 @@
                     
                    
     function addForm(){
-           FormService.createFormForUser(model.user.id, model.newform)
+           FormService.createFormForUser(model.user._id, model.newform)
              .then(function(forms){
-                 console.log(forms);
+                 console.log("Got the following object:"+forms);
                  model.forms = forms;
                   model.newform = null;
                   init();
@@ -32,7 +32,7 @@
          };
        
          function updateForm(){
-             FormService.updateFormById(model.newform.id, model.newform)
+             FormService.updateFormById(model.newform._id, model.newform)
                 .then(function(form){
              
                  model.newform = null;

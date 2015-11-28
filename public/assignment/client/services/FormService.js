@@ -22,8 +22,7 @@
 			$http.get("/api/assignment/user/"+userId+"/form")
 		         .success(function(forms){
                     deferred.resolve(forms); 
-					console.log(forms);
-			});
+								});
 			return deferred.promise;
            }	
 					
