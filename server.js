@@ -14,6 +14,17 @@ app.get("/",function(req,res){
 	res.sendfile(__dirname+"/public/hello.html");
 })
 
+// var connectionString = 'mongodb://127.0.0.1:27017/cs5610fall2015exmpl1';
+
+// if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD) {
+//     connectionString = process.env.OPENSHIFT_MONGODB_DB_USERNAME + ":" +
+//         process.env.OPENSHIFT_MONGODB_DB_PASSWORD + "@" +
+//         process.env.OPENSHIFT_MONGODB_DB_HOST + ':' +
+//         process.env.OPENSHIFT_MONGODB_DB_PORT + '/' +
+//         process.env.OPENSHIFT_APP_NAME;
+// }
+
+//var db = mongoose.connect(connectionString);
  //connect the `mongoose` instance
 var db = mongoose.connect('mongodb://localhost/cs5610assignment');
 console.log(mongoose);

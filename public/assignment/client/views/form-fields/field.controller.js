@@ -52,14 +52,13 @@
             
            FieldService.createField(formid, field)
              .then(function(fields){
-                 console.log(fields);
                    init();
                 });
             };
          
             function deleteField(field){
                 console.log(field)
-            FieldService.deleteFieldById(formid, field.id)
+            FieldService.deleteFieldById(formid, field._id)
             .then(function(fields){
                 console.log(fields);
                 init();

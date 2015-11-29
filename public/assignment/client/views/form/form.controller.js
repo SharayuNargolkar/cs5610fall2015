@@ -14,6 +14,7 @@
          function init() {
              FormService.findAllFormsForUser(model.user._id)
              .then(function(forms){
+                 console.log(forms);
                  model.forms = forms;
              });
          }
