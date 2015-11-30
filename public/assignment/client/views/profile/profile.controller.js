@@ -11,7 +11,7 @@
       function update(){
             UserService.updateUser($rootScope.user._id, model.user)
              .then(function(user){
-                  model.user = user;
+                  model.user = user[0];
                   $rootScope.user = model.user;
                });
        };
