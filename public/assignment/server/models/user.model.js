@@ -1,5 +1,5 @@
 var q = require("q");
-var users = require("./user.mock.json");
+//var users = require("./user.mock.json");
 
 module.exports = function(db, mongoose) {
     var UserSchema = require("./user.schema.js")(mongoose);
