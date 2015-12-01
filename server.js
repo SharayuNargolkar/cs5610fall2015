@@ -27,7 +27,9 @@ if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD) {
 var db = mongoose.connect(connectionString);
  //connect the `mongoose` instance
 //var db = mongoose.connect('mongodb://localhost/cs5610');
-console.log(mongoose);
+//console.log(mongoose);
+//var db_project = mongoose.connect('mongodb://localhost/cs5610project');
 require("./public/assignment/server/app.js")(app, db, mongoose);
+require("./public/project/server/app.js")(app, db, mongoose);
 
 app.listen(port,ipaddress);

@@ -1,7 +1,7 @@
 "use strict";
 (function(){
     angular
-        .module("FormBuilderApp")
+        .module("OneWorldCareApp")
         .controller("RegisterController", RegisterController);
     function RegisterController( $http, $rootScope, $location, UserService) {
        var model = this;
@@ -9,7 +9,7 @@
                      
          function register (reguser){
              //console.log (reguser);
-            if (reguser.password != model.verifypassword){
+            if (reguser.password != reguser.verifypassword){
                 alert("Entered Passwords do not match. Please enter again.")
             } else {
             UserService.createUser(reguser)

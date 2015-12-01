@@ -3,17 +3,30 @@
   <head>
     <title>OneWorldCare</title>
 
-    <!-- Bootstrap core CSS -->
+   <!-- Latest compiled JavaScript -->
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+   <!-- Bootstrap core CSS -->
+      <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+      	
+  
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
     <!-- Custom styles for this template -->
    <link href="css/dashboard.css" rel="stylesheet">
    <link href="css/style.css" rel="stylesheet">
+    <link href="css/carousel.css" rel="stylesheet">
 	
 	 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
   	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.min.js"></script>
     <script src="app.js"></script>
     <script src="config.js"></script>
+    <script src="views/header/header.controller.js"></script>
+    <script src="views/home/home.controller.js"></script>
+    <script src="views/login/login.controller.js"></script>
+    <script src="views/register/register.controller.js"></script>
+    <script src="views/profile/profile.controller.js"></script>
+    <script src="service/UserService.js"></script> 
     <!--
       optional scripts
     <script src="header/header.controller.js"></script>
@@ -29,7 +42,7 @@
 
   <body>
     
-     <div ng-include src="'header/header.view.html'">
+     <div ng-include src="'views/header/header.view.html'" ng-controller="HeaderController as model">
      </div>
      <div ng-view>
      </div>

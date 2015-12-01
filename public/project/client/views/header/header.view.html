@@ -1,0 +1,44 @@
+<nav class="navbar navbar-default navbar-fixed-top " ng-controller="HeaderController as model">
+      <div ng-if="!model.loggedin" class="container-fluid">
+         <div  class="navbar-header">
+             <a class="navbar-brand" href="#">OneWorldCare</a>
+         </div>
+         <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li ng-class="{'active' : $location.url()=='/register'}"><a href="#/register">Register</a></li>
+              <li ng-class="{'active' : $location.url()=='/login'}"><a href="#/login">Login</a></li>
+              <li><a href="#/home">Logout</a></li>
+            </ul>
+        </div>
+      </div>
+      <div ng-if="model.loggedin" class="container-fluid">
+        <div ng-if="model.loggedin" class="navbar-header">
+           <a class="navbar-brand" href="#">OneWorldCare</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+           <ul class="nav navbar-nav navbar-right">
+             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Me<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#/myblogs">My blogs</a></li>
+                    <li><a href="#/myinitiatives">My Initiatives</a></li>
+                    <li><a href="#/profile">My profile</a></li>
+                 </ul>
+             </li>
+             <li><a href="#/home">Logout</a></li>
+           </ul>
+        </div>
+      </div>
+    </nav>
+    
+    <nav class="navbar menu-default fixed">
+      <div class="container-fluid">
+        <div id="navbar" class="navbar-collapse collapse">
+           <ul class="nav navbar-nav navbar-center">
+             <li ng-class="{'active' : $location.url()=='/home'}"><a href="#/home"> Home </a></li>
+             <li ng-class="{'active' : $location.url()=='/blogs'}"><a href="#/blogs"> Blogs </a></li>
+             <li ng-class="{'active' : $location.url()=='/Initiatives'}"><a href="#/initiatives"> Initiatives </a></li>
+              <li> <a href ="#/help"> How Can I Help?</a></li>
+           </ul>
+        </div>
+      </div>
+    </nav>

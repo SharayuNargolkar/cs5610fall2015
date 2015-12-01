@@ -5,41 +5,48 @@
         .config(function($routeProvider){
             $routeProvider
                 .when("/", {
-                    templateUrl: "home/home.view.html",
+                    templateUrl: "views/home/home.view.html",
+                    controller: "HomeController",
+                     controllerAs: "model"
                 })
                .when("/profile", {
-                    templateUrl: "profile/profile.view.html",
-                    //controller: "ProfileController"
+                    templateUrl: "views/profile/profile.view.html",
+                    controller: "ProfileController",
+                     controllerAs: "model"
+                    
                 })
                  .when("/login", {
-                    templateUrl: "login-user/login-user.view.html",
-                   // controller: "LoginController"
+                    templateUrl: "views/login/login.view.html",
+                   controller: "LoginController",
+                   controllerAs: "model"
+                   
                 })
                  .when("/register", {
-                    templateUrl: "register-user/register-user.view.html",
-                    //controller: "RegisterController"
+                    templateUrl: "views/register/register.view.html",
+                    controller: "RegisterController",
+                    controllerAs: "model"
                 })
                  .when("/blogs", {
-                    templateUrl: "blogs/blogs.view.html",
+                    templateUrl: "views/blogs/blogs.view.html",
                     
                 })
                   .when("/initiatives", {
-                    templateUrl: "initiatives/initiatives.view.html",
+                    templateUrl: "views/initiatives/initiatives.view.html",
                     
                 })
                   .when("/myblogs", {
-                    templateUrl: "blogs-reguser/blogs-reguser.view.html",
+                    templateUrl: "views/blogs-reguser/blogs-reguser.view.html",
                     
                 })
                   .when("/myinitiatives", {
-                    templateUrl: "initiatives-reguser/initiatives-reguser.view.html",
+                    templateUrl: "views/initiatives-reguser/initiatives-reguser.view.html",
                     
                 })
                   .when("/payment", {
-                    templateUrl: "payment/payment.view.html",
+                    templateUrl: "views/payment/payment.view.html",
                  })
                   .when("/help", {
-                    templateUrl: "help/help.view.html",
+                    templateUrl: "views/help/help.view.html",
                  })
                   /*.when("/form", {
                     templateUrl: "form/form.view.html",
