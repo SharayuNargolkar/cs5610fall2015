@@ -30,6 +30,6 @@ var db = mongoose.connect(connectionString);
 //console.log(mongoose);
 //var db_project = mongoose.connect('mongodb://localhost/cs5610project');
 require("./public/assignment/server/app.js")(app, db, mongoose);
-require("./public/project/server/app.js")(app, db, mongoose);
+//require("./public/project/server/app.js")(app, db, mongoose);
 
 app.listen(port,ipaddress);
