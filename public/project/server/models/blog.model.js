@@ -2,52 +2,52 @@ var q = require("q");
 //var users = require("./user.mock.json");
 
 module.exports = function(db, mongoose) {
-    var UserSchema = require("./user.schema.js")(mongoose);
-    var RegUserModel  = mongoose.model("RegUserModel", UserSchema);
+    var BlogSchema = require("./blog.schema.js")(mongoose);
+    var BlogModel  = mongoose.model("BlogModel", BlogSchema);
 	    var api = {
-        findUserById: findUserById,
-        findUserByUsername: findUserByUsername,
-        findAllUsers: findAllUsers,
-        findUserByCredentials: findUserByCredentials,
-        createUser: createUser,
-		deleteUserById: deleteUserById,
-		updateUser: updateUser
+        findBlogById: findBlogById,
+        findBlogByUserId: findBlogByUserId,
+        findAllBlogs: findAllBlogs,
+        createBlog: createBlog,
+        createComment: createComment,
+		deleteBlog: deleteBlog,
+		updateBlog: updateBlog
     };
     return api;
 	
-    function findUserById(id){
+    function findBlogById(id){
         var deferred = q.defer();
 
-        RegUserModel.find({_id : id}, function(err, user){
+        BlogModel.find({_id : id}, function(err, blog){
             if(err) {
                 deferred.reject(err);
             } else {
-                console.log(user);
-               deferred.resolve(user);
+                console.log(blog);
+               deferred.resolve(blog);
             }
         });
 
         return deferred.promise;
     };
     
-	function findUserByUsername(username){
+	function findBlogByUserId(userId){
          var deferred = q.defer();
 
-        RegUserModel.find({username : username}, function(err, users){
+        BlogModel.find({authorId : userId}, function(err, blogs){
                 if(err) {
                     deferred.reject(err);
                 } else {
-                    deferred.resolve(users);
+                    deferred.resolve(blogs);
                 }
             });
 
         return deferred.promise;
     };
     
-    function findAllUsers(){
+    function findAllBlogs(){
        var deferred = q.defer();
 
-       RegUserModel.find(function(err, users){
+       BlogModel.find(function(err, users){
             if(err) {
                 deferred.reject(err);
             } else {
@@ -58,20 +58,7 @@ module.exports = function(db, mongoose) {
         return deferred.promise;
     };
     
-	function findUserByCredentials(credentials){
-       var deferred = q.defer();
-
-       RegUserModel.find({username : credentials.username, password : credentials.password},function(err, user){
-            if(err) {
-                deferred.reject(err);
-            } else {
-               deferred.resolve(user);
-            }
-        });
-
-        return deferred.promise;
-    };
-    	
+   	
         function guid() {
   			function s4() {
   				  return Math.floor((1 + Math.random()) * 0x10000)
@@ -82,25 +69,39 @@ module.exports = function(db, mongoose) {
  			   s4() + '-' + s4() + s4() + s4();
 		} ;
     
-    function createUser(user){
+    function createBlog(blog){
      var deferred = q.defer();
-
-        RegUserModel.create(user, function(err, user) {
+       BlogModel.create(blog, function(err, blog) {
             if(err) {
                 deferred.reject(err);
             } else {
-              //deferred.resolve( findUserById(user._id));
-                deferred.resolve(user);
+                deferred.resolve(blog);
             }
         });
 
         return deferred.promise;
     };
 	
-    function deleteUserById(id){
+    
+        function createComment(user){
+    //  var deferred = q.defer();
+
+    //     BlogModel.create(user, function(err, blog) {
+    //         if(err) {
+    //             deferred.reject(err);
+    //         } else {
+    //           //deferred.resolve( findUserById(user._id));
+    //             deferred.resolve(blog);
+    //         }
+    //     });
+
+    //     return deferred.promise;
+    };
+    
+    function deleteBlog(id){
         var deferred = q.defer();
 
-        RegUserModel.remove({_id: id}, function(err, status) {
+        BlogModel.remove({_id: id}, function(err, status) {
             if(err) {
                 deferred.reject(err);
             } else {
@@ -112,16 +113,16 @@ module.exports = function(db, mongoose) {
     };
     
     
-    function updateUser(id, user){
+    function updateBlog(id, blog){
         var deferred = q.defer();
 
-        delete user._id;
-        RegUserModel.update({_id: id}, {$set: user},
+        delete blog._id;
+        BlogModel.update({_id: id}, {$set: blog},
             function(err,user){
                 if(err){
                     deferred.reject(err);
                 }else{
-                    deferred.resolve(findUserById(id));
+                    deferred.resolve(findBlogById(id));
                     }
             });
             

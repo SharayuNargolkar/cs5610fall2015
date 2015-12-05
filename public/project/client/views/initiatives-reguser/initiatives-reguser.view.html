@@ -1,39 +1,43 @@
-<div class="initiative1">
-	<h3> Clean Communitey project </h4>
-	<h4> A community is democratic only when the humblest and weakest person can enjoy the highest civil, economic, and social rights that the biggest and most powerful possess.	
- -A Philip Randolph quotes.
- Come support my cause!!!  .</h6>
-	<div class="row">
-		<div class = "col-md-3">
-			<h3> Author: Alice Wonderland </h3>
-	       <h4>
-             Money raised: $250
-        </h4>
-	</div>
-	</div>
-	 <div class=" row actionBox">
-		<h3> Comments: </h3>
-        <ul class="commentList">
-            <li>
-                <div class="commentText">
-                    <p class="">Would love to help</p> <span class="date sub-text">on March 13th, 2014 By Becky Green</span>
+<div class=" container blogs" ng-controller="RegInitiativeController as model">
+   <div class="row" ng-repeat="initiative in model.initiatives">
+                <h1 class="page-header">
+                   My Blogs
+                    <small>Thoughts with a difference</small>
+                </h1>
 
-                </div>
-            </li>
-            <li>
-                <div class="commentText">
-                    <p class="">are you looking for volunteers></p> <span class="date sub-text">on April 5th, 2015 By Michael Jackson</span>
+                <!-- First Blog Post -->
+                <h2>
+                    <a href="#">{{initiative.title}}</a>
+                </h2>
+                <p class="lead">
+                    by {{model.author}}
+                </p>
+                <p><span class="glyphicon glyphicon-time"></span> Posted on {{initiative.created}}</p>
+                <hr>
+                    {{initiative.content}}
+                <hr>
+                 <a ng-click="model.makepayment()" class="btn btn-primary"> Fund Me <span class="glyphicon glyphicon-chevron-right"></span></a>
 
-                </div>
-            </li>
-            <li>
-                    <div class="form-group">
-                  <label for="inputPassword" class="col-sm-3 control-label">Comment:</label>
-                      <div class="col-sm-12">
-                          <input ng-model="initiative.comment" type="text" class="form-control" id="inputComment" placeholder="Add your comment">
+                <hr>   
+	</div>
+    <div class = "row">
+          <form class="form-horizontal">
+               <div class="form-group">
+                   <label for="inputText" class="col-sm-3 control-label">Initiative Title:</label>
+                      <div class="col-sm-6">
+                          <input ng-model="model.newinitiative.title" type="text" class="form-control" id="inputText" placeholder="Enter your initiative title here">
                       </div>
               </div>
-            </li>
-         </div>    
-         <button type="button" class="btn btn-primary">Edit this post</button>
-   </div>
+			   <div class="form-group">
+                   <label for="inputText" class="col-sm-3 control-label">Initiative post content:</label>
+                      <div class="col-sm-6">
+                          <input ng-model="model.newinitiative.content" type="text" class="form-control" id="inputText" placeholder="Enter your initiative description here">
+                      </div>
+              </div>
+               <div class="form-group">
+                   <div class="col-sm-offset-3 col-sm-6">
+                        <a ng-click="model.createInitiative(model.newinitiative)" class="btn btn-primary btn-lg btn-block" role="button">Create Initiative</a>
+                  </div>
+             </div>
+    </div>
+</div>

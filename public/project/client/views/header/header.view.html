@@ -1,5 +1,5 @@
 <nav class="navbar navbar-default navbar-fixed-top " ng-controller="HeaderController as model">
-      <div ng-if="!model.loggedin" class="container-fluid">
+      <div ng-if="!user" class="container-fluid">
          <div  class="navbar-header">
              <a class="navbar-brand" href="#">OneWorldCare</a>
          </div>
@@ -11,8 +11,9 @@
             </ul>
         </div>
       </div>
-      <div ng-if="model.loggedin" class="container-fluid">
-        <div ng-if="model.loggedin" class="navbar-header">
+      
+      <div ng-if="user" class="container-fluid">
+        <div class="navbar-header">
            <a class="navbar-brand" href="#">OneWorldCare</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">

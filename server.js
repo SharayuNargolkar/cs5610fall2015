@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var body_parser = require('body-parser');
 var mongoose = require('mongoose');
+var request = require('request');
 
 app.use(express.static(__dirname + '/public'));
 app.use(body_parser.json()); // for parsing application/json
@@ -14,7 +15,7 @@ app.get("/",function(req,res){
 	res.sendfile(__dirname+"/public/hello.html");
 })
 
-var connectionString = 'mongodb://127.0.0.1:27017/cs5610';
+ var connectionString = 'mongodb://127.0.0.1:27017/cs5610';
 
 if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD) {
     connectionString = process.env.OPENSHIFT_MONGODB_DB_USERNAME + ":" +
@@ -30,6 +31,6 @@ var db = mongoose.connect(connectionString);
 //console.log(mongoose);
 //var db_project = mongoose.connect('mongodb://localhost/cs5610project');
 require("./public/assignment/server/app.js")(app, db, mongoose);
-//require("./public/project/server/app.js")(app, db, mongoose);
+require("./public/project/server/app.js")(app, db, mongoose, request);
 
 app.listen(port,ipaddress);

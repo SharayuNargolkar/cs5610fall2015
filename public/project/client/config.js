@@ -28,37 +28,28 @@
                 })
                  .when("/blogs", {
                     templateUrl: "views/blogs/blogs.view.html",
-                    
+                       controller: "BlogsController",
+                    controllerAs: "model"
+                })
+                 .when("/myblogs", {
+                    templateUrl: "views/blogs-reguser/blogs-reguser.view.html",
+                    controller: "RegBlogController",
+                    controllerAs: "model"
                 })
                   .when("/initiatives", {
                     templateUrl: "views/initiatives/initiatives.view.html",
-                    
-                })
-                  .when("/myblogs", {
-                    templateUrl: "views/blogs-reguser/blogs-reguser.view.html",
-                    
-                })
+                     controller: "InitiativesController",
+                    controllerAs: "model"
+                })            
                   .when("/myinitiatives", {
                     templateUrl: "views/initiatives-reguser/initiatives-reguser.view.html",
-                    
+                    controller: "RegInitiativeController",
+                    controllerAs: "model"
                 })
-                  .when("/payment", {
-                    templateUrl: "views/payment/payment.view.html",
-                 })
-                  .when("/help", {
+                 .when("/help", {
                     templateUrl: "views/help/help.view.html",
                  })
-                  /*.when("/form", {
-                    templateUrl: "form/form.view.html",
-                    controller: "FormController"
-                })
-                  .when("/admin", {
-                    templateUrl: "admin/admin.view.html",
-                })
-                  .when("/form-fields", {
-                    templateUrl: "form-fields/form-fields.view.html",
-                })*/
-                .otherwise({
+                 .otherwise({
                     redirectTo: "/"
                 });
         });

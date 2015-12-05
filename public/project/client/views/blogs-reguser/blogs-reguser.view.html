@@ -1,41 +1,43 @@
-<div class="blogs">
-	<h2> Your Blogs: </h2>
-	<div class="blog1">
-	<h3> Why you should recycle in your backyard </h4>
-	<h4> Compost is organic material that can be added to soil to help plants grow. Food scraps and yard waste currently make up 20 to 30 percent of what we throw away, and should be composted instead. Making compost keeps these materials out of landfills where they take up space and release methane, a potent greenhouse gas.</h6>
-	<div class="row">
-		<div class = "col-md-3">
-			<h3> Author: Alice Wonderland </h3>
-	     <h4> 21
-	    <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
-        <button type="button" class="btn btn-primary">Like</button>
-		</h4>
-	</div>
-	</div>
-	 <div class=" row actionBox">
-		<h3> Comments: </h3>
-        <ul class="commentList">
-            <li>
-                <div class="commentText">
-                    <p class="">Great Blog!</p> <span class="date sub-text">on March 5th, 2014 By Becky Green</span>
+<div class=" container blogs" ng-controller="RegBlogController as model">
+   <div class="row" ng-repeat="blog in model.blogs">
+                <h1 class="page-header">
+                   My Blogs
+                    <small>Thoughts with a difference</small>
+                </h1>
 
-                </div>
-            </li>
-            <li>
-                <div class="commentText">
-                    <p class="">I will do my bit.</p> <span class="date sub-text">on March 5th, 2014 By Michael Jackson</span>
+                <!-- First Blog Post -->
+                <h2>
+                    <a href="#">{{blog.title}}</a>
+                </h2>
+                <p class="lead">
+                    by {{model.author}}
+                </p>
+                <p><span class="glyphicon glyphicon-time"></span> Posted on {{blog.created}}</p>
+                <hr>
+                    {{blog.content}}
+                <hr>
+                 <a class="btn btn-primary" href="#"> Comments <span class="glyphicon glyphicon-chevron-right"></span></a>
 
-                </div>
-            </li>
-            <li>
-                    <div class="form-group">
-                  <label for="inputPassword" class="col-sm-3 control-label">Comment:</label>
-                      <div class="col-sm-12">
-                          <input ng-model="initiative.comment" type="text" class="form-control" id="inputComment" placeholder="Add your comment">
+                <hr>   
+	</div>
+    <div class = "row">
+          <form class="form-horizontal">
+               <div class="form-group">
+                   <label for="inputText" class="col-sm-3 control-label">Blog Title:</label>
+                      <div class="col-sm-6">
+                          <input ng-model="model.newblog.title" type="text" class="form-control" id="inputText" placeholder="Enter your blog title here">
                       </div>
               </div>
-            </li>
-         </div>    
-   </div>
-   <button type="button" class="btn btn-primary">Edit this post</button>
+			   <div class="form-group">
+                   <label for="inputText" class="col-sm-3 control-label">Blog post content:</label>
+                      <div class="col-sm-6">
+                          <input ng-model="model.newblog.content" type="text" class="form-control" id="inputText" placeholder="Enter your blog post here">
+                      </div>
+              </div>
+               <div class="form-group">
+                   <div class="col-sm-offset-3 col-sm-6">
+                        <a ng-click="model.createBlog(model.newblog)" class="btn btn-primary btn-lg btn-block" role="button">Create Blog</a>
+                  </div>
+             </div>
+    </div>
 </div>

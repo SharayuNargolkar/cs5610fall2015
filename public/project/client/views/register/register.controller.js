@@ -9,13 +9,14 @@
                      
          function register (reguser){
              //console.log (reguser);
-            if (reguser.password != reguser.verifypassword){
+            if (reguser.password != model.verifypassword){
                 alert("Entered Passwords do not match. Please enter again.")
             } else {
             UserService.createUser(reguser)
                     .then(function(user){
+                        console.log(user);
                      model.user = user;
-                    $rootScope.user = user;
+                    $rootScope.user = model.user;
                    $location.path("/profile")
                 });
            };

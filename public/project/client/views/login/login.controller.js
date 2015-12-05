@@ -12,6 +12,7 @@
                   if (users[0] == null){
                       alert("User credentials submitted do not exist");
                   } else{
+                   
                   model.user = users[0];
                   $rootScope.user = model.user;
                   $location.path("/profile")

@@ -1,79 +1,23 @@
-<div class="blogs">
-	<h2> Featured Blogs </h2>
-	<div class="blog1">
-	<h3> Why you should recycle in your backyard </h4>
-	<h4> Compost is organic material that can be added to soil to help plants grow. Food scraps and yard waste currently make up 20 to 30 percent of what we throw away, and should be composted instead. Making compost keeps these materials out of landfills where they take up space and release methane, a potent greenhouse gas.</h6>
-	<div class="row">
-		<div class = "col-md-3">
-			<h3> Author: Alice Wonderland </h3>
-	     <h4> 21
-	    <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
-        <button type="button" class="btn btn-primary">Like</button>
-		</h4>
+ <div class="container blogs" ng-controller="BlogsController">
+   <div class="row" ng-repeat="blog in model.blogs">
+                <h1 class="page-header">
+                   Featured Blogs
+                    <small>Thoughts with a difference</small>
+                </h1>
+
+                <!-- First Blog Post -->
+                <h2>
+                    <a href="#">{{blog.title}}</a>
+                </h2>
+                <p class="lead">
+                    by {{model.author}}
+                </p>
+                <p><span class="glyphicon glyphicon-time"></span> Posted on {{blog.created}}</p>
+                <hr>
+                    {{blog.content}}
+                <hr>
+                 <a class="btn btn-primary" href="#"> Comments <span class="glyphicon glyphicon-chevron-right"></span></a>
+
+                <hr>   
 	</div>
-	</div>
-	 <div class=" row actionBox">
-		<h3> Comments: </h3>
-        <ul class="commentList">
-            <li>
-                <div class="commentText">
-                    <p class="">Great Blog!</p> <span class="date sub-text">on March 5th, 2014 By Becky Green</span>
-
-                </div>
-            </li>
-            <li>
-                <div class="commentText">
-                    <p class="">I will do my bit.</p> <span class="date sub-text">on March 5th, 2014 By Michael Jackson</span>
-
-                </div>
-            </li>
-              <li>
-                    <div class="form-group">
-                  <label for="inputPassword" class="col-sm-3 control-label">Comment:</label>
-                      <div class="col-sm-12">
-                          <input ng-model="blog.comment" type="text" class="form-control" id="inputComment" placeholder="Add your comment">
-                      </div>
-              </div>
-            </li>
-         </div>    
-   </div>
-   
-   <div class="blog2">
-	<h3> The Blue cross' recent pet adoption camp</h3>
-	<h4> A lot of people showed up to show support to the pet adoption camp held in Gainsville last Saturday. The camp catered to
-		stray and abandoned pets in hopes of finding them a new home. Would you consider offering your home to these beautiful drops of joy></h6>
-	<div class="row">
-		<div class = "col-md-3">
-			<h3> Bob Marley
-			</h3>
-	     <h4> 34
-	    <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
-        <button type="button" class="btn btn-primary">Like</button>
-		</h4>
-		</div>
-   </div>
-    <div class=" row actionBox">
-		<h3> Comments: </h3>
-        <ul class="commentList">
-            <li>
-                <div class="commentText">
-                    <p class="">I was there , it was great!</p> <span class="date sub-text">on May 9th, 2015 By Charlie Brown</span>
-
-                </div>
-            </li>
-            <li>
-                <div class="commentText">
-                    <p class="">Please let me know of future camps!</p> <span class="date sub-text">on May 12th, 2015 by Becky Green</span>
-
-                </div>
-            </li>
-              <li>
-                    <div class="form-group">
-                  <label for="inputPassword" class="col-sm-3 control-label">Comment:</label>
-                      <div class="col-sm-12">
-                          <input ng-model="blog.comment" type="text" class="form-control" id="inputComment" placeholder="Add your comment">
-                      </div>
-              </div>
-            </li>
-</div>         
 </div>

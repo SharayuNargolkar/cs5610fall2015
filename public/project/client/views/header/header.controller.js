@@ -4,9 +4,14 @@
         .controller("HeaderController", HeaderController);
 		
 		
- function HeaderController($scope){
+ function HeaderController($rootScope){
    var model = this;
-   model.loggedin = false;
+      console.log($rootScope.user);
+       if ($rootScope.user == null){
+            model.loggedin = false
+       } else{
+           model.loggedin = true
+           }
     
 }
  })();
