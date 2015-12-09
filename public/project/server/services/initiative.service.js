@@ -61,6 +61,7 @@ module.exports = function(app, model, request){
     
     function makepayment(req,res){
         var entered_amt = req.params.amount;
+        var paykey;
       console.log("in makepayment on server");
             var  body = JSON.stringify(
 {
@@ -89,22 +90,15 @@ request.post({
          }, function(error, response, body){
              console.log(body);
             var payres = JSON.parse(body);
-            var paykey = payres.payKey;
-                 console.log(paykey);
+            paykey = payres.payKey;
+    res.json(paykey);
+              //payredirect(paykey);
 
-              payredirect(paykey)
 
     });
-
-
+       //return ("https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey="+paykey);
 	  
   };
 
-    function payredirect(paykey){
-        request("https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey="+paykey,function (error, response, body) {
-            if (!error && response.statusCode == 200) {
-                console.log(body) // Show the HTML for the Google homepage.
-            };
-    })};
      
 };

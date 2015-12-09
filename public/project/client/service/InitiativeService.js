@@ -84,6 +84,7 @@
 		 console.log("in makepayment on client");
             $http.get("/api/project/payment/amount/"+amount)
                 .success(function(initiatives){
+					console.log(initiatives);
                     deferred.resolve(initiatives);
                 });
 

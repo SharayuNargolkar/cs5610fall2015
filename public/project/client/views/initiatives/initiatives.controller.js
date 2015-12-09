@@ -3,7 +3,7 @@
     angular
         .module("OneWorldCareApp")
         .controller("InitiativesController", InitiativesController);
-    function InitiativesController( $http, $rootScope, $location, InitiativeService) {
+    function InitiativesController( $http, $window,  $rootScope, $location, InitiativeService) {
         var model = this;
         model.user = $rootScope.user;
         model.makePayment = makePayment;
@@ -24,11 +24,11 @@
         function makePayment() {
 
             InitiativeService.makePayment(amount)
-                .then(function (initiatives) {
-                    console.log("payment succesful");
-                    model.newinitiative = null;
-                    init();
-                });
+                .then(function (response) {
+                    if (response!=null) {
+                        $window.location.href="https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey="+response;
+                    }else alert("not working");
+                                   });
 
         };
     }
