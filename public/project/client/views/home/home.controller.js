@@ -6,15 +6,15 @@
 		
  function HomeController($scope){
    var model = this;
-  model.myInterval = 2000;
+  model.myInterval = 1600;
   model.slides = [
     {
       image: './images/Volunteer.jpg',
-      caption:'Be a Part of the Change'
+      caption:'Be a Part of the Change, support those in the front line of the action!'
     },
     {
       image: './images/Environment.jpg',
-      caption: 'Join the caretakers'
+      caption: 'For people wanting to make a difference.. affect change....'
     },
      {
       image: './images/Animal-Welfare.jpg',

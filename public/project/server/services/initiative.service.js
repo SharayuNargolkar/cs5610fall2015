@@ -1,5 +1,5 @@
 module.exports = function(app, model, request){
-  app.get("/api/project/payment", makepayment);
+  app.get("/api/project/payment/amount/:amount", makepayment);
   app.get("/api/project/initiative/:id", findInitiativeById);
   app.get("/api/project/initiative", findAllInitiatives);
   app.get("/api/project/initiative/userId/:userid", findInitiativeByUserId);
@@ -59,19 +59,20 @@ module.exports = function(app, model, request){
             });
     }
     
-    function makepayment(){
+    function makepayment(req,res){
+        var entered_amt = req.params.amount;
       console.log("in makepayment on server");
             var  body = JSON.stringify(
 {
 "actionType":"PAY",    // Specify the payment action
 "currencyCode":"USD",  // The currency of the payment
 "receiverList":{"receiver":[{
-"amount":"1.00",                    // The payment amount
+"amount": entered_amt,                    // The payment amount
 "email":"nargolkar.s-buyer@husky.neu.edu"}]  // The payment Receiver's email address
 },
 
 // Where the Sender is redirected to after approving a successful payment
-"returnUrl":"https://www.google.com",
+"returnUrl":"http://localhost:3000/project/client/index.html#/initiative",
 
 // Where the Sender is redirected to upon a canceled payment
 "cancelUrl":"https://www.google.com",
@@ -86,11 +87,24 @@ request.post({
         url: 'https://svcs.sandbox.paypal.com/AdaptivePayments/Pay',
          body: body
          }, function(error, response, body){
-       console.log(body);
+             console.log(body);
+            var payres = JSON.parse(body);
+            var paykey = payres.payKey;
+                 console.log(paykey);
+
+              payredirect(paykey)
 
     });
 
+
 	  
   };
+
+    function payredirect(paykey){
+        request("https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey="+paykey,function (error, response, body) {
+            if (!error && response.statusCode == 200) {
+                console.log(body) // Show the HTML for the Google homepage.
+            };
+    })};
      
 };

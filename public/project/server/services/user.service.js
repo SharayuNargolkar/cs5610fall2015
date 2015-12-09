@@ -1,5 +1,5 @@
 module.exports = function(app,model){
-  app.get("/api/project/user/username=:uname&password=:pword", findUserByUsernameAndPassword);
+  app.get("/api/project/user/email=:email&password=:pword", findUserByEmailAndPassword);
   app.get("/api/project/user", findAllUsers);
   app.get("/api/project/user/username=:uname", findUserByUsername);
   app.get("/api/project/user/:id", findUserById);
@@ -16,8 +16,8 @@ module.exports = function(app,model){
             });
     }
     
-    	  function findUserByUsernameAndPassword(req, res) {
-           var credentials = {"username" : req.params.uname , "password" : req.params.pword};
+    	  function findUserByEmailAndPassword(req, res) {
+           var credentials = {"email" : req.params.email , "password" : req.params.pword};
            model
             .findUserByCredentials(credentials)
             .then(function(user){

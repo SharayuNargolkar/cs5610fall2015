@@ -7,7 +7,8 @@ module.exports = function(mongoose) {
                 password: String,
                 email: String,
                 country:String,
-                state: String
+                state: String,
+                paypalemail: String
                
        
     }, {collection: "cs5610.project.user"});

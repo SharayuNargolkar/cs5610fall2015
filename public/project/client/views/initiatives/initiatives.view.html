@@ -1,5 +1,5 @@
  <div class="container initiatives" ng-controller="InitiativesController">
-   <div class="row" ng-repeat="intiative in model.intiatives">
+   <div class="row" ng-repeat="intiative in model.initiatives">
                 <h1 class="page-header">
                    Featured Initiatives
                     <small>Be a part of the Change</small>
@@ -16,7 +16,7 @@
                 <hr>
                     {{initiative.content}}
                 <hr>
-                 <a class="btn btn-primary" href="#"> Fund Me <span class="glyphicon glyphicon-chevron-right"></span></a>
+                 <a ng-click="model.makePayment()" class="btn btn-primary" href="#/initiative"> Learn more and fund </span></a>
 
                 <hr>   
 	</div>

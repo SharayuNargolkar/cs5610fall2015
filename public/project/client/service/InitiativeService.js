@@ -13,7 +13,7 @@
 			createInitiative: createInitiative,
 			deleteInitiative: deleteInitiative,
 			updateInitiative: updateInitiative,
-			makepayment: makepayment
+			makePayment: makePayment
 		};
 		return service;
 		
@@ -79,10 +79,10 @@
             return deferred.promise;
 			}	
 			
-			function makepayment(){
+		function makePayment(amount){
 		 var deferred = $q.defer();
 		 console.log("in makepayment on client");
-            $http.get("/api/project/payment")
+            $http.get("/api/project/payment/amount/"+amount)
                 .success(function(initiatives){
                     deferred.resolve(initiatives);
                 });

@@ -9,19 +9,17 @@
                     controller: "HomeController",
                      controllerAs: "model"
                 })
+                .when("/userhome", {
+                    templateUrl: "views/userhome/userhome.view.html",
+                    controller: "UserHomeController",
+                    controllerAs: "model"
+                })
                .when("/profile", {
                     templateUrl: "views/profile/profile.view.html",
                     controller: "ProfileController",
                      controllerAs: "model"
-                    
                 })
-                 .when("/login", {
-                    templateUrl: "views/login/login.view.html",
-                   controller: "LoginController",
-                   controllerAs: "model"
-                   
-                })
-                 .when("/register", {
+               .when("/register", {
                     templateUrl: "views/register/register.view.html",
                     controller: "RegisterController",
                     controllerAs: "model"
@@ -36,6 +34,11 @@
                     controller: "RegBlogController",
                     controllerAs: "model"
                 })
+                .when("/blog", {
+                    templateUrl: "views/blog/blog.view.html",
+                    controller: "BlogController",
+                    controllerAs: "model"
+                })
                   .when("/initiatives", {
                     templateUrl: "views/initiatives/initiatives.view.html",
                      controller: "InitiativesController",
@@ -44,6 +47,11 @@
                   .when("/myinitiatives", {
                     templateUrl: "views/initiatives-reguser/initiatives-reguser.view.html",
                     controller: "RegInitiativeController",
+                    controllerAs: "model"
+                })
+                .when("/initiative", {
+                    templateUrl: "views/initiative/initiative.view.html",
+                    controller: "InitiativeController",
                     controllerAs: "model"
                 })
                  .when("/help", {

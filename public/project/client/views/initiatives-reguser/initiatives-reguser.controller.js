@@ -6,7 +6,7 @@
     function RegInitiativeController( $http, $rootScope, $location, InitiativeService) {
        var model = this;
        model.createInitiative = createInitiative;
-       model.makepayment = makepayment;
+       model.update = update;
        model.user = $rootScope.user;
                  
               
@@ -34,14 +34,14 @@
           
          };
          
-      function makepayment(){
-         InitiativeService.makepayment()
-             .then(function(initiatives){
-                 console.log("payment succesful");
-                 model.newinitiative = null;
-                  init();
-                });
-          
-         };
-     }
+      function update(){
+        InitiativeService.update()
+            .then(function(initiatives){
+                console.log("payment succesful");
+                model.newinitiative = null;
+                init();
+            });
+
+    };
+}
 })();

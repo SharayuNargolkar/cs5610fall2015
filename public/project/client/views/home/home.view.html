@@ -1,16 +1,33 @@
-   <div ng-controller="HomeController as model" id="slides_control">
-    <div>
-      <carousel interval="myInterval">
-        <slide ng-repeat="slide in model.slides" active="slide.active">
-          <img ng-src="{{slide.image}}">
-          <div class="carousel-caption">
-            <h4>{{slide.caption}}</h4>
-          </div>
-        </slide>
-      </carousel>
-    </div>
+<div ng-controller="HomeController as model">
+  <carousel interval="model.myInterval">
+    <slide ng-repeat="slide in model.slides" active="slide.active">
+      <img ng-src="{{slide.image}}">
+      <div class="carousel-caption">
+        <h4>{{slide.caption}}</h4>
+      </div>
+    </slide>
+  </carousel>
+</div>
+
+<div id = "aboutus" align="center">
+  <div class="container marketing">
+    <!-- Three columns of text below the carousel -->
+    <div class="row">
+      <div class="col-lg-4">
+        <img class="img-circle" src="./images/phone.jpg" width="140" height="140">
+        <h2>Search for Events</h2>
+        <p>Looking for events around you? Our user friendly application provides a map view of all the events happening in and around your location! Browse events, register and buy tickets right here!</p>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4">
+        <img class="img-circle" src="./images/plan.jpg" width="140" height="140">
+        <h2>Organizing an event?</h2>
+        <p>Plannign to host an event? Promoting your event has never been easier. Register and post your event, sell tickets for your attendees to buy!</p>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4">
+        <img class="img-circle" src="./images/select.jpg"  width="140" height="140">
+        <h2>Set preferences</h2>
+        <p>Login and set your custom preferences. So that next time you visit, you can see events specfic to your interests!</p>
+      </div><!-- /.col-lg-4 -->
+    </div><!-- /.row -->
   </div>
-<div class = "aboutus">
-<h2> About Us </h2>
-<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum </p>
 </div>

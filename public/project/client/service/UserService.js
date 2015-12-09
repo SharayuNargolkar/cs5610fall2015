@@ -8,7 +8,7 @@
 					
 		var service = {
 			findAllUsers: findAllUsers,
-			findUserByUsernameAndPassword: findUserByUsernameAndPassword,
+			findUserByEmailAndPassword: findUserByEmailAndPassword,
 			createUser: createUser,
 			deleteUserById: deleteUserById,
 			updateUser: updateUser
@@ -26,9 +26,9 @@
             return deferred.promises;
 		}
 		
-		function findUserByUsernameAndPassword(uname, pword){
+		function findUserByEmailAndPassword(email, pword){
 		    var deferred = $q.defer();
-			$http.get("/api/project/user/username="+uname+"&password="+pword)
+			$http.get("/api/project/user/email="+email+"&password="+pword)
 		         .success(function(user){
 					deferred.resolve(user);
                 });
