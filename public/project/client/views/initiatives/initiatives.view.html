@@ -1,19 +1,25 @@
  <div class="container initiatives" ng-controller="InitiativesController">
+
+     <h1 id = "view-header" class="page-header">
+         Featured Initiatives
+         <br>
+         <small>Support the Changemakers..</small>
+     </h1>
      <div class="row" ng-repeat="intiative in model.initiatives">
 
-                <!-- First Blog Post -->
-                <h2>
-                    <a href="#">{{initiative.title}}</a>
-                </h2>
-                <p class="lead">
-                    by {{model.author}}
-                </p>
-                <p><span class="glyphicon glyphicon-time"></span> Posted on {{initiative.created}}</p>
-                <hr>
-                    {{initiative.content}}
-                <hr>
-                 <a ng-click="model.makePayment()" class="btn btn-primary" href="#/initiative"> Learn more and fund </span></a>
+         <div class="card">
+             <div class="card-block">
+                 <h4 class="card-title">{{initiative.title}}</h4>
+                 <p class="card-text">  by {{model.author}}</p>
+                 <p class="card-text">Posted on {{initiative.created}}</p>
+                 <p class="card-text">   {{initiative.content}} </p>
+                 <hr>
+                 <p class="card-text">Comments</p>
+                 <a href="#" class="btn btn-success">Learn more and fund</a>
+             </div>
+         </div>
+         <!-- First Blog Post -->
 
-                <hr>   
-	</div>
+     </div>
+
 </div>

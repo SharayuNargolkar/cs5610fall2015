@@ -166,3 +166,17 @@ div #aboutus{
 
 .panel-body {
     background:#FFFF99;}
+
+.card {
+    background-color: #FFFF99;
+    color: black;
+    box-shadow: 5px 5px lightgreen;
+}
+
+
+div #view-header{
+    padding-top: 5%;
+    color : lightgoldenrodyellow;
+    font-style: oblique;
+}
+

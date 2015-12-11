@@ -1,23 +1,23 @@
- <div class="container blogs" ng-controller="BlogsController">
+     <div class="container blogs" ng-controller="BlogsController">
 
-     <h1 class="page-header">
-         Featured Blogs
-         <small>Thoughts with a difference</small>
-     </h1>
-   <div class="row" ng-repeat="blog in model.blogs">
-                <!-- First Blog Post -->
-                <h2>
-                    <a href="#">{{blog.title}}</a>
-                </h2>
-                <p class="lead">
-                    by {{model.author}}
-                </p>
-                <p><span class="glyphicon glyphicon-time"></span> Posted on {{blog.created}}</p>
-                <hr>
-                    {{blog.content}}
-                <hr>
-                 <a class="btn btn-primary" href="#"> Comments <span class="glyphicon glyphicon-chevron-right"></span></a>
+         <h1 id = "view-header" class="page-header">
+             Featured Blogs
+             <br>
+             <small>Thoughts with a difference</small>
+         </h1>
+       <div class="row" ng-repeat="blog in model.blogs">
 
-                <hr>   
-	</div>
-</div>
+           <div class="card">
+                <div class="card-block">
+                   <h4 class="card-title">{{blog.title}}</h4>
+                    <p class="card-text">  by {{model.author}}</p>
+                   <p class="card-text"> {{blog.content}}</p>
+                    <hr>
+                    <p class="card-text"> Likes Comments</p>
+                   <a href="#" class="btn btn-info">See Blog</a>
+               </div>
+           </div>
+                    <!-- First Blog Post -->
+
+        </div>
+    </div>
