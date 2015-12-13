@@ -1,0 +1,28 @@
+<div id="login" class="col-sm-6 col-sm-offset-3" align = "center" ng-controller="LoginController as model">
+    <div class="panel panel-info" >
+        <div class="panel-heading">
+            <h3 class="panel-title" align = "center">Login</h3>
+        </div>
+        <div class="panel-body">
+            <form class="form-horizontal">
+                   <div class="form-group">
+                    <label for="inputEmail" class="col-sm-3 control-label">username:</label>
+                    <div class="col-sm-6">
+                        <input ng-model="model.user.username" type="text" class="form-control" id="inputEmail" placeholder="Email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword" class="col-sm-3 control-label">Password:</label>
+                    <div class="col-sm-6">
+                        <input ng-model="model.user.password" type="password" class="form-control" id="inputPassword" placeholder="Password">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-3 col-sm-6">
+                        <a ng-click="model.verify(model.user)" class="btn btn-lg btn-info" role="button" href = "#/userhome">Login</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

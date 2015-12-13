@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-fixed-top " ng-controller="HeaderController as model">
+<nav class="navbar navbar-default navbar-fixed-top" ng-controller="HeaderController as model">
       <div ng-if="!user" class="container-fluid">
          <div  class="navbar-header">
              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -7,23 +7,16 @@
                  <span class="icon-bar"></span>
                  <span class="icon-bar"></span>
              </button>
-             <a class="navbar-brand" href="#">OneWorldCare</a>
+             <a class="navbar-brand" href="#/home">OneWorldCare</a>
          </div>
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
-                  <li ng-class="{'active' : $location.url()=='/home'}"><a href="#/home"> Home </a></li>
                   <li ng-class="{'active' : $location.url()=='/blogs'}"><a href="#/blogs"> Blogs </a></li>
                   <li ng-class="{'active' : $location.url()=='/Initiatives'}"><a href="#/initiatives"> Initiatives </a></li>
+                  <li><a href="#"> Documentation </a> </li>
               </ul>
               <form class="navbar-form navbar-right">
-
-                      <div class="form-group">
-                          <input ng-model="model.user.email" type="text" placeholder="Email" class="form-control">
-                      </div>
-                      <div class="form-group">
-                          <input ng-model="model.user.password" type="password" placeholder="Password" class="form-control">
-                      </div>
-                      <a ng-click="model.login()" class="btn btn-success"> Sign in</a>
+                      <a href="#/login" class="btn btn-success"> Sign in</a>
                       <a href="#/register" class="btn btn-success">Sign Up</a>
                </form>
               </div>
@@ -33,14 +26,18 @@
 
     <div ng-if="user" class="container-fluid">
         <div  class="navbar-header">
-            <a class="navbar-brand" href="#">OneWorldCare</a>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#/home">OneWorldCare</a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
             <ul class="nav navbar-nav">
-                <li ng-class="{'active' : $location.url()=='/home'}"><a href="#/home"> Home </a></li>
                 <li ng-class="{'active' : $location.url()=='/blogs'}"><a href="#/blogs"> Blogs </a></li>
                 <li ng-class="{'active' : $location.url()=='/Initiatives'}"><a href="#/initiatives"> Initiatives </a></li>
-                <li> <a href ="#/help"> How Can I Help?</a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">

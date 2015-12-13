@@ -1,4 +1,4 @@
-<div ng-controller="HomeController as model">
+<div id="carousal-container" ng-controller="HomeController as model">
   <carousel interval="model.myInterval">
     <slide ng-repeat="slide in model.slides" active="slide.active">
       <img ng-src="{{slide.image}}">

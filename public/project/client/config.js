@@ -17,7 +17,15 @@
                .when("/profile", {
                     templateUrl: "views/profile/profile.view.html",
                     controller: "ProfileController",
-                     controllerAs: "model"
+                     controllerAs: "model",
+                   resolve: {
+                       loggedin: checkLoggedin
+                   }
+                })
+                .when("/login", {
+                    templateUrl: "views/login/login.view.html",
+                    controller: "LoginController",
+                    controllerAs: "model"
                 })
                .when("/register", {
                     templateUrl: "views/register/register.view.html",
@@ -61,4 +69,43 @@
                     redirectTo: "/"
                 });
         });
-})();
+
+  })();
+
+var checkLoggedin = function($q, $timeout, $http, $location, $rootScope)
+{
+    var deferred = $q.defer();
+
+    $http.get('/rest/loggedin').success(function(user)
+    {
+        if (user !== '0')
+        {
+            $rootScope.user = user;
+            deferred.resolve();
+        }
+        else
+        {
+            $rootScope.errorMessage = 'You need to log in.';
+            deferred.reject();
+            $location.url('/login');
+        }
+    });
+
+    return deferred.promise;
+};
+
+var checkAdmin = function($q, $timeout, $http, $location, $rootScope)
+{
+    var deferred = $q.defer();
+
+    $http.get('/rest/admin').success(function(user)
+    {
+        if (user !== '0')
+        {
+            $rootScope.user = user;
+            deferred.resolve();
+        }
+    });
+
+    return deferred.promise;
+}

@@ -11,10 +11,17 @@
 			findUserByEmailAndPassword: findUserByEmailAndPassword,
 			createUser: createUser,
 			deleteUserById: deleteUserById,
-			updateUser: updateUser
+			updateUser: updateUser,
+			login : login
 		};
 		return service;
-		
+
+		function login(user, callback)
+		{  console.log(user);
+			$http.post("/rest/login", user)
+					.success(callback);
+		}
+
 		function findAllUsers()
 		{
 			 var deferred = $q.defer();
