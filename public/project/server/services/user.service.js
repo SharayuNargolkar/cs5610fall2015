@@ -1,5 +1,4 @@
 module.exports = function(app, User, passport){
-    console.log(passport);
 
 
     app.get("/rest/user/:id", function(req, res)
@@ -44,7 +43,7 @@ module.exports = function(app, User, passport){
         });
     });
 
-    app.post("/rest/user", function(req, res)
+    app.post("/api/project/user", function(req, res)
     {
         var user = req.body
         if(user.roles)
@@ -53,7 +52,7 @@ module.exports = function(app, User, passport){
         }
         else
         {
-            user.roles = ["student"];
+            user.roles = ["user"];
         }
         User.findOne({username: user.username}, function(err, existingUser)
         {

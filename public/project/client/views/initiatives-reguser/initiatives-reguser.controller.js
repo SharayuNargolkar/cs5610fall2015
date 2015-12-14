@@ -14,7 +14,6 @@
              console.log(model.user._id);
              InitiativeService.findInitiativeByUserId(model.user._id)
              .then(function(initiatives){
-                 console.log("in init",initiatives);
                  model.initiatives = initiatives;
              });
          }

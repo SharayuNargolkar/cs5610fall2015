@@ -70,8 +70,7 @@ passport.deserializeUser(function(user, done)
 });
  //connect the `mongoose` instance
 //var db = mongoose.connect('mongodb://localhost/cs5610');
-//console.log(mongoose);
-//var db_project = mongoose.connect('mongodb://localhost/cs5610project');
+
 var RegUserModel = require("./public/project/server/models/user.model.js")(app, db, mongoose);
 require("./public/assignment/server/app.js")(app, db, mongoose);
 require("./public/project/server/app.js")(app, db, RegUserModel, mongoose, passport, request);

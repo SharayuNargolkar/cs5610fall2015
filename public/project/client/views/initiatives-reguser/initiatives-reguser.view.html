@@ -3,16 +3,16 @@
         <div class = "col-lg-6">
    <div class="row" ng-repeat="initiative in model.initiatives">
                 <h1 class="page-header">
-                   My Blogs
-                    <small>Thoughts with a difference</small>
+                   My Initiatives
+                    <small>Affecting Change..</small>
                 </h1>
 
                 <!-- First Blog Post -->
                 <h2>
-                    <a href="#">{{initiative.title}}</a>
+                    <a href="#/initiative/{{initiative._id}}">{{initiative.title}}</a>
                 </h2>
                 <p class="lead">
-                    by {{model.author}}
+                    by {{model.initiative.founder.founderName}}
                 </p>
                 <p><span class="glyphicon glyphicon-time"></span> Posted on {{initiative.created}}</p>
                 <hr>

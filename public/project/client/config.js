@@ -55,7 +55,7 @@
                 })
                 .when("/createblog", {
                     templateUrl: "views/blogcreation/blogcreation.view.html",
-                    controller: "BlogController",
+                    controller: "BlogCreateController",
                     controllerAs: "model"
                 })
                   .when("/initiatives", {
@@ -74,12 +74,23 @@
                 .when("/initiative/:initiativeId", {
                     templateUrl: "views/initiative/initiative.view.html",
                     controller: "InitiativeController",
-                    controllerAs: "model"
+                    controllerAs: "model",
+                    resolve: {
+                        loggedin: checkLoggedin
+                    }
                 })
                 .when("/createinitiative", {
                     templateUrl: "views/initiativecreation/initiativecreation.view.html",
-                    controller: "InitiativeController",
+                    controller: "InitiativeCreateController",
                     controllerAs: "model"
+                })
+                .when("/success/:amount/initiative/:initiativeId", {
+                    templateUrl: "views/successpayment/successpayment.view.html",
+                    controller: "SuccessController",
+                    controllerAs: "model",
+                    resolve: {
+                        loggedin: checkLoggedin
+                    }
                 })
                 .when("/myfavorites", {
                     templateUrl: "views/favorites/favorites.view.html",

@@ -14,9 +14,21 @@
 			deleteInitiative: deleteInitiative,
 			updateInitiative: updateInitiative,
 			makePayment: makePayment,
-			findInitiativesLikeTitle: findInitiativesLikeTitle
+			findInitiativesLikeTitle: findInitiativesLikeTitle,
+			addComment: addComment
 		};
 		return service;
+
+		function addComment(id, comment){
+			var deferred = $q.defer();
+			$http.put("/api/project/"+id+"/initiativecomment" , comment)
+					.success(function(initiative){
+						deferred.resolve(initiative);
+					});
+
+			return deferred.promise;
+		}
+
 
 		function findInitiativesLikeTitle(title)
 		{
@@ -91,10 +103,10 @@
             return deferred.promise;
 			}	
 			
-		function makePayment(amount){
+		function makePayment(initiativeId, amount, recemail){
 		 var deferred = $q.defer();
 		 console.log("in makepayment on client");
-            $http.get("/api/project/payment/amount/"+amount)
+            $http.get("/api/project/payment/initiative/"+initiativeId+"/amount/"+amount+"/rec/"+recemail)
                 .success(function(initiatives){
 					console.log(initiatives);
                     deferred.resolve(initiatives);

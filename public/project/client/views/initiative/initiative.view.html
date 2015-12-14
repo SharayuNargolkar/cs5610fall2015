@@ -1,0 +1,41 @@
+<div class="container " ng-controller="InitiativeController">
+    <div class="jumbotron">
+        <h1>{{model.initiative.title}}</h1>
+        <p>by {{model.initiative.founder.founderName}}</p>
+        <br>
+        <p>Posted on {{model.initiative.created}}</p>
+        <hr>
+        <br>
+        <p>{{model.initiative.content}}</p>
+        <hr>
+        <h4> Target Funds:  ${{model.initiative.targetFunds} </h4>
+        <h4> Collected Funds:  ${{model.initiative.collectedFunds} </h4>
+        <hr>
+        <h3> If you wish to contribute to this  initiative, just enter the amount you are willing to donate for this cause. We thank you for your generous gesture!</h3>
+        <div class="form-group">
+            <label for="inputamount" class="col-lg-2 control-label">Amount you wish to contribute:</label>
+                 <input ng-model="model.amount" type="number" class="form-control" id="inputamount" placeholder="$$$">
+            <button ng-click="model.makePayment()" type="submit" class="btn btn-primary">Submit</button>
+        </div>
+
+        <h4> Comments: </h4>
+        <table class="table table-striped table-hover">
+            <tr ng-model = "model.event.newReviews">
+                <td>
+                    <input ng-model="model.newcomment.content" type="text" class="form-control" id="inputText" placeholder="Add a Comment..">
+                </td>
+
+                <td>
+                    <button ng-click="model.addComment()" type="submit" class="btn btn-info">Add Comment</button>
+                </td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="comment in model.initiative.comments">
+                <td><pre>{{comment.content}}
+                    -- by {{comment.name}}</pre></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+</div>

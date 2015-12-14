@@ -3,7 +3,7 @@ module.exports = function(mongoose) {
     var InitiativeSchema = mongoose.Schema({
                 title: String,
                 content: String,
-                founder: {founderId: String, founderName: String},
+                founder: {founderId: String, founderName: String, founderPaypal:String},
                 created: Date,
 				targetFunds: Number,
 				collectedFunds: Number,

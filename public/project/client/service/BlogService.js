@@ -7,15 +7,31 @@
 	function BlogService($http, $q){
 					
 		var service = {
-			findAllBlogs: findAllBlogs,
-			findBlogById: findBlogById,
-			findBlogByUserId: findBlogByUserId,
-			createBlog: createBlog,
-			deleteBlog: deleteBlog,
-			updateBlog: updateBlog,
-			findBlogsLikeTitle: findBlogsLikeTitle
-		};
+            findAllBlogs: findAllBlogs,
+            findBlogById: findBlogById,
+            findBlogByUserId: findBlogByUserId,
+            createBlog: createBlog,
+            deleteBlog: deleteBlog,
+            updateBlog: updateBlog,
+            findBlogsLikeTitle: findBlogsLikeTitle,
+            addComment: addComment,
+        };
 		return service;
+
+
+
+
+		function addComment(id, comment){
+			var deferred = $q.defer();
+			console.log("inside updateEvent service");
+			$http.put("/api/project/"+id+"/blogcomment" , comment)
+					.success(function(blog){
+						deferred.resolve(blog);
+					});
+
+			return deferred.promise;
+		}
+
 
 		function findBlogsLikeTitle(title)
 		{
@@ -54,8 +70,7 @@
 			$http.get("/api/project/blog/userId/"+id)
 		         .success(function(blog){
 					deferred.resolve(blog);
-					console.log("This is what is displayed",blog)
-                });
+				 });
             return deferred.promise;
 			}	   
 			    

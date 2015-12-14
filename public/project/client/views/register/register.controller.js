@@ -12,6 +12,8 @@
             if (reguser.password != model.verifypassword){
                 alert("Entered Passwords do not match. Please enter again.")
             } else {
+            reguser.blogsliked = [];
+            reguser.initiativesfunded = [];
             UserService.createUser(reguser)
                     .then(function(user){
                         console.log(user);

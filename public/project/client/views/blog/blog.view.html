@@ -9,8 +9,8 @@
         <p>{{model.blog.content}}</p>
         <hr>
         <div class="row">
-        <h4> {{model.like.count}}</h4>
-            <button type="button" class="btn btn-info" aria-label="Left Align">
+        <h4> {{model.blog.likes}}</h4>
+            <button ng-click="model.addLike()" type="button" class="btn btn-info" aria-label="Left Align">
                 <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
             </button>
         </div>
@@ -18,7 +18,7 @@
         <table class="table table-striped table-hover">
             <tr ng-model = "model.event.newReviews">
                 <td>
-                    <input ng-model="model.newcommentc.content" type="text" class="form-control" id="inputText" placeholder="Add a Comment..">
+                    <input ng-model="model.newcomment.content" type="text" class="form-control" id="inputText" placeholder="Add a Comment..">
                 </td>
 
                 <td>
@@ -29,7 +29,7 @@
             <tbody>
             <tr ng-repeat="comment in model.blog.comments">
                 <td><pre>{{comment.content}}
-                    -- by comment.name</pre></td>
+                    -- by {{comment.name}}</pre></td>
                 <td></td>
             </tr>
         </table>

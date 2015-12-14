@@ -12,9 +12,33 @@
 			createUser: createUser,
 			deleteUserById: deleteUserById,
 			updateUser: updateUser,
-			login : login
+			login : login,
+			findAllLikedBlogs: findAllLikedBlogs,
+            findAllFundedInitiatives: findAllFundedInitiatives
 		};
 		return service;
+
+        function findAllFundedInitiatives(userId)
+        {
+            var deferred = $q.defer();
+            $http.get("/api/project/initiative/funded/"+userId)
+                .success(function(initiatives){
+                     deferred.resolve(initiatives);
+                });
+
+            return deferred.promise;
+        }
+
+		function findAllLikedBlogs(userId)
+		{
+			var deferred = $q.defer();
+			$http.get("/api/project/blog/liked/"+userId)
+					.success(function(blogs){
+                        deferred.resolve(blogs);
+					});
+
+			return deferred.promise;
+		}
 
 		function login(user, callback)
 		{  console.log(user);
@@ -62,9 +86,9 @@
 	       return deferred.promise;
 		}
 		
-		function updateUser(id, user){
+		function updateUser(user){
 		 var deferred = $q.defer();
-            $http.put("/api/project/user/"+id , user)
+            $http.put("/rest/update" , user)
                 .success(function(users){
                     deferred.resolve(users);
                 });

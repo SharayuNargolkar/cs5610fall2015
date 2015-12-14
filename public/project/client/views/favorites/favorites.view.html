@@ -9,7 +9,9 @@
                 </thead>
                 <tbody>
                     <tr ng-repeat="blog in model.blogs">
+                        <td>
                         <a href="#/blog/{{blog._id}}">{{blog.title}}</a>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -23,7 +25,9 @@
                 </thead>
                 <tbody>
                 <tr ng-repeat="initiative in model.initiatives">
-                    {{initiative.title}}
+                    <td>
+                        <a href="#/initiative/{{initiative._id}}">{{initiative.title}}</a>
+                    </td>
                 </tr>
                 </tbody>
             </table>

@@ -1,7 +1,7 @@
 var q = require("q");
 //var users = require("./user.mock.json");
 
-module.exports = function(db, mongoose) {
+module.exports = function(db, mongoose, UserModel) {
     var InitiativeSchema = require("./initiative.schema.js")(mongoose);
     var InitiativeModel  = mongoose.model("InitiativeModel", InitiativeSchema);
 	    var api = {
@@ -12,9 +12,51 @@ module.exports = function(db, mongoose) {
         createComment: createComment,
 		deleteInitiative: deleteInitiative,
 		updateInitiative: updateInitiative,
-        findInitiativeBySearch :findInitiativeBySearch
+        findInitiativeBySearch :findInitiativeBySearch,
+        addComment: addComment,
+        getInitiativesFundedByUserId: getInitiativesFundedByUserId
     };
     return api;
+
+
+    function getInitiativesFundedByUserId(userId){
+
+        var deferred = q.defer();
+        var promises = [];
+        UserModel.findById(userId).then(function(user){
+            if(user){
+                var InitArr = user.initiativesfunded;
+                for(var i = 0; i < InitArr.length; i++){
+                    promises.push(InitiativeModel.findById(InitArr[i]));
+                }
+
+                q.all(promises).then(function(initiatives){
+                    deferred.resolve(initiatives);
+                });
+            }
+            else{
+
+                deferred.reject("User has not liked any blogst");
+            }
+        });
+
+        return deferred.promise;
+    }
+
+    function addComment(InitiativeId, newcomment){
+
+        var deferred = q.defer();
+        InitiativeModel.findById(InitiativeId, function(err, initiative){
+            initiative.comments.push(newcomment);
+
+            initiative.save(function(err, initiative){
+                deferred.resolve(initiative);
+            });
+        });
+
+        return deferred.promise;
+    }
+
 
     function findInitiativeBySearch(title){
         var deferred = q.defer();
@@ -48,7 +90,7 @@ module.exports = function(db, mongoose) {
 	function findInitiativeByUserId(userId){
          var deferred = q.defer();
 
-        InitiativeModel.find({founderId : userId}, function(err, initiatives){
+        InitiativeModel.find({'founder.founderId' : userId}, function(err, initiatives){
                 if(err) {
                     deferred.reject(err);
                 } else {

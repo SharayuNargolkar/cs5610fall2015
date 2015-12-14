@@ -1,7 +1,7 @@
 var q = require("q");
 //var users = require("./user.mock.json");
 
-module.exports = function(db, mongoose) {
+module.exports = function(db, mongoose, UserModel) {
     var BlogSchema = require("./blog.schema.js")(mongoose);
     var BlogModel  = mongoose.model("BlogModel", BlogSchema);
 	    var api = {
@@ -9,12 +9,54 @@ module.exports = function(db, mongoose) {
         findBlogByUserId: findBlogByUserId,
         findAllBlogs: findAllBlogs,
         createBlog: createBlog,
-        createComment: createComment,
-		deleteBlog: deleteBlog,
+       	deleteBlog: deleteBlog,
 		updateBlog: updateBlog,
-            findBlogBySearch: findBlogBySearch
+        findBlogBySearch: findBlogBySearch,
+        addComment: addComment,
+        getBlogsLikedByUserId: getBlogsLikedByUserId
     };
     return api;
+
+    function getBlogsLikedByUserId(userId){
+
+        var deferred = q.defer();
+        var promises = [];
+        var eventAttendByUser=[];
+        UserModel.findById(userId).then(function(user){
+            if(user){
+                var blogArr = user.blogsliked;
+                console.log(blogArr);
+                for(var i = 0; i < blogArr.length; i++){
+                    promises.push(BlogModel.findById(blogArr[i]));
+                }
+
+                q.all(promises).then(function(blogs){
+                    deferred.resolve(blogs);
+                });
+            }
+            else{
+
+                deferred.reject("User has not liked any blogst");
+            }
+        });
+
+        return deferred.promise;
+    }
+
+    function addComment(blogId, newcomment){
+
+        var deferred = q.defer();
+        console.log(blogId);
+        BlogModel.findById(blogId, function(err, blog){
+            blog.comments.push(newcomment);
+
+            blog.save(function(err, blog){
+                deferred.resolve(blog);
+            });
+        });
+
+        return deferred.promise;
+    }
 
 
     function findBlogBySearch(title){
@@ -37,8 +79,7 @@ module.exports = function(db, mongoose) {
             if(err) {
                 deferred.reject(err);
             } else {
-                console.log(blog);
-               deferred.resolve(blog);
+                 deferred.resolve(blog);
             }
         });
 
@@ -48,7 +89,7 @@ module.exports = function(db, mongoose) {
 	function findBlogByUserId(userId){
          var deferred = q.defer();
 
-        BlogModel.find({authorId : userId}, function(err, blogs){
+        BlogModel.find({'author.authorId' : userId}, function(err, blogs){
                 if(err) {
                     deferred.reject(err);
                 } else {
@@ -98,20 +139,7 @@ module.exports = function(db, mongoose) {
     };
 	
     
-        function createComment(user){
-    //  var deferred = q.defer();
 
-    //     BlogModel.create(user, function(err, blog) {
-    //         if(err) {
-    //             deferred.reject(err);
-    //         } else {
-    //           //deferred.resolve( findUserById(user._id));
-    //             deferred.resolve(blog);
-    //         }
-    //     });
-
-    //     return deferred.promise;
-    };
     
     function deleteBlog(id){
         var deferred = q.defer();
