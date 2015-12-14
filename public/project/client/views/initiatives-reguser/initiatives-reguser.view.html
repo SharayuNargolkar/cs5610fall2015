@@ -1,4 +1,6 @@
 <div class=" container blogs" ng-controller="RegInitiativeController as model">
+    <div class = "row">
+        <div class = "col-lg-6">
    <div class="row" ng-repeat="initiative in model.initiatives">
                 <h1 class="page-header">
                    My Blogs
@@ -20,6 +22,26 @@
 
                 <hr>   
 	</div>
+            </div>
+        <div class = "col-lg-3 pull-right">
+            <br>
+            <br>
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Search Initiatives..</h3>
+                </div>
+                <div class="panel-body">
+                    <form role="search">
+                        <div class="form-group">
+                            <input ng-model="model.title" type="text" class="form-control" placeholder="Search by Initiative Title..">
+                        </div>
+                        <button ng-click= "model.search(model.title)" type="submit" class="btn btn-success">Search</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class = "row">
           <form class="form-horizontal">
                <div class="form-group">
@@ -39,5 +61,7 @@
                         <a ng-click="model.createInitiative(model.newinitiative)" class="btn btn-primary btn-lg btn-block" role="button">Create Initiative</a>
                   </div>
              </div>
+              </form>
+
     </div>
 </div>

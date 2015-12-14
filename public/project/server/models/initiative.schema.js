@@ -5,7 +5,7 @@ module.exports = function(mongoose) {
                 content: String,
                 founder: {founderId: String, founderName: String},
                 created: Date,
-				targetFunds:Number,
+				targetFunds: Number,
 				collectedFunds: Number,
                 comments: [{content: String , name:String, time: Date}],
     }, {collection: "cs5610.project.initiative"});

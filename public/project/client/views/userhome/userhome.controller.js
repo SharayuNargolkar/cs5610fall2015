@@ -4,8 +4,9 @@
         .controller("UserHomeController", UserHomeController);
 
 
-    function UserHomeController($scope){
+    function UserHomeController($rootScope){
         var model = this;
+        model.user = $rootScope.user;
 
     }
 })();

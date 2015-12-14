@@ -2,6 +2,7 @@ module.exports = function(app, model, request){
   app.get("/api/project/payment/amount/:amount", makepayment);
   app.get("/api/project/initiative/:id", findInitiativeById);
   app.get("/api/project/initiative", findAllInitiatives);
+  app.get("/api/project/initiative/search/:title", findInitiativesLikeTitle);
   app.get("/api/project/initiative/userId/:userid", findInitiativeByUserId);
   app.post("/api/project/initiative/userId/:userid", addInitiative);
   app.put("/api/project/initiative/:id", updateInitiative);
@@ -14,6 +15,15 @@ module.exports = function(app, model, request){
             .createInitiative(initiative)
             .then(function(initiative){
                 res.json(initiative);
+            });
+    }
+
+    function findInitiativesLikeTitle(req, res) {
+        var title = req.params.title;
+        model
+            .findInitiativeBySearch(title)
+            .then(function(blog){
+                res.json(blog);
             });
     }
     

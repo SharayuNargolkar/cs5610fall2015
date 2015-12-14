@@ -8,6 +8,7 @@
        model.createInitiative = createInitiative;
        model.update = update;
        model.user = $rootScope.user;
+        model.search = search;
                  
               
          function init() {
@@ -43,5 +44,14 @@
             });
 
     };
+
+        function search(title) {
+            // console.log(model.user._id);
+            InitiativeService.findInitiativesLikeTitle(title)
+                .then(function(initiatives){
+                    console.log("in search",initiatives);
+                    model.initiatives = initiatives;
+                });
+        }
 }
 })();

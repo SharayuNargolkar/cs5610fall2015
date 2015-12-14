@@ -1,11 +1,12 @@
  <div class="container initiatives" ng-controller="InitiativesController">
-
+     <div class = "row">
+         <div class = "col-lg-6">
      <h1 id = "view-header" class="page-header">
          Featured Initiatives
          <br>
          <small>Support the Changemakers..</small>
      </h1>
-     <div class="row" ng-repeat="intiative in model.initiatives">
+     <div class="row" ng-repeat="initiative in model.initiatives">
 
          <div class="card">
              <div class="card-block">
@@ -20,6 +21,25 @@
          </div>
          <!-- First Blog Post -->
 
+     </div>
+             </div>
+         <div class = "col-lg-3 pull-right">
+             <br>
+             <br>
+             <div class="panel panel-success">
+                 <div class="panel-heading">
+                     <h3 class="panel-title">Search Initiatives..</h3>
+                 </div>
+                 <div class="panel-body">
+                     <form role="search">
+                         <div class="form-group">
+                             <input ng-model="model.title" type="text" class="form-control" placeholder="Search by Initiative Title..">
+                         </div>
+                         <button ng-click= "model.search(model.title)" type="submit" class="btn btn-success">Search</button>
+                     </form>
+                 </div>
+             </div>
+         </div>
      </div>
 
 </div>

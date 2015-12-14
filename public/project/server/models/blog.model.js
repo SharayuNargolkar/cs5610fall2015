@@ -11,9 +11,24 @@ module.exports = function(db, mongoose) {
         createBlog: createBlog,
         createComment: createComment,
 		deleteBlog: deleteBlog,
-		updateBlog: updateBlog
+		updateBlog: updateBlog,
+            findBlogBySearch: findBlogBySearch
     };
     return api;
+
+
+    function findBlogBySearch(title){
+        var deferred = q.defer();
+        BlogModel.find({ title: { $regex: title, $options: 'i' } } , function(err, blogs){
+            if(err) {
+                deferred.reject(err);
+            } else {
+               deferred.resolve(blogs);
+            }
+        });
+
+        return deferred.promise;
+    };
 	
     function findBlogById(id){
         var deferred = q.defer();

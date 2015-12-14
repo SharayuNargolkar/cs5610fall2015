@@ -18,7 +18,7 @@
                 if(response != null)
                 {
                     $rootScope.user = response;
-                    $location.url("/profile");
+                    $location.url("/userhome");
                 }
                 else
                 {

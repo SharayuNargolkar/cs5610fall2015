@@ -11,10 +11,25 @@ module.exports = function(db, mongoose) {
         createInitiative: createInitiative,
         createComment: createComment,
 		deleteInitiative: deleteInitiative,
-		updateInitiative: updateInitiative
+		updateInitiative: updateInitiative,
+        findInitiativeBySearch :findInitiativeBySearch
     };
     return api;
-	
+
+    function findInitiativeBySearch(title){
+        var deferred = q.defer();
+        InitiativeModel.find({ title: { $regex: title, $options: 'i' } } , function(err, initiatives){
+            if(err) {
+                deferred.reject(err);
+            } else {
+                deferred.resolve(initiatives);
+            }
+        });
+
+        return deferred.promise;
+    };
+
+
     function findInitiativeById(id){
         var deferred = q.defer();
 

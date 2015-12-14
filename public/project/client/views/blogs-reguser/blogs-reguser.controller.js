@@ -7,6 +7,7 @@
        var model = this;
        model.createBlog = createBlog;
        model.user = $rootScope.user;
+        model.search = search;
                  
               
          function init() {
@@ -32,5 +33,14 @@
                 });
           
          };
+
+        function search(title) {
+            // console.log(model.user._id);
+            BlogService.findBlogsLikeTitle(title)
+                .then(function(blogs){
+                    console.log("in search",blogs);
+                    model.blogs = blogs;
+                });
+        }
      }
 })();

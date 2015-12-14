@@ -6,6 +6,7 @@
     function BlogsController( $http, $rootScope, $location, BlogService) {
        var model = this;
         model.user = $rootScope.user;
+        model.search = search;
                  
               function init() {
             // console.log(model.user._id);
@@ -15,7 +16,17 @@
                  model.blogs = blogs;
              });
          }
-        init();       
+        init();
+
+
+        function search(title) {
+            // console.log(model.user._id);
+            BlogService.findBlogsLikeTitle(title)
+                .then(function(blogs){
+                    console.log("in search",blogs);
+                    model.blogs = blogs;
+                });
+        }
     }                 
      
 })();

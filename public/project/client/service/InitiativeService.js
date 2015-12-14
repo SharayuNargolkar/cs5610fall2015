@@ -13,10 +13,22 @@
 			createInitiative: createInitiative,
 			deleteInitiative: deleteInitiative,
 			updateInitiative: updateInitiative,
-			makePayment: makePayment
+			makePayment: makePayment,
+			findInitiativesLikeTitle: findInitiativesLikeTitle
 		};
 		return service;
-		
+
+		function findInitiativesLikeTitle(title)
+		{
+			var deferred = $q.defer();
+			$http.get("/api/project/initiative/search/"+title)
+					.success(function(blogs){
+						deferred.resolve(blogs);
+					});
+
+			return deferred.promise;
+		}
+
 		function findAllInitiatives()
 		{
 			 var deferred = $q.defer();

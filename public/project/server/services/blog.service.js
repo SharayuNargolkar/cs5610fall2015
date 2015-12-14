@@ -2,10 +2,21 @@ module.exports = function(app,model){
   app.get("/api/project/blog/:id", findBlogById);
   app.get("/api/project/blog", findAllBlogs);
   app.get("/api/project/blog/userId/:userid", findBlogByUserId);
+  app.get("/api/project/blog/search/:title", findBlogBySearch);
   app.post("/api/project/blog/userId/:userid", addBlog);
   app.put("/api/project/blog/:id", updateBlog);
-  app.delete("/api/project/blog/:id", deleteBlog) 
-     
+  app.delete("/api/project/blog/:id", deleteBlog)
+
+    function findBlogBySearch(req, res) {
+        var title = req.params.title;
+        model
+            .findBlogBySearch(title)
+            .then(function(blog){
+                res.json(blog);
+            });
+    }
+
+
 	  function addBlog(req, res) {
         var blog = req.body;
         model

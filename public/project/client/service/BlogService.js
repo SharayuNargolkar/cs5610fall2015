@@ -12,10 +12,22 @@
 			findBlogByUserId: findBlogByUserId,
 			createBlog: createBlog,
 			deleteBlog: deleteBlog,
-			updateBlog: updateBlog
+			updateBlog: updateBlog,
+			findBlogsLikeTitle: findBlogsLikeTitle
 		};
 		return service;
-		
+
+		function findBlogsLikeTitle(title)
+		{
+			var deferred = $q.defer();
+			$http.get("/api/project/blog/search/"+title)
+					.success(function(blogs){
+						deferred.resolve(blogs);
+					});
+
+			return deferred.promise;
+		}
+
 		function findAllBlogs()
 		{
 			 var deferred = $q.defer();

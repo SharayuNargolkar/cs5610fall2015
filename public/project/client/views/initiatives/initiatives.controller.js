@@ -8,6 +8,7 @@
         model.user = $rootScope.user;
         model.makePayment = makePayment;
         var amount = 1;
+        model.search = search;
 
         function init() {
             // console.log(model.user._id);
@@ -31,5 +32,14 @@
                                    });
 
         };
+
+        function search(title) {
+            // console.log(model.user._id);
+            InitiativeService.findInitiativesLikeTitle(title)
+                .then(function(initiatives){
+                    console.log("in search",initiatives);
+                    model.initiatives = initiatives;
+                });
+        }
     }
 })();

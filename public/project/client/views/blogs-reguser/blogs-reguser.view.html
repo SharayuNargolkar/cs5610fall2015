@@ -1,4 +1,6 @@
 <div class=" container blogs" ng-controller="RegBlogController as model">
+    <div class = "row">
+        <div class = "col-lg-6">
     <h1 id = "view-header" class="page-header">
         My Blogs
     </h1>
@@ -18,45 +20,47 @@
         <!-- First Blog Post -->
 
     </div>
-   <div class="row" ng-repeat="blog in model.blogs">
-                <h1 class="page-header">
 
-                    <small>Thoughts with a difference</small>
-                </h1>
 
-                <!-- First Blog Post -->
-                <h2>
-                    <a href="#">{{blog.title}}</a>
-                </h2>
-                <p class="lead">
-                    by {{model.author}}
-                </p>
-                <p><span class="glyphicon glyphicon-time"></span> Posted on {{blog.created}}</p>
-                <hr>
-                    {{blog.content}}
-                <hr>
-                 <a class="btn btn-primary" href="#"> Comments <span class="glyphicon glyphicon-chevron-right"></span></a>
+            </div>
 
-                <hr>   
-	</div>
-    <div class = "row">
-          <form class="form-horizontal">
-               <div class="form-group">
-                   <label for="inputText" class="col-sm-3 control-label">Blog Title:</label>
-                      <div class="col-sm-6">
-                          <input ng-model="model.newblog.title" type="text" class="form-control" id="inputText" placeholder="Enter your blog title here">
-                      </div>
-              </div>
-			   <div class="form-group">
-                   <label for="inputText" class="col-sm-3 control-label">Blog post content:</label>
-                      <div class="col-sm-6">
-                          <input ng-model="model.newblog.content" type="text" class="form-control" id="inputText" placeholder="Enter your blog post here">
-                      </div>
-              </div>
-               <div class="form-group">
-                   <div class="col-sm-offset-3 col-sm-6">
-                        <a ng-click="model.createBlog(model.newblog)" class="btn btn-primary btn-lg btn-block" role="button">Create Blog</a>
-                  </div>
-             </div>
+        <div class = "col-lg-3 pull-right">
+            <br>
+            <br>
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Search Blogs..</h3>
+                </div>
+                <div class="panel-body">
+                    <form role="search">
+                        <div class="form-group">
+                            <input ng-model="model.title" type="text" class="form-control" placeholder="Type a Blog Title..">
+                        </div>
+                        <button ng-click= "model.search(model.title)" type="submit" class="btn btn-success">Search</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
+    <div class = "row">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label for="inputText" class="col-sm-3 control-label">Blog Title:</label>
+                <div class="col-sm-6">
+                    <input ng-model="model.newblog.title" type="text" class="form-control" id="inputText" placeholder="Enter your blog title here">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputText2" class="col-sm-3 control-label">Blog post content:</label>
+                <div class="col-sm-6">
+                    <input ng-model="model.newblog.content" type="text" class="form-control" id="inputText2" placeholder="Enter your blog post here">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-6">
+                    <a ng-click="model.createBlog(model.newblog)" class="btn btn-primary btn-lg btn-block" role="button">Create Blog</a>
+                </div>
+            </div>
+    </div>
+
 </div>

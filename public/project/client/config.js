@@ -12,7 +12,10 @@
                 .when("/userhome", {
                     templateUrl: "views/userhome/userhome.view.html",
                     controller: "UserHomeController",
-                    controllerAs: "model"
+                    controllerAs: "model",
+                    resolve: {
+                        loggedin: checkLoggedin
+                    }
                 })
                .when("/profile", {
                     templateUrl: "views/profile/profile.view.html",
@@ -40,7 +43,10 @@
                  .when("/myblogs", {
                     templateUrl: "views/blogs-reguser/blogs-reguser.view.html",
                     controller: "RegBlogController",
-                    controllerAs: "model"
+                    controllerAs: "model",
+                     resolve: {
+                         loggedin: checkLoggedin
+                     }
                 })
                 .when("/blog", {
                     templateUrl: "views/blog/blog.view.html",
@@ -55,12 +61,23 @@
                   .when("/myinitiatives", {
                     templateUrl: "views/initiatives-reguser/initiatives-reguser.view.html",
                     controller: "RegInitiativeController",
-                    controllerAs: "model"
+                    controllerAs: "model",
+                      resolve: {
+                          loggedin: checkLoggedin
+                      }
                 })
                 .when("/initiative", {
                     templateUrl: "views/initiative/initiative.view.html",
                     controller: "InitiativeController",
                     controllerAs: "model"
+                })
+                .when("/myfavorites", {
+                    templateUrl: "views/favorites/favorites.view.html",
+                    controller: "FavoritesController",
+                    controllerAs: "model",
+                    resolve: {
+                        loggedin: checkLoggedin
+                    }
                 })
                  .when("/help", {
                     templateUrl: "views/help/help.view.html",

@@ -9,8 +9,8 @@ module.exports = function(mongoose) {
                 roles: [String],
                 country:String,
                 state: String,
-                myblogs: [String],
-                myinitiatives: [String],
+                blogsliked: [String],
+                initiativesfunded: [String],
                 paypalemail: String
                
        
