@@ -93,12 +93,13 @@ div #view-header{
     font-style: oblique;
 }
 
-div #userhome{
+div #toppadding{
     padding-top: 5%;
 }
 
-div #homepanel{
-    background-color: black;
+div .favpadding{
+    padding-top: 5%;
+    font-size: medium;
 }
 
 

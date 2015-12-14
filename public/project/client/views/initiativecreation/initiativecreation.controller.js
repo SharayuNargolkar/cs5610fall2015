@@ -1,0 +1,26 @@
+"use strict";
+(function(){
+    angular
+        .module("OneWorldCareApp")
+        .controller("InitiativeCreateController", InitiativeCreateController);
+    function InitiativeCreateController( $http, $rootScope, $location, InitiativeService) {
+        var model = this;
+        model.createInitiative = createInitiative;
+
+        function createInitiative(newinitiative) {
+            newinitiative.founder.founderId = model.user._id;
+            newinitiative.founder.founderName = model.user.username;
+            newinitiative.created = Date.now();
+            newinitiative.collectedFunds = 0;
+            console.log(newinitiative);
+            InitiativeService.createInitiative(model.user._id, newinitiative)
+                .then(function (initiatives) {
+                    console.log("Got the following object:" + initiatives);
+                    model.newinitiative = null;
+                   $location.path('/myinitiatives');
+                });
+
+        };
+    }
+
+})();

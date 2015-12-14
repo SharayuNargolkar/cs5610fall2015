@@ -5,7 +5,6 @@
         .controller("RegInitiativeController", RegInitiativeController);
     function RegInitiativeController( $http, $rootScope, $location, InitiativeService) {
        var model = this;
-       model.createInitiative = createInitiative;
        model.update = update;
        model.user = $rootScope.user;
         model.search = search;
@@ -20,20 +19,8 @@
              });
          }
         init();       
-                    
-                   
-    function createInitiative(newinitiative){
-        newinitiative.founderId = model.user._id;
-        newinitiative.created = Date.now();
-        console.log(newinitiative);
-           InitiativeService.createInitiative(model.user._id, newinitiative)
-             .then(function(initiatives){
-                 console.log("Got the following object:"+initiatives);
-                 model.newinitiative = null;
-                  init();
-                });
-          
-         };
+
+
          
       function update(){
         InitiativeService.update()

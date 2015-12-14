@@ -8,7 +8,7 @@
         model.user = $rootScope.user;
         model.search = search;
                  
-              function init() {
+        function init() {
             // console.log(model.user._id);
              BlogService.findAllBlogs()
              .then(function(blogs){

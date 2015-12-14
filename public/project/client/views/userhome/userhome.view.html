@@ -1,4 +1,4 @@
-<div id="#userhome" class="container-fluid" ng-controller="UserHomeController">
+<div id="#toppadding" class="container-fluid" ng-controller="UserHomeController">
     <div class= "row">
         <div class = "col-lg-6">
             <h2> Hello {{model.user.firstname}}!! </h2>
@@ -10,25 +10,20 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         </div>
-        <div class = "col-lg-3 pull-right">
-           <a class="btn btn-lg btn-warning" role="button" href="#/myblogs">My BlogSpace</a>
-           <a class="btn btn-lg btn-success" role="button" href="#/myinitiatives">My Initiatives</a>
-            <br>
-            <br>
-            <div id="#homepanel" class="panel panel-info">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Your Contributions</h3>
-                </div>
-                <div class="panel-body">
-                    <a class="btn btn-lg btn-info" role="button" href="#/myfavorites">Initiatives i funded</a>
-                    <br>
-                    <a class="btn btn-lg btn-info" role="button" href="#/myfavorites">My favorite Blogs</a>
-
-                </div>
+        <div class = "col-lg-3 pull-right" style="padding-top: 5% ">
+            <div class= "row"  align="center">
+                <a class="btn btn-warning btn-block" role="button" href="#/myblogs">My BlogSpace</a>
             </div>
-
-
-
+            </br>
+            <div class= "row"  align="center">
+                <a class="btn btn-success btn-block" role="button" href="#/myinitiatives">My Initiatives</a>
+            </div>
+            <br>
+            <hr>
+            <br>
+            <div class= "row"  align="center">
+                <a class="btn btn-danger btn-block" role="button" href="#/myfavorites">Initiatives I Funded/ Blogs I Liked</a>
+            </div>
+        </div>
     </div>
 </div>
-    </div>

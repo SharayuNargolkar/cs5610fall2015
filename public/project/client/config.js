@@ -48,8 +48,13 @@
                          loggedin: checkLoggedin
                      }
                 })
-                .when("/blog", {
+                .when("/blog/:blogId", {
                     templateUrl: "views/blog/blog.view.html",
+                    controller: "BlogController",
+                    controllerAs: "model"
+                })
+                .when("/createblog", {
+                    templateUrl: "views/blogcreation/blogcreation.view.html",
                     controller: "BlogController",
                     controllerAs: "model"
                 })
@@ -66,8 +71,13 @@
                           loggedin: checkLoggedin
                       }
                 })
-                .when("/initiative", {
+                .when("/initiative/:initiativeId", {
                     templateUrl: "views/initiative/initiative.view.html",
+                    controller: "InitiativeController",
+                    controllerAs: "model"
+                })
+                .when("/createinitiative", {
+                    templateUrl: "views/initiativecreation/initiativecreation.view.html",
                     controller: "InitiativeController",
                     controllerAs: "model"
                 })

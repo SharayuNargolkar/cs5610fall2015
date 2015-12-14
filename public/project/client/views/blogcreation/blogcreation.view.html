@@ -1,0 +1,19 @@
+<div class = "container" ng-controller="BlogCreateController">
+<div class = "well">
+    <form class="form-horizontal">
+        <div class="form-group has-warning">
+            <label class="control-label" for="inputWarning">Blog Title:</label>
+            <input ng-model="model.newblog.title" type="text" class="form-control" id="inputWarning" placeholder="Enter your blog title here">
+        </div>
+        <div class="form-group has-warning">
+            <label for="textArea" class="control-label">Blog Content: </label>
+            <textarea ng-model="model.newblog.content" class="form-control" rows="5" id="textArea" placeholder="Enter your blog post here"></textarea>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-6">
+                <a ng-click="model.createBlog(model.newblog)" class="btn btn-primary btn-lg btn-block" role="button">Create Blog</a>
+            </div>
+        </div>
+    </form>
+</div>
+</div>

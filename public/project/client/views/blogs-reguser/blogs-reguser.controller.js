@@ -5,7 +5,6 @@
         .controller("RegBlogController", RegBlogController);
     function RegBlogController( $http, $rootScope, $location, BlogService) {
        var model = this;
-       model.createBlog = createBlog;
        model.user = $rootScope.user;
         model.search = search;
                  

@@ -4,10 +4,10 @@ module.exports = function(mongoose) {
                 title: String,
                 content: String,
                 likes:[{count: Number , name:String}],
-                authorId: String,
+                author:{authorId: String, authorName: String},
                 created: Date,
-                comments: [{content: String , name:String, time: Date}],
-          
+                comments: [{content: String , name:String}],
+
        
     }, {collection: "cs5610.project.blog"});
 
