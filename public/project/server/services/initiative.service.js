@@ -2,7 +2,7 @@ module.exports = function(app, model, request){
     app.get("/api/project/payment/initiative/:initiativeId/amount/:amount/rec/:recemail", makepayment);
     app.get("/api/project/initiative/:id", findInitiativeById);
     app.get("/api/project/initiative", findAllInitiatives);
-    app.get("/api/project/initiative/search/:title", findInitiativesLikeTitle);
+    app.get("/api/project/initiative/search/:searchString", findInitiativesLikeSearchString);
     app.get("/api/project/initiative/userId/:userid", findInitiativeByUserId);
     app.get("/api/project/initiative/funded/:userId", findAllFundedInitiatives);
     app.post("/api/project/initiative/userId/:userid", addInitiative);
@@ -38,10 +38,10 @@ module.exports = function(app, model, request){
             });
     }
 
-    function findInitiativesLikeTitle(req, res) {
-        var title = req.params.title;
+    function findInitiativesLikeSearchString(req, res) {
+        var searchString = req.params.searchString;
         model
-            .findInitiativeBySearch(title)
+            .findInitiativeBySearch(searchString)
             .then(function(blog){
                 res.json(blog);
             });

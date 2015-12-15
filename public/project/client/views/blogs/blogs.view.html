@@ -32,9 +32,9 @@
                 <div class="panel-body">
                     <form role="search">
                         <div class="form-group">
-                            <input ng-model="model.title" type="text" class="form-control" placeholder="Blog Title..">
+                            <input ng-model="model.searchString" type="text" class="form-control" placeholder="By Title or Author">
                         </div>
-                        <button ng-click= "model.search(model.title)" type="submit" class="btn btn-success">Search</button>
+                        <button ng-click= "model.search(model.searchString)" type="submit" class="btn btn-success">Search</button>
                     </form>
                 </div>
             </div>

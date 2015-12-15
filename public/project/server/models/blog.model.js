@@ -59,9 +59,9 @@ module.exports = function(db, mongoose, UserModel) {
     }
 
 
-    function findBlogBySearch(title){
+    function findBlogBySearch(searchString){
         var deferred = q.defer();
-        BlogModel.find({ title: { $regex: title, $options: 'i' } } , function(err, blogs){
+        BlogModel.find({$or: [{title: { $regex: searchString, $options: 'i' } }, {'author.authorName': { $regex: searchString, $options: 'i' }}]} , function(err, blogs){
             if(err) {
                 deferred.reject(err);
             } else {

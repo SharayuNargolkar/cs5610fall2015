@@ -19,9 +19,9 @@
         init();
 
 
-        function search(title) {
+        function search(searchString) {
             // console.log(model.user._id);
-            BlogService.findBlogsLikeTitle(title)
+            BlogService.findBlogsLikeSearchString(searchString)
                 .then(function(blogs){
                     console.log("in search",blogs);
                     model.blogs = blogs;

@@ -108,6 +108,14 @@
                          admin    : checkAdmin
                      }
                  })
+                .when("/adminpostview/:userId", {
+                    templateUrl: "views/admin/adminpostview.view.html",
+                    controller: "AdminPostViewController",
+                    controllerAs: "model",
+                    resolve: {
+                        admin    : checkAdmin
+                    }
+                })
                  .otherwise({
                     redirectTo: "/"
                 });

@@ -6,15 +6,24 @@
 
     function AdminController($rootScope, $routeParams, BlogService, UserService) {
         var model = this;
-        model.seeUsersBlogs = seeUsersBlogs
-        model.seeUsersInitiatives = seeUsersInitiatives
-        model.deleteUser = deleteUser
+        model.removeUser = removeUser;
+
         function init(){
-            UserService.findAllUsers
+            UserService.findAllUsers()
                 .then(function(users){
                      model.users = users;
                 });
 
         } init();
+
+        function removeUser(userId){
+            UserService.deleteUserById(userId)
+                .then(function(response){
+                    console.log("in delete",response);
+                    init();
+                });
+
+
+        };
     }
 })();

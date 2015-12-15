@@ -2,7 +2,7 @@ module.exports = function(app,model){
     app.get("/api/project/blog/:id", findBlogById);
     app.get("/api/project/blog", findAllBlogs);
     app.get("/api/project/blog/userId/:userid", findBlogByUserId);
-    app.get("/api/project/blog/search/:title", findBlogBySearch);
+    app.get("/api/project/blog/search/:searchString", findBlogBySearch);
     app.get("/api/project/blog/liked/:userId", findBlogsLikedByUser);
     app.post("/api/project/blog/userId/:userid", addBlog);
     app.put("/api/project/blog/:id", updateBlog);
@@ -32,9 +32,9 @@ module.exports = function(app,model){
 
 
     function findBlogBySearch(req, res) {
-        var title = req.params.title;
+        var searchString = req.params.searchString;
         model
-            .findBlogBySearch(title)
+            .findBlogBySearch(searchString)
             .then(function(blog){
                 res.json(blog);
             });

@@ -33,9 +33,9 @@
 
         };
 
-        function search(title) {
+        function search(searchString) {
             // console.log(model.user._id);
-            InitiativeService.findInitiativesLikeTitle(title)
+            InitiativeService.findInitiativesLikeSearchString(searchString)
                 .then(function(initiatives){
                     console.log("in search",initiatives);
                     model.initiatives = initiatives;

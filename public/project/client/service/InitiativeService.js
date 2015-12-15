@@ -14,7 +14,7 @@
 			deleteInitiative: deleteInitiative,
 			updateInitiative: updateInitiative,
 			makePayment: makePayment,
-			findInitiativesLikeTitle: findInitiativesLikeTitle,
+			findInitiativesLikeSearchString: findInitiativesLikeSearchString,
 			addComment: addComment
 		};
 		return service;
@@ -30,12 +30,12 @@
 		}
 
 
-		function findInitiativesLikeTitle(title)
+		function findInitiativesLikeSearchString(searchString)
 		{
 			var deferred = $q.defer();
-			$http.get("/api/project/initiative/search/"+title)
-					.success(function(blogs){
-						deferred.resolve(blogs);
+			$http.get("/api/project/initiative/search/"+searchString)
+					.success(function(initiatives){
+						deferred.resolve(initiatives);
 					});
 
 			return deferred.promise;

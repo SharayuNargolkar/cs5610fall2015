@@ -1,0 +1,46 @@
+<div class = "container" ng-controller = "AdminPostViewController as model">
+    <div class="row">
+        <div class = "col-lg-6">
+            <table class="table table-striped table-hover ">
+                <thead>
+                <tr class="danger">
+                    <th>Blogs of user</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="blog in model.blogs">
+                    <td>
+                        <a href="#/blog/{{blog._id}}">{{blog.title}}</a>
+                    </td>
+                    <td class = pull-right>
+                        <button ng-click="model.deleteBlog(blog._id)" class="btn btn-danger">
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class = "col-lg-6">
+            <table class="table table-striped table-hover ">
+                <thead>
+                <tr class="danger">
+                    <th>Initiatives of user</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="initiative in model.initiatives">
+                    <td>
+                        <a href="#/initiative/{{initiative._id}}">{{initiative.title}}</a>
+                    </td>
+                    <td class = pull-right>
+                        <button ng-click="model.deleteInitiative(initiative._id)" class="btn btn-danger">
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

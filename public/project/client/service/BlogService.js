@@ -13,13 +13,10 @@
             createBlog: createBlog,
             deleteBlog: deleteBlog,
             updateBlog: updateBlog,
-            findBlogsLikeTitle: findBlogsLikeTitle,
+			findBlogsLikeSearchString: findBlogsLikeSearchString,
             addComment: addComment,
         };
 		return service;
-
-
-
 
 		function addComment(id, comment){
 			var deferred = $q.defer();
@@ -33,10 +30,10 @@
 		}
 
 
-		function findBlogsLikeTitle(title)
+		function findBlogsLikeSearchString(searchString)
 		{
 			var deferred = $q.defer();
-			$http.get("/api/project/blog/search/"+title)
+			$http.get("/api/project/blog/search/"+searchString)
 					.success(function(blogs){
 						deferred.resolve(blogs);
 					});

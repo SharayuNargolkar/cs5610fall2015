@@ -61,7 +61,7 @@
                     deferred.resolve(users);
                 });
                 
-            return deferred.promises;
+            return deferred.promise;
 		}
 		
 		function findUserByEmailAndPassword(email, pword){

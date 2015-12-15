@@ -58,9 +58,9 @@ module.exports = function(db, mongoose, UserModel) {
     }
 
 
-    function findInitiativeBySearch(title){
+    function findInitiativeBySearch(searchString){
         var deferred = q.defer();
-        InitiativeModel.find({ title: { $regex: title, $options: 'i' } } , function(err, initiatives){
+        InitiativeModel.find({$or: [{title: { $regex: searchString, $options: 'i' } }, {'founder.founderName': { $regex: searchString, $options: 'i' }}]} , function(err, initiatives){
             if(err) {
                 deferred.reject(err);
             } else {
