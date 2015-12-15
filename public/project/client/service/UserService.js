@@ -13,10 +13,17 @@
 			deleteUserById: deleteUserById,
 			updateUser: updateUser,
 			login : login,
+			logout: logout,
 			findAllLikedBlogs: findAllLikedBlogs,
             findAllFundedInitiatives: findAllFundedInitiatives
 		};
 		return service;
+
+		function logout(callback)
+		{
+			$http.post("/api/project/logout")
+					.success(callback)
+		}
 
         function findAllFundedInitiatives(userId)
         {
@@ -79,7 +86,7 @@
 		function deleteUserById(userid)
 		{
 			 var deferred = $q.defer();
-			$http.delete("/api/project/user"+userid)
+			$http.delete("/api/project/user/"+userid)
                 .success(function(users){
                     deferred.resolve(users);
                 });

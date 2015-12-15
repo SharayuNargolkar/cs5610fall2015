@@ -100,8 +100,13 @@
                         loggedin: checkLoggedin
                     }
                 })
-                 .when("/help", {
-                    templateUrl: "views/help/help.view.html",
+                 .when("/admin", {
+                    templateUrl: "views/admin/admin.view.html",
+                     controller: "AdminController",
+                     controllerAs: "model",
+                     resolve: {
+                         admin    : checkAdmin
+                     }
                  })
                  .otherwise({
                     redirectTo: "/"

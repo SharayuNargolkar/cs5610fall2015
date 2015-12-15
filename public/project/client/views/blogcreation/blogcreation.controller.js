@@ -7,7 +7,9 @@
         console.log("in blog create");
         var model = this;
         model.user = $rootScope.user;
+        model.blog = $rootScope.blog;
         model.createBlog = createBlog;
+        model.updateBlog = updateBlog;
 
         function createBlog(newblog) {
             newblog.author={};
@@ -21,6 +23,16 @@
                 .then(function (blogs) {
                     console.log("Got the following object:", blogs);
                      $location.path('/myblogs');
+                });
+
+        };
+
+        function updateBlog(newblog) {
+
+            BlogService.updateBlog(model.blog._id, newblog)
+                .then(function (blogs) {
+                    model.blog = null;
+                    $location.path('/myblogs');
                 });
 
         };

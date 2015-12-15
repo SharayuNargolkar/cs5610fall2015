@@ -86,7 +86,7 @@
 		function deleteInitiative(id)
 		{
 			 var deferred = $q.defer();
-			$http.delete("/api/project/initiative"+id)
+			$http.delete("/api/project/initiative/"+id)
                 .success(function(initiatives){
                     deferred.resolve(initiatives);
                 });

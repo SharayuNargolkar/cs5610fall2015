@@ -4,11 +4,19 @@
         .controller("HeaderController", HeaderController);
 		
 		
- function HeaderController($rootScope, UserService){
+ function HeaderController($rootScope, $location, UserService){
      var model = this;
+     model.logout = logout;
 
 
-     console.log($rootScope.user);
+     function logout()
+     {
+         UserService.logout(function()
+         {
+             $rootScope.user = null;
+             $location.url("/home");
+         });
+     }
 
 }
  })();

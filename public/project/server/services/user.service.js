@@ -15,7 +15,7 @@ module.exports = function(app, User, passport){
         });
     });
 
-    app.delete("/rest/user/:id", function(req, res)
+    app.delete("/api/project/user/:id", function(req, res)
     {
         isUserAdmin(req.user.username, function(user)
         {
@@ -29,7 +29,7 @@ module.exports = function(app, User, passport){
         });
     });
 
-    app.get("/rest/user", function(req, res)
+    app.get("/api/project/user", function(req, res)
     {
         isUserAdmin(req.user.username, function(user)
         {
@@ -100,7 +100,7 @@ module.exports = function(app, User, passport){
         res.send(req.isAuthenticated() ? req.user : '0');
     });
 
-    app.post('/rest/logout', function(req, res)
+    app.post('/api/project/logout', function(req, res)
     {
         req.logOut();
         res.send(200);

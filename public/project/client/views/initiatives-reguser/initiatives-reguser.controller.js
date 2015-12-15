@@ -4,32 +4,40 @@
         .module("OneWorldCareApp")
         .controller("RegInitiativeController", RegInitiativeController);
     function RegInitiativeController( $http, $rootScope, $location, InitiativeService) {
-       var model = this;
-       model.update = update;
-       model.user = $rootScope.user;
+        var model = this;
+        model.user = $rootScope.user;
         model.search = search;
-                 
-              
-         function init() {
-             console.log(model.user._id);
-             InitiativeService.findInitiativeByUserId(model.user._id)
-             .then(function(initiatives){
-                 model.initiatives = initiatives;
-             });
-         }
-        init();       
+        model.goToUpdate = goToUpdate;
+        model.deleteInitiative = deleteInitiative;
 
 
-         
-      function update(){
-        InitiativeService.update()
-            .then(function(initiatives){
-                console.log("payment succesful");
-                model.newinitiative = null;
-                init();
-            });
+        function init() {
+            console.log(model.user._id);
+            InitiativeService.findInitiativeByUserId(model.user._id)
+                .then(function(initiatives){
+                    model.initiatives = initiatives;
+                });
+        }
+        init();
 
-    };
+
+
+        function goToUpdate(initiative){
+            $rootScope.initiative= initiative;
+            $location.path('/createinitiative')
+
+
+        };
+
+        function deleteInitiative(initiativeId){
+            InitiativeService.deleteInitiative(initiativeId)
+                .then(function(response){
+                    console.log("in delete",response);
+                    init();
+                });
+
+
+        };
 
         function search(title) {
             // console.log(model.user._id);
@@ -39,5 +47,5 @@
                     model.initiatives = initiatives;
                 });
         }
-}
+    }
 })();

@@ -4,12 +4,15 @@
    <div class="row" ng-repeat="initiative in model.initiatives">
                 <h1 class="page-header">
                    My Initiatives
+                    <br>
                     <small>Affecting Change..</small>
                 </h1>
 
                 <!-- First Blog Post -->
                 <h2>
                     <a href="#/initiative/{{initiative._id}}">{{initiative.title}}</a>
+                    <a ng-click="model.goToUpdate(initiative)" class="btn btn-warning pull-right"> <span class="glyphicon glyphicon-pencil"></span></a>
+                    <a ng-click="model.deleteInitiative(initiative._id)" class="btn btn-danger pull-right"> <span class="glyphicon glyphicon-remove"></span></a>
                 </h2>
                 <p class="lead">
                     by {{model.initiative.founder.founderName}}
@@ -18,9 +21,7 @@
                 <hr>
                     {{initiative.content}}
                 <hr>
-                 <a ng-click="model.update()" class="btn btn-primary"> <span class="glyphicon glyphicon-chevron-right"></span></a>
 
-                <hr>   
 	</div>
             </div>
         <div class = "col-lg-3 pull-right">

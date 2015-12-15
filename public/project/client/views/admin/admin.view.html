@@ -1,0 +1,38 @@
+<div class = "container" ng-controller = "AdminController as model">
+    <div class="row">
+        <div class = "col-lg-6" align="center">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>First</th>
+                    <th>Last</th>
+                    <th>Email</th>
+                    <th>Paypal email</th>
+                    <th>Roles</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="user in model.users">
+                    <td><a ng-click="">{{user.username}}</a></td>
+                    <td>{{user.firstName}}</td>
+                    <td>{{user.lastName}}</td>
+                    <td>{{user.email}} </td>
+                    <td>{{user.paypalemail}} </td>
+                    <td>{{user.roles}}</td>
+                    <td>
+                        <button ng-click="model.removeUser(user._id)" class="btn btn-danger">
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </button>
+                        <button ng-click="model.selectUser(user._id)" class="btn btn-info">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                        </button>
+                        <button  class="btn btn-danger">
+                           <a href="#/adminpostview">See Blogs/Initiatives</a>
+                        </button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

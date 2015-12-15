@@ -7,6 +7,8 @@
        var model = this;
        model.user = $rootScope.user;
         model.search = search;
+        model.goToUpdate = goToUpdate;
+        model.deleteBlog = deleteBlog;
                  
               
          function init() {
@@ -26,5 +28,20 @@
                     model.blogs = blogs;
                 });
         }
+
+        function goToUpdate(blog){
+            $rootScope.blog= blog;
+            $location.path('/createblog');
+        };
+
+        function deleteBlog(blogId){
+            BlogService.deleteBlog(blogId)
+                .then(function(response){
+                    console.log("in delete",response);
+                    init();
+                });
+
+
+        };
      }
 })();

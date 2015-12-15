@@ -88,7 +88,7 @@
 		function deleteBlog(id)
 		{
 			 var deferred = $q.defer();
-			$http.delete("/api/project/blog"+id)
+			$http.delete("/api/project/blog/"+id)
                 .success(function(blogs){
                     deferred.resolve(blogs);
                 });
