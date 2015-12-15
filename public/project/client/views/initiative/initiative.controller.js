@@ -27,7 +27,7 @@
             } else {
                 model.newcomment.name = model.user.username;
                 InitiativeService.addComment(initiativeId, model.newcomment)
-                    .then(function (initiatives) {
+                    .then(function (initiative) {
                         model.initiative = initiative;
                         console.log(initiative);
 
