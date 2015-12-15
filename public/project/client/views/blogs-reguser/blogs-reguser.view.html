@@ -11,11 +11,12 @@
                         <h4 class="card-title"><a href="#/blog/{{blog._id}}">{{blog.title}}</a></h4>
                         <a ng-click="model.goToUpdate(blog)" class="btn btn-warning pull-right"> <span class="glyphicon glyphicon-pencil"></span></a>
                         <a ng-click="model.deleteBlog(blog._id)" class="btn btn-danger pull-right"> <span class="glyphicon glyphicon-remove"></span></a>
-                        <p class="card-text">  by {{model.author}}</p>
-                        <p><span class="glyphicon glyphicon-time"></span> Posted on {{blog.created}}</p>
+                        <p class="card-text">  by {{blog.author.authorName}}</p>
+                        <p><span class="glyphicon glyphicon-time"></span> Posted on {{blog.created | date:'MMM dd,yyyy At HH:mm'}}</p>
                         <p class="card-text"> {{blog.content}}</p>
                         <hr>
-                        <p class="card-text"> Likes Comments</p>
+                        <p class="card-text">Likes: {{blog.likes}} </p>
+                        <p class="card-text">Comments: {{blog.comments.length}} </p>
                         <a href="#" class="btn btn-info">See Blog</a>
                     </div>
                 </div>

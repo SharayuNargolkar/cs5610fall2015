@@ -3,7 +3,7 @@
         <h1>{{model.initiative.title}}</h1>
         <p>by {{model.initiative.founder.founderName}}</p>
         <br>
-        <p>Posted on {{model.initiative.created}}</p>
+        <p>Posted on {{model.initiative.created | date:'MMM dd,yyyy At HH:mm'}}</p>
         <hr>
         <br>
         <p>{{model.initiative.content}}</p>

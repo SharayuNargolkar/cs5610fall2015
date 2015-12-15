@@ -3,7 +3,7 @@
         <h1>{{model.blog.title}}</h1>
         <p>by {{model.blog.author.authorName}}</p>
         <br>
-        <p>Posted on {{model.blog.created}}</p>
+        <p>Posted on {{model.blog.created | date:'MMM dd,yyyy At HH:mm'}}</p>
         <hr>
         <br>
         <p>{{model.blog.content}}</p>

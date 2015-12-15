@@ -11,10 +11,13 @@
                 <div class="card">
                     <div class="card-block">
                         <h4 class="card-title"><a href="#/blog/{{blog._id}}">{{blog.title}}</a></h4>
-                        <p class="card-text">  by {{model.author}}</p>
+                        <p class="card-text">  by {{blog.author.authorName}}</p>
+                        <p><span class="glyphicon glyphicon-time"></span> Posted on {{blog.created | date:'MMM dd,yyyy At HH:mm'}}</p>
+                        <hr>
                         <p class="card-text"> {{blog.content}}</p>
                         <hr>
-                        <p class="card-text"> Likes Comments</p>
+                        <p class="card-text">Likes: {{blog.likes}} </p>
+                        <p class="card-text">Comments: {{blog.comments.length}} </p>
                         <a href="#/blog/{{blog._id}}" class="btn btn-info pull-right">See Blog</a>
                     </div>
                 </div>

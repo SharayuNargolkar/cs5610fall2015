@@ -23,17 +23,24 @@
         init();
 
         function addComment(){
+            if (!model.user) {
+            alert("You need to login to perform this action");
+        } else {
             model.newcomment.name = model.user.username;
             BlogService.addComment(blogId, model.newcomment)
-                .then(function(blogs){
+                .then(function (blogs) {
                     model.blog = blogs;
                     console.log(blogs);
 
                 });
+        }
         };
 
         function addLike() {
-            var isliked = false;
+            if (!model.user) {
+                alert("You need to login to perform this action");
+            } else {
+             var isliked = false;
             for (var i = 0; i <= model.user.blogsliked.length; i++) {
                 if (model.user.blogsliked[i] == blogId) {
                     isliked = true
@@ -44,19 +51,21 @@
             }
 
             if (!isliked) {
-                model.blog.likes =  model.blog.likes + 1;
+                model.blog.likes = model.blog.likes + 1;
                 BlogService.updateBlog(blogId, model.blog)
                     .then(function (blogs) {
                         model.event = blogs;
                         console.log(blogs);
                         model.user.blogsliked.push(blogId);
                         UserService.updateUser(model.user)
-                            .then(function(user){
-                             init()
+                            .then(function (user) {
+                                init()
                             });
 
                     });
             };
+            }
+
         }
     }
 })();

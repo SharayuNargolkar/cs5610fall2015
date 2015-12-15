@@ -15,9 +15,9 @@
                     <a ng-click="model.deleteInitiative(initiative._id)" class="btn btn-danger pull-right"> <span class="glyphicon glyphicon-remove"></span></a>
                 </h2>
                 <p class="lead">
-                    by {{model.initiative.founder.founderName}}
+                    by {{initiative.founder.founderName}}
                 </p>
-                <p><span class="glyphicon glyphicon-time"></span> Posted on {{initiative.created}}</p>
+                <p><span class="glyphicon glyphicon-time"></span> Posted on {{initiative.created | date:'MMM dd,yyyy At HH:mm'}}</p>
                 <hr>
                     {{initiative.content}}
                 <hr>

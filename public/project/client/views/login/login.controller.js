@@ -22,7 +22,7 @@
                 }
                 else
                 {
-                    vm.message = "User does not exist";
+                    alert("User does not exist");
                 }
             });
         }

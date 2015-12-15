@@ -22,20 +22,27 @@
         init();
 
         function addComment(){
-            model.newcomment.name = model.user.username;
-            InitiativeService.addComment(initiativeId, model.newcomment)
-                .then(function(initiatives){
-                    model.initiative = initiative;
-                    console.log(initiative);
+            if (!model.user) {
+                alert("You need to login to perform this action");
+            } else {
+                model.newcomment.name = model.user.username;
+                InitiativeService.addComment(initiativeId, model.newcomment)
+                    .then(function (initiatives) {
+                        model.initiative = initiative;
+                        console.log(initiative);
 
-                });
+                    });
+            }
         };
 
         function makePayment() {
+            if (!model.user) {
+                alert("You need to login to perform this action");
+            } else {
                 var amount = model.amount;
-                if (amount == 0){
-                    $location.path=('/success/'+userId+'/event/'+eventId);
-                }else {
+                if (amount == 0) {
+                    $location.path = ('/success/' + userId + '/event/' + eventId);
+                } else {
                     var recemail = model.initiative.founder.founderPaypal;
                     InitiativeService.makePayment(model.initiative._id, amount, recemail)
                         .then(function (response) {
@@ -44,7 +51,8 @@
                             } else alert("not working");
                         });
 
-            };
+                };
+            }
         }
 
 

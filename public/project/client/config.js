@@ -7,7 +7,8 @@
                 .when("/", {
                     templateUrl: "views/home/home.view.html",
                     controller: "HomeController",
-                     controllerAs: "model"
+                    controllerAs: "model"
+
                 })
                 .when("/userhome", {
                     templateUrl: "views/userhome/userhome.view.html",
@@ -17,72 +18,87 @@
                         loggedin: checkLoggedin
                     }
                 })
-               .when("/profile", {
+                .when("/profile", {
                     templateUrl: "views/profile/profile.view.html",
                     controller: "ProfileController",
-                     controllerAs: "model",
-                   resolve: {
-                       loggedin: checkLoggedin
-                   }
+                    controllerAs: "model",
+                    resolve: {
+                        loggedin: checkLoggedin
+                    }
                 })
                 .when("/login", {
                     templateUrl: "views/login/login.view.html",
                     controller: "LoginController",
                     controllerAs: "model"
                 })
-               .when("/register", {
+                .when("/register", {
                     templateUrl: "views/register/register.view.html",
                     controller: "RegisterController",
                     controllerAs: "model"
                 })
-                 .when("/blogs", {
+                .when("/blogs", {
                     templateUrl: "views/blogs/blogs.view.html",
-                       controller: "BlogsController",
-                    controllerAs: "model"
+                    controller: "BlogsController",
+                    controllerAs: "model",
+                    resolve: {
+                        loggedin: checkLoggedinGuest
+                    }
                 })
-                 .when("/myblogs", {
+                .when("/myblogs", {
                     templateUrl: "views/blogs-reguser/blogs-reguser.view.html",
                     controller: "RegBlogController",
                     controllerAs: "model",
-                     resolve: {
-                         loggedin: checkLoggedin
-                     }
+                    resolve: {
+                        loggedin: checkLoggedin
+                    }
                 })
                 .when("/blog/:blogId", {
                     templateUrl: "views/blog/blog.view.html",
                     controller: "BlogController",
-                    controllerAs: "model"
+                    controllerAs: "model",
+                    resolve: {
+                        loggedin: checkLoggedinGuest
+                    }
                 })
                 .when("/createblog", {
                     templateUrl: "views/blogcreation/blogcreation.view.html",
                     controller: "BlogCreateController",
-                    controllerAs: "model"
+                    controllerAs: "model",
+                    resolve: {
+                        loggedin: checkLoggedin
+                    }
                 })
-                  .when("/initiatives", {
+                .when("/initiatives", {
                     templateUrl: "views/initiatives/initiatives.view.html",
-                     controller: "InitiativesController",
-                    controllerAs: "model"
-                })            
-                  .when("/myinitiatives", {
+                    controller: "InitiativesController",
+                    controllerAs: "model",
+                    resolve: {
+                        loggedin: checkLoggedinGuest
+                    }
+                })
+                .when("/myinitiatives", {
                     templateUrl: "views/initiatives-reguser/initiatives-reguser.view.html",
                     controller: "RegInitiativeController",
                     controllerAs: "model",
-                      resolve: {
-                          loggedin: checkLoggedin
-                      }
+                    resolve: {
+                        loggedin: checkLoggedin
+                    }
                 })
                 .when("/initiative/:initiativeId", {
                     templateUrl: "views/initiative/initiative.view.html",
                     controller: "InitiativeController",
                     controllerAs: "model",
                     resolve: {
-                        loggedin: checkLoggedin
+                        loggedin: checkLoggedinGuest
                     }
                 })
                 .when("/createinitiative", {
                     templateUrl: "views/initiativecreation/initiativecreation.view.html",
                     controller: "InitiativeCreateController",
-                    controllerAs: "model"
+                    controllerAs: "model",
+                    resolve: {
+                        loggedin: checkLoggedin
+                    }
                 })
                 .when("/success/:amount/initiative/:initiativeId", {
                     templateUrl: "views/successpayment/successpayment.view.html",
@@ -100,14 +116,14 @@
                         loggedin: checkLoggedin
                     }
                 })
-                 .when("/admin", {
+                .when("/admin", {
                     templateUrl: "views/admin/admin.view.html",
-                     controller: "AdminController",
-                     controllerAs: "model",
-                     resolve: {
-                         admin    : checkAdmin
-                     }
-                 })
+                    controller: "AdminController",
+                    controllerAs: "model",
+                    resolve: {
+                        admin    : checkAdmin
+                    }
+                })
                 .when("/adminpostview/:userId", {
                     templateUrl: "views/admin/adminpostview.view.html",
                     controller: "AdminPostViewController",
@@ -116,12 +132,30 @@
                         admin    : checkAdmin
                     }
                 })
-                 .otherwise({
+                .otherwise({
                     redirectTo: "/"
                 });
         });
 
-  })();
+})();
+
+var checkLoggedinGuest = function($q, $timeout, $http, $location, $rootScope)
+{
+    var deferred = $q.defer();
+
+    $http.get('/rest/loggedin').success(function(user)
+    {
+        if (user !== '0')
+        {
+            $rootScope.user = user;
+            deferred.resolve();
+        }
+        else deferred.resolve();
+
+    });
+
+    return deferred.promise;
+};
 
 var checkLoggedin = function($q, $timeout, $http, $location, $rootScope)
 {
