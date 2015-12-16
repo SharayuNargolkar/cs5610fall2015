@@ -7,8 +7,8 @@
         var model = this;
         model.user = $rootScope.user;
         var initId = $routeParams.initiativeId;
+        model.updateInitiative=updateInitiative;
 
-      ;
 
         function init() {
             InitiativeService.findInitiativeById(initId)
@@ -24,7 +24,6 @@
             InitiativeService.updateInitiative(model.initiative._id, newinitiative)
                 .then(function (initiatives) {
                     model.initiative = null;
-                    $rootScope.initiativeid = null;
                     $location.path('/myinitiatives');
                 });
 

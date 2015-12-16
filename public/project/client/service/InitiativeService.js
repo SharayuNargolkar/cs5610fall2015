@@ -57,6 +57,7 @@
 		    var deferred = $q.defer();
 			$http.get("/api/project/initiative/"+id)
 		         .success(function(initiative){
+					 console.log()
 					deferred.resolve(initiative);
                 });
             return deferred.promise;
@@ -94,9 +95,11 @@
 		}
 		
 		function updateInitiative(id, initiative){
+            console.log("in update",initiative);
 		 var deferred = $q.defer();
             $http.put("/api/project/initiative/"+id , initiative)
                 .success(function(initiatives){
+                    console.log(initiatives);
                     deferred.resolve(initiatives);
                 });
 
