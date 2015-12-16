@@ -12,7 +12,7 @@
                     <br>
                     <small id = "view-small">My Thoughts of Change..</small>
                 </h1>
-                <div class="eachcard row" ng-repeat="blog in model.blogs| orderBy:'likes'| startFrom:model.currentPage*model.pageSize | limitTo:model.pageSize">
+                <div class="eachcard row" ng-repeat="blog in model.blogs| orderBy:'-likes'| startFrom:model.currentPage*model.pageSize | limitTo:model.pageSize">
 
 
                     <div class="card">

@@ -105,7 +105,7 @@ module.exports = function(app, model, request){
                 },
 
 // Where the Sender is redirected to after approving a successful payment
-                "returnUrl":"http://localhost:3000/project/client/index.html#/success/"+amount+"/initiative/"+initiativeId,
+                "returnUrl":"http://nodejs-cs5610sharayu.rhcloud.com/project/client/index.html#/success/"+amount+"/initiative/"+initiativeId,
 
 // Where the Sender is redirected to upon a canceled payment
                 "cancelUrl":"https://www.google.com",
