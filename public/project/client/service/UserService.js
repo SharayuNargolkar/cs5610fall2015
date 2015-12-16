@@ -97,7 +97,7 @@
 		 var deferred = $q.defer();
             $http.put("/rest/update" , user)
                 .success(function(users){
-					console.log(users);	
+					console.log(users);
                     deferred.resolve(users);
                 });
 
