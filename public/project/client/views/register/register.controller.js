@@ -22,8 +22,6 @@
                             alert("UserName entered is not unique")
                         } else {
                             console.log(user);
-                            model.user = user;
-                            $rootScope.user = model.user;
                             $location.path("/profile")
                         }
                 });
