@@ -16,7 +16,7 @@
                 .then(function(blog){
                     console.log("In init of blog",blog);
                     model.blog = blog[0];
-                    $rootScope.blog = model.blog;
+                   // $rootScope.blog = model.blog;
 
                 });
         }
@@ -30,7 +30,7 @@
             BlogService.addComment(blogId, model.newcomment)
                 .then(function (blogs) {
                     model.blog = blogs;
-                    console.log(blogs);
+                    //console.log(blogs);
 
                 });
         }

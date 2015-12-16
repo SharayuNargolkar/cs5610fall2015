@@ -16,7 +16,11 @@
         function createInitiative(newinitiative) {
             if(newinitiative.title==null){
                 alert('You must enter a Title');
-            } else {
+            } else if(model.user.paypalemail==null){
+                alert('You must register a PayPal email to create an initiative and gather funding');
+            }
+            else
+            {
                 newinitiative.founder = {};
                 newinitiative.founder.founderId = model.user._id;
                 newinitiative.founder.founderName = model.user.username;

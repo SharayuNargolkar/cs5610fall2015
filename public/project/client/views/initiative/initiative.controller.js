@@ -15,7 +15,7 @@
             InitiativeService.findInitiativeById(initiativeId)
                 .then(function(initiative){
                     model.initiative = initiative[0];
-                    $rootScope.initiative = model.initiative;
+                    //$rootScope.initiative = model.initiative;
 
                 });
         }
@@ -38,13 +38,14 @@
         function makePayment() {
             if (!model.user) {
                 alert("You need to login to perform this action");
-            } else {
-                var amount = model.amount;
-                if (amount == 0) {
-                    $location.path = ('/success/' + userId + '/event/' + eventId);
-                } else {
+            } else if(model.amount == null){
+                alert("You need to enter an amount");
+            }else if(model.initiative.founder.founderPaypal==null){
+                alert("No transfer allowed as founder of this initiative has not registered a paypal email")
+            }
+            else{
                     var recemail = model.initiative.founder.founderPaypal;
-                    InitiativeService.makePayment(model.initiative._id, amount, recemail)
+                    InitiativeService.makePayment(model.initiative._id, model.amount, recemail)
                         .then(function (response) {
                             if (response != null) {
                                 $window.location.href = "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey=" + response;
@@ -53,7 +54,7 @@
 
                 };
             }
-        }
+
 
 
 
