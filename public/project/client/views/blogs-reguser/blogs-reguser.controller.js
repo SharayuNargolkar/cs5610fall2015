@@ -2,20 +2,32 @@
 (function(){
     angular
         .module("OneWorldCareApp")
-        .controller("RegBlogController", RegBlogController);
+        .controller("RegBlogController", RegBlogController)
+        .filter('startFrom', function() {
+            return function(input, start) {
+                if (input!=null) {
+                    start = +start; //parse to int
+                    return input.slice(start);
+                }
+            }
+        });
     function RegBlogController( $http, $rootScope, $location, BlogService) {
        var model = this;
        model.user = $rootScope.user;
         model.search = search;
         model.goToUpdate = goToUpdate;
         model.deleteBlog = deleteBlog;
-                 
-              
-         function init() {
+        model.currentPage = 0;
+        model.pageSize = 5;
+
+        function init() {
              console.log(model.user._id);
              BlogService.findBlogByUserId(model.user._id)
              .then(function(blogs){
                  model.blogs = blogs;
+                 model.numberOfPages=function(){
+                     return Math.ceil(model.blogs.length/model.pageSize);
+                 }
              });
          }
         init();       
@@ -30,7 +42,7 @@
         }
 
         function goToUpdate(blog){
-            $rootScope.blog= blog;
+            $rootScope.blogflag= true;
             $location.path('/createblog');
         };
 

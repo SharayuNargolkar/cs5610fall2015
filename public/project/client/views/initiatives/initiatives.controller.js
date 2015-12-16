@@ -19,7 +19,7 @@
         model.search = search;
 
         model.currentPage = 0;
-        model.pageSize = 3;
+        model.pageSize = 5;
 
         function init() {
             // console.log(model.user._id);

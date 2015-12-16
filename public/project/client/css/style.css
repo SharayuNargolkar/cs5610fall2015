@@ -22,14 +22,14 @@ div #login{
    padding-top: 10%
 }
 
-.carousel .item {
-    height: 650px;
-    background-color: inherit
-}
-.carousel img {
-    height: 650px;
-    width:100%
-}
+/*.carousel .item {*/
+    /*height: 650px;*/
+    /*background-color: inherit*/
+/*}*/
+/*.carousel img {*/
+    /*height: 650px;*/
+    /*width:100%*/
+/*}*/
 
 .carousel h4 {
     font-style: italic;
@@ -77,6 +77,11 @@ div #view-header{
     color : lightgoldenrodyellow;
 }
 
+div #view-small{
+    color : white;
+    font-style: italic;
+}
+
 div #toppadding{
     padding-top: 5%;
 }
@@ -95,22 +100,47 @@ div .crop{
     -webkit-box-orient: vertical;
 }
 
-/* unvisited link */
-a:link, a:visited {
+ /*unvisited link */
+.card-block a:link, a:visited {
     color: black;
     font-style: italic;
 }
 
 /* mouse over link */
-a:hover {
+.card-block a:hover {
     color: darkblue;
 }
 
 /* selected link */
-a:active {
+.card-block a:active {
     color: darkgreen;
+}
+
+a.btn {
+    color: white;
+    font-style: normal;
+}
+
+a.tablelink {
+    color: white;
+    font-style: normal;
 }
 
 .label{
     font-size: medium;
 }
+
+.jumbotron{
+    background-color: #FFFF99;
+    color: black;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+div .success{
+    padding-top: 20px;
+    color: white;
+    font-style: oblique;
+}
+
+

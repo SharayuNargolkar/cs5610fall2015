@@ -1,41 +1,67 @@
-<div class="container " ng-controller="InitiativeController">
-    <div class="jumbotron">
-        <h1>{{model.initiative.title}}</h1>
+<div class="row row-offcanvas row-offcanvas-right" ng-controller="InitiativeController as model">
+    <div class="col-sm-10 col-sm-offset-1" >
+    <div class="jumbotron" >
+        <div class="container">
+        <h1 align="center">{{model.initiative.title}}</h1>
         <p>by {{model.initiative.founder.founderName}}</p>
-        <br>
         <p>Posted on {{model.initiative.created | date:'MMM dd,yyyy At HH:mm'}}</p>
         <hr>
         <br>
         <p>{{model.initiative.content}}</p>
         <hr>
-        <h4> Target Funds: $ {{model.initiative.targetFunds}} </h4>
-        <h4> Collected Funds: $ {{model.initiative.collectedFunds}} </h4>
-        <hr>
-        <h3> If you wish to contribute to this  initiative, just enter the amount you are willing to donate for this cause. We thank you for your generous gesture!</h3>
-        <div class="form-group">
-            <label for="inputamount" class="col-lg-2 control-label">Amount you wish to contribute:</label>
-                 <input ng-model="model.amount" type="number" class="form-control" id="inputamount" placeholder="$$$">
-            <button ng-click="model.makePayment()" type="submit" class="btn btn-primary">Submit</button>
-        </div>
+        <h4> <label> Target Funds: </label> $ {{model.initiative.targetFunds}} </h4>
+        <h4><label>Collected Funds: </label> $ {{model.initiative.collectedFunds}} </h4>
+        <h4> If you wish to contribute to this  initiative, just enter the amount you are willing to donate for this cause.
+            On submit, you will be redirected to paypal where you may sign in with your paypal credentials and approve the transaction.
+            You will return to our site with confirmation after processing.
+            We thank you for your generous gesture!</h4>
+            <div class="form-group">
+                <label for="inputamount" class="col-sm-3 control-label">Amount to contribute:</label>
+                <div class="col-sm-6">
+                    <input ng-model="model.amount" type="number" class="form-control" id="inputamount" placeholder="$$$">
+                </div>
+               <div class="col-sm-3">
+                    <button ng-click="model.makePayment()" type="submit" class="btn btn-success btn-block">Submit payment</button>
+                </div>
+
+            </div>
+            <br>
+            <hr>
+
 
         <h4> Comments: </h4>
-        <table class="table table-striped table-hover">
+        <table class="table table-striped table-hover table-bordered">
             <tr ng-model = "model.event.newReviews">
                 <td>
-                    <input ng-model="model.newcomment.content" type="text" class="form-control" id="inputText" placeholder="Add a Comment..">
+                    <div class="form-group">
+
+                        <div class="col-sm-9">
+                            <input ng-model="model.newcomment.content" type="text" class="form-control" id="inputText" placeholder="Add a Comment..">
+                        </div>
+                        <div class="col-sm-3">
+                            <button ng-click="model.addComment()" type="submit" class="btn btn-info btn-block ">Add Comment</button>
+                        </div>
+
+                    </div>
+
                 </td>
 
-                <td>
-                    <button ng-click="model.addComment()" type="submit" class="btn btn-info">Add Comment</button>
-                </td>
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="comment in model.initiative.comments">
-                <td><pre>{{comment.content}}
-                    -- by {{comment.name}}</pre></td>
-                <td></td>
+            <tr ng-repeat="comment in model.initiative.comments" class="success">
+                <br>
+                <td>{{comment.content}}<br>
+                    -- by {{comment.name}}</td>
+
+                <br>
+
             </tr>
         </table>
+        </div>
     </div>
 </div>
+    </div>
+</div>
+
+

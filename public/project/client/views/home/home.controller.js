@@ -18,7 +18,7 @@
             },
             {
                 image: './images/Animal-Welfare.jpg',
-                caption:'We share this world with these amazing beings!'
+                caption:'Save the Tiger! We share this world with these amazing beings!'
             }
         ];
     }

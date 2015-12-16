@@ -3,17 +3,17 @@
     angular
         .module("OneWorldCareApp")
         .controller("ProfileController", ProfileController);
-    function ProfileController($rootScope, $http, UserService) {
+    function ProfileController($rootScope, $location, $http, UserService) {
        var model = this;
        model.user = $rootScope.user;
        model.update = update;
    
       function update(){
-            UserService.updateUser($rootScope.user._id, model.user)
+          console.log(model.user);
+            UserService.updateUser(model.user)
              .then(function(user){
-                  model.user = user[0];
-                  $rootScope.user = model.user;
-               });
+                $location.path('/profile');
+              });
        };
     };
 })();

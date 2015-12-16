@@ -8,27 +8,44 @@
         model.user = $rootScope.user
         var initiativeId = $routeParams.initiativeId;
         var amount = $routeParams.amount;
-        console.log(initiativeId);
+        model.init = init
+
 
 
         function init() {
             InitiativeService.findInitiativeById(initiativeId).then(function (initiative) {
-                console.log(initiative)
-                            model.initiative = initiative[0];
-                            if (model.initiative != null) {
-                                model.initiative.collectedFunds = model.initiative.collectedFunds + amount;
-                                InitiativeService.updateInitiative(model.initiative._id, model.initiative)
-                                    .then(function (initiative) {
-                                        console.log(initiative);
-                                    });
-                                model.user.initiativesfunded.push(model.initiative._id)
-                                UserService.updateUser(model.user).then(function (user) {
-                                    console.log(user);
-                                });
+                              model.initiative = initiative[0];
+                              console.log(model.initiative);
+                              updateInitiative();
+                              updateUser();
+                              $location.path('/userhome');
 
-                            }
-                        })
-                    }init();
+            })};
+
+        function updateInitiative() {
+            console.log ('im here');
+            if (model.initiative.hasOwnProperty('title')==true) {
+                model.initiative.collectedFunds = parseFloat(model.initiative.collectedFunds) + parseFloat(amount);
+                InitiativeService.updateInitiative(model.initiative._id, model.initiative)
+                    .then(function (initiative) {
+                        console.log(initiative);
+                    });
+
+
+            }
+        }
+
+        function updateUser(){
+            if (model.initiative.hasOwnProperty('title')==true){
+                model.user.initiativesfunded.push(model.initiative._id)
+                UserService.updateUser(model.user).then(function (user) {
+                    console.log(user);
+                });
+            }
+
+        }
+
+
     }
 })();
 

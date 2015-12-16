@@ -1,5 +1,5 @@
 <div class = "container" ng-controller="BlogCreateController">
-<div ng-if="!blog" class = "well">
+<div ng-if="!model.blogflag" class = "well">
     <form class="form-horizontal">
         <div class="form-group has-warning">
             <label class="control-label" for="inputWarning">Blog Title:</label>
@@ -18,7 +18,7 @@
 </div>
 
 
-    <div ng-if="blog" class = "well">
+    <div ng-if="model.blogflag" class = "well">
         <form class="form-horizontal">
             <div class="form-group has-warning">
                 <label class="control-label" for="inputWarning1">Blog Title:</label>
@@ -30,7 +30,7 @@
             </div>
             <div class="form-group">
                 <div class="col-sm-offset-3 col-sm-6">
-                    <a ng-click="model.updateBlog(model.blog)" class="btn btn-primary btn-lg btn-block" role="button">Update Blog</a>
+                    <a ng-click="model.updateBlog(model.blog)" class="btn btn-warning btn-lg btn-block" role="button">Update Blog</a>
                 </div>
             </div>
         </form>

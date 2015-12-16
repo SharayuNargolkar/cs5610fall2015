@@ -1,38 +1,59 @@
-<div class=" container blogs" ng-controller="RegBlogController as model">
-    <div class = "row">
-        <div class = "col-lg-6">
-            <h1 id = "view-header" class="page-header">
-                My Blogs
-            </h1>
-            <div class="row" ng-repeat="blog in model.blogs">
+<div class="container" ng-controller="RegBlogController">
 
-                <div class="card">
-                    <div class="card-block">
-                        <h4 class="card-title"><a href="#/blog/{{blog._id}}">{{blog.title}}</a></h4>
-                        <a ng-click="model.goToUpdate(blog)" class="btn btn-warning pull-right"> <span class="glyphicon glyphicon-pencil"></span></a>
-                        <a ng-click="model.deleteBlog(blog._id)" class="btn btn-danger pull-right"> <span class="glyphicon glyphicon-remove"></span></a>
-                        <p class="card-text">  by {{blog.author.authorName}}</p>
-                        <p><span class="glyphicon glyphicon-time"></span> Posted on {{blog.created | date:'MMM dd,yyyy At HH:mm'}}</p>
-                        <p class="card-text"> {{blog.content}}</p>
-                        <hr>
-                        <p class="card-text">Likes: {{blog.likes}} </p>
-                        <p class="card-text">Comments: {{blog.comments.length}} </p>
-                        <a href="#" class="btn btn-info">See Blog</a>
+    <div class="row row-offcanvas row-offcanvas-right">
+
+        <div class="col-xs-12 col-sm-9">
+            <p class="pull-right visible-xs">
+                <button type="button" class="btn btn-success" data-toggle="offcanvas">Search</button>
+            </p>
+            <div class="well">
+                <h1 id = "view-header" class="page-header">
+                    My Blogs
+                    <br>
+                    <small id = "view-small">My Thoughts of Change..</small>
+                </h1>
+                <div class="eachcard row" ng-repeat="blog in model.blogs| orderBy:'likes'| startFrom:model.currentPage*model.pageSize | limitTo:model.pageSize">
+
+
+                    <div class="card">
+                        <div class="card-block">
+                            <a ng-click="model.goToUpdate(blog)" class="btn btn-warning pull-right"> <span class="glyphicon glyphicon-pencil"></span></a>
+                            <a ng-click="model.deleteBlog(blog._id)" class="btn btn-danger pull-right"> <span class="glyphicon glyphicon-remove"></span></a>
+                            <h4 class="card-title"><a href="#/blog/{{blog._id}}">{{blog.title}}</a></h4>
+                            <p class="card-text"> <label>by </label> {{blog.author.authorName}}</p>
+                            <p><span class="glyphicon glyphicon-time"></span><label> Posted on </label> {{blog.created | date:'MMM dd,yyyy At HH:mm'}}</p>
+                            <hr>
+                            <p class="crop card-text"> {{blog.content}}</p>
+                            <hr>
+                            <div>
+                                <p class="card-text"><label>Likes: </label> {{blog.likes}} </p>
+                                <p class="card-text"><label>Comments: </label> {{blog.comments.length}} </p>
+                                <a href="#/blog/{{blog._id}}" class="btn btn-info">See Blog</a>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <!-- First Blog Post -->
+                    <!-- First Blog Post -->
 
+                </div>
+                <br>
+                <div ng-if="model.blogs!=0" class="row pull-right">
+                    <button class = "btn btn-warning btn-sm" ng-disabled="model.currentPage == 0" ng-click="model.currentPage=model.currentPage-1">
+                        Previous
+                    </button>
+                    {{model.currentPage+1}}/{{model.numberOfPages()}}
+                    <button class = "btn btn-warning btn-sm" ng-disabled="model.currentPage >= model.blogs.length/model.pageSize - 1" ng-click="model.currentPage=model.currentPage+1">
+                        Next
+                    </button>
+                </div>
+                <br>
             </div>
 
+        </div><!--/.col-xs-12.col-sm-9-->
 
-        </div>
-
-        <div class = "col-lg-3 pull-right">
-            <br>
-            <br>
+        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
             <div class="panel panel-success">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Search Blogs..</h3>
+                    <h3 class="panel-title" align="center">Search Blogs</h3>
                 </div>
                 <div class="panel-body">
                     <form role="search">
@@ -45,7 +66,21 @@
             </div>
             <br>
             <a href="#/createblog" class="btn btn-warning">Start a new Blog..</a>
-        </div>
-    </div>
+        </div><!--/.sidebar-offcanvas-->
+    </div><!--/row-->
 
-</div>
+    <hr>
+
+
+</div><!--/.container-->
+
+
+
+
+
+
+
+
+
+
+

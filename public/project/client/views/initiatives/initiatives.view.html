@@ -1,4 +1,3 @@
-
 <div class="container" ng-controller="InitiativesController">
 
     <div class="row row-offcanvas row-offcanvas-right">
@@ -11,23 +10,23 @@
                 <h1 id = "view-header" class="page-header">
                     Featured Initiatives
                     <br>
-                    <small>Support the Changemakers..</small>
+                    <small id = "view-small">Support the Changemakers..</small>
                 </h1>
-                <div class="eachcard row" ng-repeat="initiative in model.initiatives| orderBy:'-collectedFunds'| startFrom:model.currentPage*model.pageSize | limitTo:model.pageSize">
+                <div class="eachcard row" ng-repeat="initiative in model.initiatives| orderBy:'collectedFunds'| startFrom:model.currentPage*model.pageSize | limitTo:model.pageSize">
 
                     <div class="card">
                         <div class="card-block">
-                            <h4 class="card-title"><a href="#/initiative/{{initiative._id}}">{{initiative.title}}</a></h4>
-                            <p class="card-text">  <label> by </label>{{initiative.founder.founderName}}</p>
-                            <p class="card-text"><label>Posted on </label>{{initiative.created | date:'MMM dd,yyyy At HH:mm'}}</p>
-                            <p class="card-text"><label>Collected Funds: </label>${{initiative.collectedFunds}}</p>
-                            <p class="card-text"><label>Target Funds:</label> ${{initiative.targetFunds}}</p>
+                            <h4 class="card-title"><a class="posts" href="#/initiative/{{initiative._id}}">{{initiative.title}}</a></h4>
+                            <p class="card-text"> <label> by </label>{{initiative.founder.founderName}}</p>
+                            <p class="card-text"><label>Posted on </label> {{initiative.created | date:'MMM dd,yyyy At HH:mm'}}</p>
+                            <p class="card-text"><label>Collected Funds: </label> ${{initiative.collectedFunds}}</p>
+                            <p class="card-text"><label>Target Amount:</label> ${{initiative.targetFunds}}</p>
                             <hr>
-                            <p class="crop card-text">   {{initiative.content}} </p>
+                            <p class="crop card-text"> {{initiative.content}} </p>
                             <hr>
                             <div>
-                            <p class="card-text"><label>Comments received: </label>{{initiative.comments.length}}</p>
-                            <a href="#" class="btn btn-success">Learn more and fund</a>
+                            <p class="card-text"><label>Comments received: </label> {{initiative.comments.length}}</p>
+                            <a href="#/initiative/{{initiative._id}}" class="btn btn-success">Learn more and fund</a>
                             </div>
                             <br>
                         </div>
@@ -36,7 +35,7 @@
 
                 </div>
                 <br>
-                <div ng-if="model.initiatives" class="row pull-right">
+                <div ng-if="model.initiatives!=0" class="row pull-right">
                     <button class = "btn btn-warning btn-sm" ng-disabled="model.currentPage == 0" ng-click="model.currentPage=model.currentPage-1">
                         Previous
                     </button>

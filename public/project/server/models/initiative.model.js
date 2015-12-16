@@ -79,7 +79,7 @@ module.exports = function(db, mongoose, UserModel) {
             if(err) {
                 deferred.reject(err);
             } else {
-                console.log(initiative);
+
                deferred.resolve(initiative);
             }
         });

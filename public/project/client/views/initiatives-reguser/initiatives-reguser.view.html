@@ -1,35 +1,60 @@
-<div class=" container blogs" ng-controller="RegInitiativeController as model">
-    <div class = "row">
-        <div class = "col-lg-6">
-   <div class="initiativesuser row" ng-repeat="initiative in model.initiatives">
-                <h1 class="page-header">
-                   My Initiatives
+<div class="container" ng-controller="RegInitiativeController as model">
+
+    <div class="row row-offcanvas row-offcanvas-right">
+
+        <div class="col-xs-12 col-sm-9">
+            <p class="pull-right visible-xs">
+                <button type="button" class="btn btn-success" data-toggle="offcanvas">Search</button>
+            </p>
+            <div class="well">
+                <h1 id = "view-header" class="page-header">
+                    My Initiatives
                     <br>
-                    <small>Affecting Change..</small>
+                    <small id = "view-small">Affecting Change..</small>
                 </h1>
+                <div class="eachcard row" ng-repeat="initiative in model.initiatives| orderBy:'-collectedFunds'| startFrom:model.currentPage*model.pageSize | limitTo:model.pageSize">
 
-                <!-- First Blog Post -->
-                <h2>
-                    <a href="#/initiative/{{initiative._id}}">{{initiative.title}}</a>
-                    <a ng-click="model.goToUpdate(initiative)" class="btn btn-warning pull-right"> <span class="glyphicon glyphicon-pencil"></span></a>
-                    <a ng-click="model.deleteInitiative(initiative._id)" class="btn btn-danger pull-right"> <span class="glyphicon glyphicon-remove"></span></a>
-                </h2>
-                <p class="lead">
-                    by {{initiative.founder.founderName}}
-                </p>
-                <p><span class="glyphicon glyphicon-time"></span> Posted on {{initiative.created | date:'MMM dd,yyyy At HH:mm'}}</p>
-                <hr>
-                    {{initiative.content}}
-                <hr>
+                    <div class="card">
+                        <div class="card-block">
+                            <a ng-click="model.goToUpdate(initiative)" class="btn btn-warning pull-right"> <span class="glyphicon glyphicon-pencil"></span></a>
+                            <a ng-click="model.deleteInitiative(initiative._id)" class="btn btn-danger pull-right"> <span class="glyphicon glyphicon-remove"></span></a>
+                            <h4 class="card-title"><a href="#/initiative/{{initiative._id}}">{{initiative.title}}</a></h4>
+                            <p class="card-text"> <label> by </label>{{initiative.founder.founderName}}</p>
+                            <p class="card-text"><label>Posted on </label> {{initiative.created | date:'MMM dd,yyyy At HH:mm'}}</p>
+                            <p class="card-text"><label>Collected Funds: </label> ${{initiative.collectedFunds}}</p>
+                            <p class="card-text"><label>Target Amount:</label> ${{initiative.targetFunds}}</p>
+                            <hr>
+                            <p class="crop card-text"> {{initiative.content}} </p>
+                            <hr>
+                            <div>
+                                <p class="card-text"><label>Comments received: </label> {{initiative.comments.length}}</p>
+                                <a href="#/initiative/{{initiative._id}}" class="btn btn-success">Learn more and fund</a>
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                    <!-- First Blog Post -->
 
-	</div>
+                </div>
+                <br>
+                <div ng-if="model.initiatives!=0" class="row pull-right">
+                    <button class = "btn btn-warning btn-sm" ng-disabled="model.currentPage == 0" ng-click="model.currentPage=model.currentPage-1">
+                        Previous
+                    </button>
+                    {{model.currentPage+1}}/{{model.numberOfPages()}}
+                    <button class = "btn btn-warning btn-sm" ng-disabled="model.currentPage >= model.initiatives.length/model.pageSize - 1" ng-click="model.currentPage=model.currentPage+1">
+                        Next
+                    </button>
+                </div>
+                <br>
             </div>
-        <div class = "col-lg-3 pull-right">
-            <br>
-            <br>
+
+        </div><!--/.col-xs-12.col-sm-9-->
+
+        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
             <div class="panel panel-success">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Search Initiatives..</h3>
+                    <h3 class="panel-title" align="center">Search Initiatives</h3>
                 </div>
                 <div class="panel-body">
                     <form role="search">
@@ -41,9 +66,25 @@
                 </div>
             </div>
             <br>
-            <a href="#/createinitiative" class="btn btn-warning">Start a new Initiative..</a>
-        </div>
-    </div>
+            <a href="#/createinitiative" class="btn btn-warning btn-block">Start a new Initiative..</a>
+        </div><!--/.sidebar-offcanvas-->
+    </div><!--/row-->
+
+    <hr>
 
 
-</div>
+</div><!--/.container-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+

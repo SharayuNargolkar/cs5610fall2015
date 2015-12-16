@@ -25,7 +25,7 @@ module.exports = function(db, mongoose, UserModel) {
         UserModel.findById(userId).then(function(user){
             if(user){
                 var blogArr = user.blogsliked;
-                console.log(blogArr);
+
                 for(var i = 0; i < blogArr.length; i++){
                     promises.push(BlogModel.findById(blogArr[i]));
                 }
@@ -46,7 +46,7 @@ module.exports = function(db, mongoose, UserModel) {
     function addComment(blogId, newcomment){
 
         var deferred = q.defer();
-        console.log(blogId);
+
         BlogModel.findById(blogId, function(err, blog){
             blog.comments.push(newcomment);
 

@@ -1,19 +1,19 @@
-<div class = "container well" ng-controller="InitiativeCreateController">
-    <div ng-if="!initiative" class = "well">
+<div class = "container" ng-controller="InitiativeCreateController">
+    <div ng-if="!model.initiativeflag" class = "well">
     <form class="form-horizontal">
-        <div class="form-group">
+        <div class="form-group has-success">
             <label for="inputText" class="col-sm-3 control-label">Initiative Title:</label>
             <div class="col-sm-6">
                 <input ng-model="model.newinitiative.title" type="text" class="form-control" id="inputText" placeholder="Enter your initiative title here">
             </div>
         </div>
-        <div class="form-group">
+        <div class="form-group has-success">
             <label for="inputText1" class="col-sm-3 control-label">Initiative post content:</label>
             <div class="col-sm-6">
                 <input ng-model="model.newinitiative.content" type="text" class="form-control" id="inputText1" placeholder="Enter your initiative description here">
             </div>
         </div>
-        <div class="form-group">
+        <div class="form-group has-success">
             <label for="inputNumber" class="col-sm-3 control-label">Target funds:</label>
             <div class="col-sm-6">
                 <input ng-model="model.newinitiative.targetFunds" type="number" class="form-control" id="inputNumber" placeholder="Enter your target fund amount here">
@@ -21,26 +21,26 @@
         </div>
         <div class="form-group">
             <div class="col-sm-offset-3 col-sm-6">
-                <a ng-click="model.createInitiative(model.newinitiative)" class="btn btn-primary btn-lg btn-block" role="button">Create Initiative</a>
+                <a ng-click="model.createInitiative(model.newinitiative)" class="btn btn-success btn-lg btn-block" role="button">Create Initiative</a>
             </div>
         </div>
     </form>
 </div>
-    <div ng-if="initiative" class = "well">
+    <div ng-if="model.initiativeflag" class = "well">
         <form class="form-horizontal">
-            <div class="form-group">
+            <div class="form-group has-success">
                 <label for="inputText3" class="col-sm-3 control-label">Initiative Title:</label>
                 <div class="col-sm-6">
                     <input ng-model="model.initiative.title" type="text" class="form-control" id="inputText3" placeholder="{{model.initiative.title}}">
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group has-success">
                 <label for="inputText4" class="col-sm-3 control-label">Initiative post content:</label>
                 <div class="col-sm-6">
                     <input ng-model="model.initiative.content" type="text" class="form-control" id="inputText4" placeholder="{{model.initiative.content}}">
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group has-success">
                 <label for="inputNumber2" class="col-sm-3 control-label">Target funds:</label>
                 <div class="col-sm-6">
                     <input ng-model="model.initiative.targetFunds" type="number" class="form-control" id="inputNumber2" placeholder="{{model.initiative.targetFunds}}">
@@ -48,7 +48,7 @@
             </div>
             <div class="form-group">
                 <div class="col-sm-offset-3 col-sm-6">
-                    <a ng-click="model.updateInitiative(model.initiative)" class="btn btn-primary btn-lg btn-block" role="button">Update Initiative</a>
+                    <a ng-click="model.updateInitiative(model.initiative)" class="btn btn-success btn-lg btn-block" role="button">Update Initiative</a>
                 </div>
             </div>
         </form>
