@@ -15,7 +15,6 @@
         function init() {
             InitiativeService.findInitiativeById(initiativeId).then(function (initiative) {
                               model.initiative = initiative[0];
-                              console.log(model.initiative);
                               updateInitiative();
                               updateUser();
                               $location.path('/userhome');
@@ -23,7 +22,6 @@
             })};
 
         function updateInitiative() {
-            console.log ('im here');
             if (model.initiative.hasOwnProperty('title')==true) {
                 model.initiative.collectedFunds = parseFloat(model.initiative.collectedFunds) + parseFloat(amount);
                 InitiativeService.updateInitiative(model.initiative._id, model.initiative)
@@ -37,7 +35,8 @@
 
         function updateUser(){
             if (model.initiative.hasOwnProperty('title')==true){
-                model.user.initiativesfunded.push(model.initiative._id)
+                model.user.initiativesfunded.push(model.initiative._id);
+                console.log(model.user);
                 UserService.updateUser(model.user).then(function (user) {
                     console.log(user);
                 });
