@@ -11,8 +11,8 @@
              //console.log (reguser);
             if (reguser.password != model.verifypassword){
                 alert("Entered Passwords do not match. Please enter again.");
-            } else if(reguser.username == null) {
-                alert("You must enter a username to register");
+            } else if(reguser.username == null||reguser.password==null) {
+                alert("You must enter a username and password to register");
             }else{
             reguser.blogsliked = [];
             reguser.initiativesfunded = [];
