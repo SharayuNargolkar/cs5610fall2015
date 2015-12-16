@@ -1,13 +1,16 @@
-<div id="carousal-container" ng-controller="HomeController as model">
-  <carousel interval="model.myInterval">
-    <slide ng-repeat="slide in model.slides" active="slide.active">
-      <img ng-src="{{slide.image}}">
-      <div class="carousel-caption">
-        <h4>{{slide.caption}}</h4>
-      </div>
-    </slide>
-  </carousel>
-</div>
+<div class="row row-offcanvas row-offcanvas-right" ng-controller="HomeController as model">
+
+         <div id="carousal-container">
+             <carousel interval="model.myInterval">
+                 <slide ng-repeat="slide in model.slides" active="slide.active" align="center">
+                     <img ng-src="{{slide.image}}">
+                     <div class="carousel-caption">
+                         <h4>{{slide.caption}}</h4>
+                     </div>
+                 </slide>
+             </carousel>
+        </div>
+
 
 <div id = "aboutus" align="center">
   <div class="container marketing">
@@ -30,4 +33,5 @@
       </div><!-- /.col-lg-4 -->
     </div><!-- /.row -->
   </div>
+</div>
 </div>

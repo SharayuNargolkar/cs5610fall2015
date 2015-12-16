@@ -1,4 +1,6 @@
 "use strict";
 (function() {
-    angular.module("OneWorldCareApp", ["ngRoute", "ui.bootstrap"]);
+    var app = angular.module("OneWorldCareApp", ["ngRoute", "ui.bootstrap"]);
+
+
 })();

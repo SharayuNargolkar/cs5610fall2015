@@ -7,31 +7,6 @@
 .navbar-default .navbar-nav > li > a:hover{
     background-color: #FFFF99;
     }
-/*.navbar-default .navbar-nav > li > a:focus {*/
-  /*background-color: #FFFF99;*/
-    /*color: black;*/
-/*}*/
-
-/*.menu-default{*/
-  /*top: 10px;*/
-  /*background-color: #00A47B;*/
-  /*border-color: #003366;*/
-  /*color: black*/
-/*}*/
-
-/*.menu-default .navbar-nav > li > a {*/
-  /*font-size: 15px;*/
-    /*color: black;*/
-/*}*/
-/*.menu-default .navbar-nav > li > a:hover,*/
-/*.menu-default .navbar-nav > li > a:focus {*/
-  /*background-color: #FFFF99;*/
-    /*color: saddlebrown;*/
-/*}*/
-
-div .image-custom{
-   width: 100%;  
-}
 
 div .aboutus{
   color: black;
@@ -43,37 +18,39 @@ div #register{
 }
 
 div #login{
-    color: black;
-   padding-top: 15%
+   color: black;
+   padding-top: 10%
 }
-
 
 .carousel .item {
-    top: 0;
-    height: 600px;
+    height: 650px;
+    background-color: inherit
 }
 .carousel img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    min-width: 100%;
-    height: 600px;
+    height: 650px;
+    width:100%
 }
 
 .carousel h4 {
     font-style: italic;
-    right:10px;
-    bottom:50px;
-    left:10px;
     font-size: 8mm;
-    text-shadow: 2px 2px 4px #000000;
+    color: white;
+    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
 }
-
 
 div #aboutus{
     padding: 20px;
     font-style: italic;
     color: lightgoldenrodyellow;
+}
+div .eachcard{
+    padding: 10px 10px ;
+}
+
+.panel-title{
+    font-size: large;
+    color: white;
+    text-shadow: 2px 2px 4px #000000;
 }
 
 .panel-body {
@@ -81,16 +58,23 @@ div #aboutus{
     background:#FFFF99;}
 
 .card {
-
     background-color: #FFFF99;
     color: black;
-    box-shadow: 5px 5px lightgreen;
+    box-shadow: 10px 10px black;
+
+}
+
+.card-block{
+    padding: 5px 10px ;
+}
+
+.card-title {
+    font-size: x-large;
 }
 
 
 div #view-header{
     color : lightgoldenrodyellow;
-    font-style: oblique;
 }
 
 div #toppadding{
@@ -102,10 +86,31 @@ div .favpadding{
     font-size: medium;
 }
 
-.jumbotron {
-    background-color: lightgoldenrodyellow;
-    color : black;
+
+div .crop{
+    width:100%;
+    overflow:hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
 }
 
+/* unvisited link */
+a:link, a:visited {
+    color: black;
+    font-style: italic;
+}
 
+/* mouse over link */
+a:hover {
+    color: darkblue;
+}
 
+/* selected link */
+a:active {
+    color: darkgreen;
+}
+
+.label{
+    font-size: medium;
+}
