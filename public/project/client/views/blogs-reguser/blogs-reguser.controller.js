@@ -41,9 +41,8 @@
                 });
         }
 
-        function goToUpdate(blog){
-            $rootScope.blogflag= true;
-            $location.path('/createblog');
+        function goToUpdate(blogId){
+            $location.path('/updateblog/'+blogId);
         };
 
         function deleteBlog(blogId){

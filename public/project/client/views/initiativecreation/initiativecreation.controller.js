@@ -7,14 +7,13 @@
         var model = this;
         model.user = $rootScope.user;
         model.createInitiative = createInitiative;
-        model.updateInitiative = updateInitiative;
-        if($rootScope.initiativeflag==true){
-            model.initiativeflag = true
-        } else   model.initiativeflag = false;
+
 
 
         function createInitiative(newinitiative) {
-            if(newinitiative.title==null){
+            if(newinitiative==null){
+                alert('You must enter a Title');}
+           else if(newinitiative.title==null){
                 alert('You must enter a Title');
             } else if(model.user.paypalemail==null){
                 alert('You must register a PayPal email to create an initiative and gather funding');
@@ -37,15 +36,7 @@
             }
         };
 
-        function updateInitiative(newinitiative) {
 
-            InitiativeService.updateInitiative(model.initiative._id, newinitiative)
-                .then(function (initiatives) {
-                    model.initiative = null;
-                    $location.path('/myinitiatives');
-                });
-
-        };
     }
 
 })();

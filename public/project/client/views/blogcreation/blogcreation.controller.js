@@ -4,18 +4,16 @@
         .module("OneWorldCareApp")
         .controller("BlogCreateController", BlogCreateController);
     function BlogCreateController( $http, $rootScope, $location, BlogService) {
-        console.log("in blog create");
         var model = this;
         model.user = $rootScope.user;
-        model.blog = $rootScope.blog;
         model.createBlog = createBlog;
-        model.updateBlog = updateBlog;
-        if($rootScope.blogflag==true){
-            model.blogflag = true
-        } else   model.blogflag = false;
+
+
 
         function createBlog(newblog) {
-            if(newblog.title==null){
+            if(newblog==null){
+                alert('You must enter a Title');
+            } else if(newblog.title==null){
                 alert('You must enter a Title');
             } else {
                 newblog.author = {};
@@ -34,15 +32,5 @@
 
         };
 
-        function updateBlog(newblog) {
 
-            BlogService.updateBlog(model.blog._id, newblog)
-                .then(function (blogs) {
-                    model.blog = null;
-                    $location.path('/myblogs');
-                });
-
-        };
-    }
-
-})();
+}})();

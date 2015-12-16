@@ -16,7 +16,7 @@
 
                     <div class="card">
                         <div class="card-block">
-                            <a ng-click="model.goToUpdate(initiative)" class="btn btn-warning pull-right"> <span class="glyphicon glyphicon-pencil"></span></a>
+                            <a ng-click="model.goToUpdate(initiative._id)" class="btn btn-warning pull-right"> <span class="glyphicon glyphicon-pencil"></span></a>
                             <a ng-click="model.deleteInitiative(initiative._id)" class="btn btn-danger pull-right"> <span class="glyphicon glyphicon-remove"></span></a>
                             <h4 class="card-title"><a href="#/initiative/{{initiative._id}}">{{initiative.title}}</a></h4>
                             <p class="card-text"> <label> by </label>{{initiative.founder.founderName}}</p>

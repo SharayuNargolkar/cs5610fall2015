@@ -1,5 +1,5 @@
 <div class = "container" ng-controller="InitiativeCreateController">
-    <div ng-if="!model.initiativeflag" class = "well">
+    <div class = "well">
     <form class="form-horizontal">
         <div class="form-group has-success">
             <label for="inputText" class="col-sm-3 control-label">Initiative Title:</label>
@@ -26,31 +26,4 @@
         </div>
     </form>
 </div>
-    <div ng-if="model.initiativeflag" class = "well">
-        <form class="form-horizontal">
-            <div class="form-group has-success">
-                <label for="inputText3" class="col-sm-3 control-label">Initiative Title:</label>
-                <div class="col-sm-6">
-                    <input ng-model="model.initiative.title" type="text" class="form-control" id="inputText3" placeholder="{{model.initiative.title}}">
-                </div>
-            </div>
-            <div class="form-group has-success">
-                <label for="inputText4" class="col-sm-3 control-label">Initiative post content:</label>
-                <div class="col-sm-6">
-                    <input ng-model="model.initiative.content" type="text" class="form-control" id="inputText4" placeholder="{{model.initiative.content}}">
-                </div>
-            </div>
-            <div class="form-group has-success">
-                <label for="inputNumber2" class="col-sm-3 control-label">Target funds:</label>
-                <div class="col-sm-6">
-                    <input ng-model="model.initiative.targetFunds" type="number" class="form-control" id="inputNumber2" placeholder="{{model.initiative.targetFunds}}">
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-sm-offset-3 col-sm-6">
-                    <a ng-click="model.updateInitiative(model.initiative)" class="btn btn-success btn-lg btn-block" role="button">Update Initiative</a>
-                </div>
-            </div>
-        </form>
-    </div>
 </div>

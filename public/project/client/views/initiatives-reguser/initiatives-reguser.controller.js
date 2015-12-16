@@ -35,11 +35,8 @@
 
 
 
-        function goToUpdate(initiative){
-            $rootScope.initiativeflag= true;
-            $location.path('/createinitiative')
-
-
+        function goToUpdate(initiativeid){
+            $location.path('/updateinitiative/'+initiativeid);
         };
 
         function deleteInitiative(initiativeId){
