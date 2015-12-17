@@ -88,18 +88,6 @@ module.exports = function(app, User, passport){
             {
                 res.send(count);
             });
-        //User.findById(req.body._id, function(err, foundUser)
-        //{
-        //    var user = req.body;
-        //    if(user.roles.indexOf(",") > 0)
-        //    {
-        //        user.roles = user.roles.split(",");
-        //    }
-        //    foundUser.update(req.body, function(err, count)
-        //    {
-        //        res.send(count);
-        //    });
-        //});
     });
 
     app.get('/rest/loggedin', function(req, res)
