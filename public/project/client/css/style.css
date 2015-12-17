@@ -142,5 +142,9 @@ div .success{
     color: white;
     font-style: oblique;
 }
+ div .intro{
+    text-align: justify;
+    text-justify: inter-word;
+}
 
 

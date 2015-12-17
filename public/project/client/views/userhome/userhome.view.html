@@ -1,11 +1,15 @@
-<div id="#toppadding" class="container-fluid" ng-controller="UserHomeController">
-    <div class= "row">
-        <div class = "col-lg-6">
+<div ng-controller="UserHomeController">
+    <div class="row row-offcanvas row-offcanvas-right">
+        <div class="col-xs-12 col-sm-9">
+            <p class="pull-right visible-xs">
+                <button type="button" class="btn btn-success" data-toggle="offcanvas">My options</button>
+            </p>
+        <div class = "intro col-sm-12">
             <h2> Hello {{model.user.firstname}}!! </h2>
-            <h3> Hi! OneWorldCare is proud to have you on our website.
+            <h4> Hi! OneWorldCare is proud to have you on our website.
                 Feel free to explore the thought changing and inspiring blogs and initiatives and eventually create your own!
                 Wish you all the success in your endeavours!
-            </h3>
+            </h4>
             <p>The world today faces great odds with ever increasing demands of the population, indiscrete use of resources, fight for power and man's ruthless pursuits of comfort and luxury.
                 We fail to notice the damage we are causing both to mankind and the environment. Right from the ongoing wars, natural disasters to extinction of beautiful species! Very few fail to notice this harm and undertake efforts to do something about it </p>
             <p>Then there are a few like you who will place the greater good before themselves and do something about the situation - even if it is in the smallest way possible.
@@ -15,7 +19,11 @@
             If you are a passionate blogger or have a world-changing idea feel free to post here. Note the higher the funding or likes you receive the more chances of your idea being noticed so write well!
             Again we are proud to have you and wish you luck!</p>
         </div>
-        <div class = "col-lg-3 pull-right" style="padding-top: 5% ">
+        </div>
+
+
+        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+
             <div ng-show="user.roles.indexOf('admin') > -1" class= "row"  align="center">
                 <a class="btn btn-danger btn-block" role="button" href="#/admin">Users and content</a>
                 <hr>
