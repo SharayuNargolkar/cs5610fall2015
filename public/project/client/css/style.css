@@ -151,3 +151,11 @@ div .success{
      right: 5px;
  }
 
+ pre{
+     background-color: #FFFF99;
+     font-size: medium;
+     text-align: justify;
+     text-justify: inter-word;
+     border-color: transparent;
+ }
+
