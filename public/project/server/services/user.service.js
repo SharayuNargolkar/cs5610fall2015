@@ -75,7 +75,9 @@ module.exports = function(app, User, passport){
     app.post("/rest/login", passport.authenticate('local'), function(req, res)
     {   var user = req.body;
         User.findOne({username: user.username, password: user.password}, function(err, foundUser)
-        {
+        { if(err){
+            res.send(null);
+        } else
             res.json(foundUser);
         });
     });

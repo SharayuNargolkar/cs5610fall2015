@@ -50,11 +50,14 @@
                     
                    
         function search(searchString) {
-            // console.log(model.user._id);
-            BlogService.findBlogsLikeSearchString(searchString)
-                .then(function(blogs){
-                    model.blogs = blogs;
-                });
+            if (searchString == null||searchString=="") {
+                init();
+            } else {
+                BlogService.findBlogsLikeSearchString(searchString)
+                    .then(function (blogs) {
+                        model.blogs = blogs;
+                    });
+            }
         }
 
         function goToUpdate(blogId){

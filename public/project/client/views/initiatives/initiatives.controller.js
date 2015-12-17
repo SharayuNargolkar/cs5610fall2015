@@ -64,12 +64,15 @@
         };
 
         function search(searchString) {
-            // console.log(model.user._id);
-            InitiativeService.findInitiativesLikeSearchString(searchString)
-                .then(function(initiatives){
-                    console.log("in search",initiatives);
-                    model.initiatives = initiatives;
-                });
+            if (searchString == null || searchString == "") {
+                init();
+            } else {
+                InitiativeService.findInitiativesLikeSearchString(searchString)
+                    .then(function (initiatives) {
+                        console.log("in search", initiatives);
+                        model.initiatives = initiatives;
+                    });
+            }
         }
     }
 
