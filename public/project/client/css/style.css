@@ -152,12 +152,12 @@ div .success{
  }
 
  pre{
+     overflow-wrap: break-word;
      background-color: #FFFF99;
      font-size: medium;
-     border-color: transparent;
      font-family: "Arial Black";
-       word-wrap: break-word;
-     overflow-wrap: break-word;
+     border-color: transparent;
+     word-wrap: break-word;
 
  }
 
