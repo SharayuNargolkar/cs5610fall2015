@@ -1,11 +1,33 @@
-<div class="container" ng-controller="RegBlogController">
+<div ng-controller="RegBlogController">
     <div ng-class="model.mainToggleClass">
 
+        <div ng-class="model.sideBarToggleClass" ng-show="model.toggleShow">
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <h3 class="panel-title" align="center">Search Blogs</h3>
+                </div>
+                <div class="panel-body">
+                    <form role="search">
+                        <div class="form-group">
+                            <input ng-model="model.searchString" type="text" class="form-control" placeholder="By Title or Author">
+                        </div>
+                        <button ng-click= "model.search(model.searchString)" type="submit" class="btn btn-success">Search</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
         <div class = "intro col-xs-12">
-            <p class="pull-right ">
-                <button type="button" class="btn btn-success" ng-click="model.toggle()">Search Blogs</button>
-            </p>
+
+
             <div class="well">
+                <p class="pull-right ">
+                    <button type="button" class="btn btn-success btn-block" ng-click="model.toggle()">Search Blogs</button>
+                    <br>
+                    <a href="#/createblog" class="btn btn-warning btn-block">Start a new Blog..</a>
+                    <br>
+                </p>
                 <h1 id = "view-header" class="page-header">
                     My Blogs
                     <br>
@@ -50,23 +72,6 @@
     </div>
 
 
-    <div ng-class="model.sideBarToggleClass" ng-show="model.toggleShow">
-        <div class="panel panel-success">
-            <div class="panel-heading">
-                <h3 class="panel-title" align="center">Search Blogs</h3>
-            </div>
-            <div class="panel-body">
-                <form role="search">
-                    <div class="form-group">
-                        <input ng-model="model.searchString" type="text" class="form-control" placeholder="By Title or Author">
-                    </div>
-                    <button ng-click= "model.search(model.searchString)" type="submit" class="btn btn-success">Search</button>
-                </form>
-            </div>
-        </div>
-        <br>
-        <a href="#/createblog" class="btn btn-warning">Start a new Blog..</a>
-    </div>
 </div>
 
 
