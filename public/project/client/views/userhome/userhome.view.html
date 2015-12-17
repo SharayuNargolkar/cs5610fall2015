@@ -1,8 +1,8 @@
 <div ng-controller="UserHomeController">
     <div class="row row-offcanvas row-offcanvas-right">
-        <div class="col-xs-12 col-sm-9">
+        <div ng-class="model.mainToggleClass">
             <p class="pull-right visible-xs">
-                <button type="button" class="btn btn-success" data-toggle="offcanvas">My options</button>
+                <button type="button" class="btn btn-success" data-toggle="offcanvas" ng-click="model.toggle()">My options</button>
             </p>
         <div class = "intro col-sm-12">
             <h2> Hello {{model.user.firstname}}!! </h2>
@@ -22,7 +22,7 @@
         </div>
 
 
-        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+        <div ng-class="model.sideBarToggleClass" ng-show="model.toggleShow">
 
             <div ng-show="user.roles.indexOf('admin') > -1" class= "row"  align="center">
                 <a class="btn btn-danger btn-block" role="button" href="#/admin">Users and content</a>

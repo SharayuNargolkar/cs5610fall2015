@@ -77,7 +77,13 @@
 		  var deferred = $q.defer();
             $http.post("/api/project/user",user)
                 .success(function(user){
-                    deferred.resolve(user);
+					if(user){
+                        $http.post("/rest/login", user)
+                            .success(function(user){
+                            deferred.resolve(user);
+                        });
+					}
+
                 });
 
             return deferred.promise;

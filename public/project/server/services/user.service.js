@@ -65,6 +65,7 @@ module.exports = function(app, User, passport){
             {
                 User.create(user, function(err, result)
                 {
+
                     res.json(result);
                 });
             }
