@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8423be16-df1d-44dc-ad56-06d6f01cd96d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/project/client/css/style.css" afterPath="$PROJECT_DIR$/public/project/client/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/project/client/views/userhome/userhome.view.html" afterPath="$PROJECT_DIR$/public/project/client/views/userhome/userhome.view.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/project/client/index.html" afterPath="$PROJECT_DIR$/public/project/client/index.html" />
     </list>
     <ignored path="nodejs.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -118,8 +116,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/project/client/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.762069">
-              <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.2637931">
+              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -165,7 +163,6 @@
         <option value="$PROJECT_DIR$/public/project/client/views/blogupdation/blogupdation.view.html" />
         <option value="$PROJECT_DIR$/public/project/client/views/blogs-reguser/blogs-reguser.controller.js" />
         <option value="$PROJECT_DIR$/public/project/client/views/initiatives-reguser/initiatives-reguser.controller.js" />
-        <option value="$PROJECT_DIR$/public/project/client/index.html" />
         <option value="$PROJECT_DIR$/public/project/client/views/blogcreation/blogcreation.controller.js" />
         <option value="$PROJECT_DIR$/public/project/client/views/initiativecreation/initiativecreation.controller.js" />
         <option value="$PROJECT_DIR$/public/project/client/views/initiativecreation/initiativecreation.view.html" />
@@ -184,6 +181,7 @@
         <option value="$PROJECT_DIR$/public/project/server/services/initiative.service.js" />
         <option value="$PROJECT_DIR$/public/project/client/views/userhome/userhome.view.html" />
         <option value="$PROJECT_DIR$/public/project/client/css/style.css" />
+        <option value="$PROJECT_DIR$/public/project/client/index.html" />
       </list>
     </option>
   </component>
@@ -1478,8 +1476,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/project/client/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.762069">
-          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.2637931">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding />
         </state>
       </provider>
