@@ -7,7 +7,7 @@
         <p>Posted on {{model.initiative.created | date:'MMM dd,yyyy At HH:mm'}}</p>
         <hr>
         <br>
-        <p>{{model.initiative.content}}</p>
+        <p><pre>{{model.initiative.content}}</pre></p>
         <hr>
         <h4> <label> Target Funds: </label> $ {{model.initiative.targetFunds}} </h4>
         <h4><label>Collected Funds: </label> $ {{model.initiative.collectedFunds}} </h4>
