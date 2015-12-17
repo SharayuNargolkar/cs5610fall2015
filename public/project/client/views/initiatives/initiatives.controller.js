@@ -17,6 +17,24 @@
         model.makePayment = makePayment;
         var amount = 1;
         model.search = search;
+        model.toggle = toggle;
+
+        model.mainToggleClass = "col-xs-9";
+        model.sideBarToggleClass = "col-xs-3";
+        model.toggleShow = true;
+
+        function toggle() {
+            if(model.toggleShow) {
+                model.mainToggleClass = "col-xs-12";
+                model.toggleShow = false;
+            }
+            else
+            {
+                model.mainToggleClass = "col-xs-9";
+                model.toggleShow = true;
+            }
+//            model.toggleShow = !model.toggleShow;
+        }
 
         model.currentPage = 0;
         model.pageSize = 5;

@@ -1,11 +1,12 @@
 <div ng-controller="UserHomeController">
-    <div class="row row-offcanvas row-offcanvas-right">
-        <div ng-class="model.mainToggleClass">
-            <p class="pull-right visible-xs">
-                <button type="button" class="btn btn-success" data-toggle="offcanvas" ng-click="model.toggle()">My options</button>
+         <div ng-class="model.mainToggleClass">
+
+        <div class = "intro col-xs-12">
+            <p class="pull-right ">
+                <button type="button" class="btn btn-success" ng-click="model.toggle()">My options</button>
             </p>
-        <div class = "intro col-sm-12">
             <h2> Hello {{model.user.firstname}}!! </h2>
+
             <h4> Hi! OneWorldCare is proud to have you on our website.
                 Feel free to explore the thought changing and inspiring blogs and initiatives and eventually create your own!
                 Wish you all the success in your endeavours!
@@ -39,8 +40,8 @@
             <hr>
 
             <div class= "row"  align="center">
-                <a class="btn btn-danger btn-block" role="button" href="#/myfavorites">Initiatives I Funded/ Blogs I Liked</a>
+                <a class="btn btn-danger btn-block" role="button" href="#/myfavorites">Funded/ Liked</a>
             </div>
         </div>
     </div>
-</div>
+
